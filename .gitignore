@@ -169,3 +169,11 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# R
+.Rhistory
+*.RData
+
+# Too big for github
+large_input
+large_output
