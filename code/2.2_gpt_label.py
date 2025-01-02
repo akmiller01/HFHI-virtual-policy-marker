@@ -1,6 +1,5 @@
 import os
-import openai
-from openai import OpenAI
+from openai import OpenAI, OpenAIError
 from dotenv import load_dotenv
 import tiktoken
 import click
@@ -122,10 +121,8 @@ def gpt_inference(example):
         )
         for key in function_args:
             example[key] = function_args[key]
-    except openai.error.APIError as e:
-        #Handle API error, e.g. retry or log
-        print(f"OpenAI API returned an API Error: {e}")
-        pass
+    except OpenAIError as e:
+        print(f"Error: {e}")
     
     return example
 
@@ -143,7 +140,7 @@ def main():
 
     if warn_user_about_tokens(tokenizer, dataset['text'], other_prompts=json.dumps(FUNCTIONS)) == True:
         # Inference
-        dataset = dataset.map(gpt_inference)
+        dataset = dataset.map(gpt_inference, num_proc=4)
         dataset.to_csv("large_input/crs_2014_2023_gpt.csv")
 
 
