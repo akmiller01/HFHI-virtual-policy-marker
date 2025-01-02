@@ -1,4 +1,5 @@
 import os
+import openai
 from openai import OpenAI
 from dotenv import load_dotenv
 import tiktoken
@@ -111,15 +112,20 @@ def gpt_inference(example):
             )
         }
     ]
-    response = client.chat.completions.create(
-        model=MODEL,
-        functions=FUNCTIONS, messages=messages
-    )
-    function_args = json.loads(
-        response.choices[0].message.function_call.arguments
-    )
-    for key in function_args:
-        example[key] = function_args[key]
+    try:
+        response = client.chat.completions.create(
+            model=MODEL,
+            functions=FUNCTIONS, messages=messages
+        )
+        function_args = json.loads(
+            response.choices[0].message.function_call.arguments
+        )
+        for key in function_args:
+            example[key] = function_args[key]
+    except openai.error.APIError as e:
+        #Handle API error, e.g. retry or log
+        print(f"OpenAI API returned an API Error: {e}")
+        pass
     
     return example
 
