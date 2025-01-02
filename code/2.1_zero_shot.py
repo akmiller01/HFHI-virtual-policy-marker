@@ -1,16 +1,20 @@
 from transformers import pipeline
-from datasets import load_dataset
+from datasets import load_dataset, concatenate_datasets
 
 
 def main():
     # Load data
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
+    pos = dataset.filter(lambda row: row['sector_code'] in [16030, 16040])
+    neg = dataset.filter(lambda row: row['sector_code'] not in [16030, 16040])
+    neg = neg.shuffle(seed=1337).select(range(pos.num_rows))
+    dataset = concatenate_datasets([pos, neg])
 
     # Prep model args
     classes_verbalized = [
         # Housing continuum
         'Homelessness support: Tents and encampments.',
-        'Transitional housing: Emergency and refugee shelters and camps. Semi-pernanent supportive housing.',
+        'Transitional housing: Emergency and refugee shelters and camps. Semi-permanent supportive housing.',
         'Incremental housing: Sites, services and technical assistance. Slum upgrading and structural repairs. Neighborhood integration.',
         'Social housing: Community Land Trusts. Cooperative housing. Public housing.',
         'Market rent & own: Social and subsidized rental. Supported homeownership (first-time, rent-to-own). Market-rate affordable housing.',
@@ -19,9 +23,7 @@ def main():
         'Rural',
         # Climate
         'Climate adaptation',
-        'Climate mitigation',
-        # Negative
-        'Too short. Too vague. Unclear.'
+        'Climate mitigation'
     ]
 
     # Set up classifier
@@ -35,7 +37,7 @@ def main():
         return example
 
     # Inference
-    dataset = dataset.select(range(10)).map(inference_classifier)
+    dataset = dataset.map(inference_classifier)
     dataset.to_csv("large_input/crs_2014_2023_zs.csv")
 
 
