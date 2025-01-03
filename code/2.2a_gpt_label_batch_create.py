@@ -8,6 +8,7 @@ import click
 import json
 from datasets import load_dataset, concatenate_datasets, Dataset
 from tqdm import tqdm
+from openai_function_tokens import estimate_tokens
 
 global OUT_FOLDER
 OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023'
@@ -96,20 +97,26 @@ FUNCTIONS = [
 ]
 
 
-def warn_user_about_tokens(tokenizer, batches, other_prompts):
+def warn_user_about_tokens(tokenizer, batches):
     input_token_cost = 0.075
-    output_token_cost = 0.15
+    output_token_cost = 0.3
     token_cost_per = 1000000
     input_token_count = 0
     output_token_count = 0
-    output_ratio = 0.2
-    other_prompt_len = len(tokenizer.encode(other_prompts))
+    fixed_output_len = 75
     for batch in batches:
-        batch_len = len(tokenizer.encode(batch))
-        input_token_count += batch_len
-        input_token_count += other_prompt_len
-        output_token_count += batch_len * output_ratio
-        output_token_count += other_prompt_len * output_ratio
+        message = [
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {
+                        "role": "user",
+                        "content": "Please extract the attributes from the following user text: {}".format(
+                            batch
+                        )
+                    }
+                ]
+        input_token_estimate = estimate_tokens(message, functions=FUNCTIONS, function_call=None)
+        input_token_count += input_token_estimate
+        output_token_count += fixed_output_len
     total_cost = ((input_token_count / token_cost_per) * input_token_cost) + ((output_token_count / token_cost_per) * output_token_cost)
     return click.confirm(
         "This will use about {} input tokens, {} output tokens, and cost about ${} to run. Do you want to continue?".format(
@@ -170,7 +177,7 @@ def main():
     dataset = concatenate_datasets([pos, neg])
     dataset = dataset.add_column('id', range(dataset.num_rows))
 
-    if warn_user_about_tokens(tokenizer, dataset['text'], other_prompts=json.dumps(FUNCTIONS)) == True:
+    if warn_user_about_tokens(tokenizer, dataset['text']) == True:
         # Create batches
         dataset.map(create_batch_files, batched=True, batch_size=BATCH_SIZE)
 

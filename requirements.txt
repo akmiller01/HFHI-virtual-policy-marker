@@ -40,6 +40,7 @@ nvidia-nvjitlink-cu12==12.4.127
 nvidia-nvtx-cu12==12.4.127
 oda_reader==1.0.0
 openai==1.58.1
+openai-function-tokens==0.1.2
 packaging==24.2
 pandas==2.2.3
 propcache==0.2.1
