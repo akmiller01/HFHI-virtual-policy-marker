@@ -97,16 +97,23 @@ FUNCTIONS = [
 
 
 def warn_user_about_tokens(tokenizer, batches, other_prompts):
-    token_cost = 0.075
+    input_token_cost = 0.075
+    output_token_cost = 0.15
     token_cost_per = 1000000
-    token_count = 0
-    output_ratio = 1.3
+    input_token_count = 0
+    output_token_count = 0
+    output_ratio = 0.2
+    other_prompt_len = len(tokenizer.encode(other_prompts))
     for batch in batches:
-        token_count += len(tokenizer.encode(batch)) * output_ratio
-        token_count += len(tokenizer.encode(other_prompts)) * output_ratio
+        batch_len = len(tokenizer.encode(batch))
+        input_token_count += batch_len
+        input_token_count += other_prompt_len
+        output_token_count += batch_len * output_ratio
+        output_token_count += other_prompt_len * output_ratio
+    total_cost = ((input_token_count / token_cost_per) * input_token_cost) + ((output_token_count / token_cost_per) * output_token_cost)
     return click.confirm(
-        "This will use at least {} tokens and cost about ${} to run. Do you want to continue?".format(
-        token_count, round((token_count / token_cost_per) * token_cost, 2)
+        "This will use about {} input tokens, {} output tokens, and cost about ${} to run. Do you want to continue?".format(
+        input_token_count, round(output_token_count), round(total_cost, 2)
     )
     , default=False)
 
