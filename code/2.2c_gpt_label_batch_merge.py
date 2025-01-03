@@ -27,6 +27,7 @@ def main():
                 results['id'] = id
                 result_records.append(results)
         result_df = pd.DataFrame.from_records(result_records)
+        result_df = result_df.astype(int)
         batch_data = batch_data.merge(result_df, on="id")
         data_frames.append(batch_data)
 

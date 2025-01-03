@@ -28,7 +28,9 @@ def main():
                     with open(result_filename, 'w') as result_file:
                         result_file.write(file_response.text)
                 else:
-                    print(f'{os.path.basename(batch_id_filename)} not yet completed.')
+                    percentage_complete = batch.request_counts.completed / batch.request_counts.total
+                    percentage_complete_str = round(percentage_complete * 100)
+                    print(f'{os.path.basename(batch_id_filename)} is {percentage_complete_str}% completed.')
 
 
 if __name__ == '__main__':
