@@ -1,18 +1,28 @@
 import os
-from openai import OpenAI, OpenAIError
+import shutil
+from glob import glob
+from openai import OpenAI
 from dotenv import load_dotenv
 import tiktoken
 import click
 import json
-from datasets import load_dataset, concatenate_datasets
+from datasets import load_dataset, concatenate_datasets, Dataset
+from tqdm import tqdm
 
+global OUT_FOLDER
+OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023'
 
 load_dotenv()
-client = OpenAI(
+global CLIENT
+CLIENT = OpenAI(
     api_key = os.getenv("OPENAI_API_KEY")
 )
 
+global MODEL
 MODEL = "gpt-4o-mini"
+
+global BATCH_SIZE
+BATCH_SIZE = 50000
 
 global SYSTEM_PROMPT
 global FUNCTIONS
@@ -87,61 +97,100 @@ FUNCTIONS = [
 
 
 def warn_user_about_tokens(tokenizer, batches, other_prompts):
-    token_cost = 0.15
+    token_cost = 0.075
     token_cost_per = 1000000
     token_count = 0
+    output_ratio = 1.3
     for batch in batches:
-        token_count += len(tokenizer.encode(batch))
-        token_count += len(tokenizer.encode(other_prompts))
+        token_count += len(tokenizer.encode(batch)) * output_ratio
+        token_count += len(tokenizer.encode(other_prompts)) * output_ratio
     return click.confirm(
-        "This will use at least {} tokens and cost at least ${} to run. Do you want to continue?".format(
+        "This will use at least {} tokens and cost about ${} to run. Do you want to continue?".format(
         token_count, round((token_count / token_cost_per) * token_cost, 2)
     )
     , default=False)
 
 
-def gpt_inference(example):
-    user_text = example['text']
-    messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {
-            "role": "user",
-            "content": "Please extract the attributes from the following user text: {}".format(
-                user_text
-            )
+def create_batch_files(batch):
+    batch_index = 0
+    batch_json_file = os.path.join(OUT_FOLDER, f'batch-{batch_index}.jsonl')
+    while os.path.exists(batch_json_file):
+        batch_index += 1
+        batch_json_file = os.path.join(OUT_FOLDER, f'batch-{batch_index}.jsonl')
+    batch_csv_file = os.path.join(OUT_FOLDER, f'batch-{batch_index}.csv')
+    requests_list = list()
+    for i, id in enumerate(batch['id']):
+        text = batch['text'][i]
+        request_obj = {
+            'custom_id': f'crs-{id}',
+            'method': 'POST',
+            'url': '/v1/chat/completions',
+            'body': {
+                'model': MODEL,
+                'functions': FUNCTIONS,
+                'messages': [
+                    {"role": "system", "content": SYSTEM_PROMPT},
+                    {
+                        "role": "user",
+                        "content": "Please extract the attributes from the following user text: {}".format(
+                            text
+                        )
+                    }
+                ]
+            }
         }
-    ]
-    try:
-        response = client.chat.completions.create(
-            model=MODEL,
-            functions=FUNCTIONS, messages=messages
-        )
-        function_args = json.loads(
-            response.choices[0].message.function_call.arguments
-        )
-        for key in function_args:
-            example[key] = function_args[key]
-    except (OpenAIError, json.decoder.JSONDecodeError) as e:
-        print(f"Error: {e}")
-    
-    return example
+        request_obj_json = json.dumps(request_obj, ensure_ascii=False).encode('utf-8')
+        requests_list.append(request_obj_json)
+    with open(batch_json_file, 'wb') as json_file:
+        for request in requests_list:
+            json_file.write(request)
+            json_file.write(b'\n')
+    Dataset.from_dict(batch).to_csv(batch_csv_file)
 
 
 def main():
-    
+    # Delete previous run
+    shutil.rmtree(OUT_FOLDER)
+    os.makedirs(OUT_FOLDER, exist_ok=True)
+
     tokenizer = tiktoken.encoding_for_model(MODEL)
-    
+
     # Load data
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
     pos = dataset.filter(lambda row: row['sector_code'] in [16030, 16040])
     neg = dataset.filter(lambda row: row['sector_code'] not in [16030, 16040])
     neg = neg.shuffle(seed=1337).select(range(pos.num_rows))
     dataset = concatenate_datasets([pos, neg])
+    dataset = dataset.add_column('id', range(dataset.num_rows))
 
     if warn_user_about_tokens(tokenizer, dataset['text'], other_prompts=json.dumps(FUNCTIONS)) == True:
-        # Inference
-        dataset = dataset.map(gpt_inference, num_proc=8)
-        dataset.to_csv("large_input/crs_2014_2023_gpt.csv")
+        # Create batches
+        dataset.map(create_batch_files, batched=True, batch_size=BATCH_SIZE)
+
+        # Get batch files
+        batch_files = glob(os.path.join(OUT_FOLDER, '*.jsonl'))
+        for i, batch_file in tqdm(enumerate(batch_files)):
+            # Upload file
+            batch_file_response = CLIENT.files.create(
+                file=open(batch_file, "rb"),
+                purpose="batch"
+            )
+            batch_file_response_id = batch_file_response.id
+            # Create batch process
+            batch_process_response = CLIENT.batches.create(
+                input_file_id=batch_file_response_id,
+                endpoint="/v1/chat/completions",
+                completion_window="24h",
+                metadata={
+                    "description": f"CRS labeling batch {i}"
+                }
+            )
+            # Save ID in txt file
+            batch_process_response_id = batch_process_response.id
+            batch_filename, _ = os.path.splitext(batch_file)
+            batch_id_filename = f'{batch_filename}.txt'
+            with open(batch_id_filename, 'w') as batch_id_file:
+                batch_id_file.write(batch_process_response_id)
 
 
 if __name__ == '__main__':
