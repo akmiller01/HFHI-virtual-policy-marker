@@ -13,7 +13,7 @@ def main():
     # Prep model args
     classes_verbalized = [
         # Housing continuum
-        'Homelessness support: Tents and encampments.',
+        'Homelessness support: Tents and encampments. Homeless shelters.',
         'Transitional housing: Emergency and refugee shelters and camps. Semi-permanent supportive housing.',
         'Incremental housing: Sites, services and technical assistance. Slum upgrading and structural repairs. Neighborhood integration.',
         'Social housing: Community Land Trusts. Cooperative housing. Public housing.',
