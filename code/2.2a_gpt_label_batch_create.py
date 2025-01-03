@@ -44,7 +44,7 @@ FUNCTIONS = [
                     },
                     "homelessness_support": {
                         "type": "boolean",
-                        "description": "The user text describes support for homelessness, including tents and encampments."
+                        "description": "The user text describes support for homelessness, including tents, encampments, and homeless shelters."
                     },
                     "transitional_housing": {
                         "type": "boolean",
