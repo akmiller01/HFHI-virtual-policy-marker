@@ -22,15 +22,18 @@ def main():
             with open(batch_id_file, 'r') as id_file:
                 batch_id = id_file.read()
                 batch = CLIENT.batches.retrieve(batch_id)
-                if batch.status=='completed':
+                if batch.status == 'completed':
                     output_file_id = batch.output_file_id
                     file_response = CLIENT.files.content(output_file_id)
                     with open(result_filename, 'w') as result_file:
                         result_file.write(file_response.text)
-                else:
+                elif batch.status == 'in_progress':
                     percentage_complete = batch.request_counts.completed / batch.request_counts.total
                     percentage_complete_str = round(percentage_complete * 100)
                     print(f'{os.path.basename(batch_id_filename)} is {percentage_complete_str}% completed.')
+                else:
+                    print(f'{os.path.basename(batch_id_filename)} status is {batch.status}.')
+
 
 
 if __name__ == '__main__':
