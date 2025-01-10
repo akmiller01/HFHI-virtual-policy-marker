@@ -5,7 +5,7 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import click
 import json
-from datasets import load_dataset, concatenate_datasets, Dataset
+from datasets import load_dataset, Dataset
 from tqdm import tqdm
 from openai_function_tokens import estimate_tokens
 
@@ -22,7 +22,7 @@ global MODEL
 MODEL = "gpt-4o-mini"
 
 global BATCH_SIZE
-BATCH_SIZE = 50000
+BATCH_SIZE = 20000
 
 global SYSTEM_PROMPT
 global FUNCTIONS
@@ -164,10 +164,6 @@ def create_batch_files(batch):
 def main():
     # Load data
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
-    # pos = dataset.filter(lambda row: row['sector_code'] in [16030, 16040])
-    # neg = dataset.filter(lambda row: row['sector_code'] not in [16030, 16040])
-    # neg = neg.shuffle(seed=1337).select(range(pos.num_rows))
-    # dataset = concatenate_datasets([pos, neg])
     dataset = dataset.add_column('id', range(dataset.num_rows))
 
     if warn_user_about_tokens(dataset['text']) == True:
@@ -177,31 +173,6 @@ def main():
 
         # Create batches
         dataset.map(create_batch_files, batched=True, batch_size=BATCH_SIZE)
-
-        # Get batch files
-        batch_files = glob(os.path.join(OUT_FOLDER, '*.jsonl'))
-        for i, batch_file in tqdm(enumerate(batch_files)):
-            # Upload file
-            batch_file_response = CLIENT.files.create(
-                file=open(batch_file, "rb"),
-                purpose="batch"
-            )
-            batch_file_response_id = batch_file_response.id
-            # Create batch process
-            batch_process_response = CLIENT.batches.create(
-                input_file_id=batch_file_response_id,
-                endpoint="/v1/chat/completions",
-                completion_window="24h",
-                metadata={
-                    "description": f"CRS labeling batch {i}"
-                }
-            )
-            # Save ID in txt file
-            batch_process_response_id = batch_process_response.id
-            batch_filename, _ = os.path.splitext(batch_file)
-            batch_id_filename = f'{batch_filename}.txt'
-            with open(batch_id_filename, 'w') as batch_id_file:
-                batch_id_file.write(batch_process_response_id)
 
 
 if __name__ == '__main__':
