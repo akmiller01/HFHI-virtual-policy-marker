@@ -164,10 +164,10 @@ def create_batch_files(batch):
 def main():
     # Load data
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
-    pos = dataset.filter(lambda row: row['sector_code'] in [16030, 16040])
-    neg = dataset.filter(lambda row: row['sector_code'] not in [16030, 16040])
-    neg = neg.shuffle(seed=1337).select(range(pos.num_rows))
-    dataset = concatenate_datasets([pos, neg])
+    # pos = dataset.filter(lambda row: row['sector_code'] in [16030, 16040])
+    # neg = dataset.filter(lambda row: row['sector_code'] not in [16030, 16040])
+    # neg = neg.shuffle(seed=1337).select(range(pos.num_rows))
+    # dataset = concatenate_datasets([pos, neg])
     dataset = dataset.add_column('id', range(dataset.num_rows))
 
     if warn_user_about_tokens(dataset['text']) == True:
