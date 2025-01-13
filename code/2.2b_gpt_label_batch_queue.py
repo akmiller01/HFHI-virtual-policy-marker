@@ -17,7 +17,7 @@ global MODEL
 MODEL = "gpt-4o-mini"
 
 global SLEEP
-SLEEP = 3600
+SLEEP = 1800
 
 
 def main():
