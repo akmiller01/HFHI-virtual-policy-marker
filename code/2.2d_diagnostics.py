@@ -25,12 +25,13 @@ def main():
     records = list()
     batches = CLIENT.batches.list()
     for batch in batches:
-        if batch.status == 'completed':
+        if batch.status in ['completed', 'expired']:
+            completed_time = batch.completed_at if batch.completed_at else batch.expired_at
             record = {
                 'created_at': datetime.datetime.fromtimestamp(batch.created_at),
                 'in_progress_at': datetime.datetime.fromtimestamp(batch.in_progress_at),
                 'finalizing_at': datetime.datetime.fromtimestamp(batch.finalizing_at),
-                'completed_at': datetime.datetime.fromtimestamp(batch.completed_at),
+                'completed_at': datetime.datetime.fromtimestamp(completed_time),
                 'requests': batch.request_counts.total
             }
             records.append(record)
