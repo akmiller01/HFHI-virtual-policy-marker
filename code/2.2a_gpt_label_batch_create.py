@@ -11,7 +11,7 @@ from openai_function_tokens import estimate_tokens
 
 global OUT_FOLDER
 # OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023'
-OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023_market'
+OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023_addvague'
 
 load_dotenv()
 global CLIENT
@@ -23,7 +23,7 @@ global MODEL
 MODEL = "gpt-4o-mini"
 
 global BATCH_SIZE
-BATCH_SIZE = 20000
+BATCH_SIZE = 50000
 
 global SYSTEM_PROMPT
 global FUNCTIONS
@@ -39,9 +39,13 @@ FUNCTIONS = [
         "parameters": {
             "type": "object",
                 "properties": {
+                    "vague_or_short": {
+                        "type": "boolean",
+                        "description": "The user text is too vague or too short to accurately classify."
+                    },
                     "housing_general": {
                         "type": "boolean",
-                        "description": "The user text describes housing activities in general."
+                        "description": "The user text describes any activities relating to housing."
                     },
                     "homelessness_support": {
                         "type": "boolean",
@@ -49,11 +53,11 @@ FUNCTIONS = [
                     },
                     "transitional_housing": {
                         "type": "boolean",
-                        "description": "The user text describes transitional housing, including emergency and refugee shelters and camps and semi-permanent supportive housing."
+                        "description": "The user text describes transitional housing, including emergency shelters, refugee shelters, camps and semi-permanent supportive housing."
                     },
                     "incremental_housing": {
                         "type": "boolean",
-                        "description": "The user text describes incremental housing, including housing sites, services and technical assistance, slum upgrading and structural repairs, and neighborhood integration."
+                        "description": "The user text describes incremental housing, including housing sites, housing services and housing technical assistance, slum upgrading and structural repairs, and neighborhood integration."
                     },
                     "social_housing": {
                         "type": "boolean",
@@ -61,7 +65,7 @@ FUNCTIONS = [
                     },
                     "market_rent_own_housing": {
                         "type": "boolean",
-                        "description": "The user text describes market-based housing solutions or rent-to-own policies, including social and subsidized rental, supported homeownership (first-time, rent-to-own), and market-rate affordable housing."
+                        "description": "The user text describes market-based housing solutions or rent-to-own housing policies, including social rental and subsidized rental, supported homeownership (first-time homebuyers and rent-to-own housing), and market-rate affordable housing."
                     },
                     "urban": {
                         "type": "boolean",
@@ -81,12 +85,13 @@ FUNCTIONS = [
                     },
                 },
             "required": [
+                "vague_or_short",
                 "housing_general",
                 "homelessness_support",
                 "transitional_housing",
                 "incremental_housing",
                 "social_housing",
-                "market_rent_own",
+                "market_rent_own_housing",
                 "urban",
                 "rural",
                 "climate_adaptation",
@@ -167,9 +172,17 @@ def main():
     # dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
     # dataset = dataset.add_column('id', range(dataset.num_rows))
 
-    # Redefine market_rent_own
+    # Redefine
     dataset = load_dataset("csv", data_files="large_input/crs_2014_2023_gpt_batched.csv", split="train")
-    dataset = dataset.filter(lambda example: example['market_rent_own'] == 1)
+    dataset = dataset.filter(lambda example: 
+                             example['housing_general'] == 1 or
+                             example['homelessness_support'] == 1 or
+                             example['transitional_housing'] == 1 or
+                             example['incremental_housing'] == 1 or
+                             example['social_housing'] == 1 or
+                             example['market_rent_own_housing'] == 1
+    )
+    print(dataset.num_rows)
     cols_to_remove = dataset.column_names
     cols_to_keep = ['id', 'text', 'sector_code']
     cols_to_remove = [col for col in cols_to_remove if col not in cols_to_keep]
@@ -177,7 +190,8 @@ def main():
 
     if warn_user_about_tokens(dataset['text']) == True:
         # Delete previous run
-        shutil.rmtree(OUT_FOLDER)
+        if os.path.exists(OUT_FOLDER):
+            shutil.rmtree(OUT_FOLDER)
         os.makedirs(OUT_FOLDER, exist_ok=True)
 
         # Create batches

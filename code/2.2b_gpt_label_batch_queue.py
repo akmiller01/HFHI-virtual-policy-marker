@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 global OUT_FOLDER
 # OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023'
-OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023_market'
+OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023_addvague'
 
 load_dotenv()
 global CLIENT
