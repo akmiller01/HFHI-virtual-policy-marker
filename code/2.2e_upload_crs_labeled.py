@@ -6,7 +6,7 @@ import os
 
 def main():
     # Load
-    dataset = load_dataset("csv", data_files="large_input/crs_2014_2023_gpt_batched2.csv", split="train")
+    dataset = load_dataset("csv", data_files="large_input/crs_2014_2023_gpt_batched.csv", split="train")
     # Push to HF
     dataset.push_to_hub('alex-miller/crs-2014-2023-housing-labeled')
 

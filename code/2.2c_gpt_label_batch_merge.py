@@ -107,7 +107,7 @@ def main():
 
     previous_data = pd.read_csv('large_input/crs_2014_2023_gpt_batched.csv')
     previous_data = previous_data.drop(
-        ['housing_general', 'homelessness_support', 'transitional_housing', 'incremental_housing', 'social_housing', 'market_rent_own_housing'],
+        ['housing_general', 'homelessness_support', 'transitional_housing', 'incremental_housing', 'social_housing', 'market_rent_own'],
         axis=1
     )
     new_data = all_data[['id', 'vague_or_short', 'housing_general', 'homelessness_support', 'transitional_housing', 'incremental_housing', 'social_housing', 'market_rent_own_housing']]

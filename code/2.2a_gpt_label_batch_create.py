@@ -23,7 +23,7 @@ global MODEL
 MODEL = "gpt-4o-mini"
 
 global BATCH_SIZE
-BATCH_SIZE = 50000
+BATCH_SIZE = 20000
 
 global SYSTEM_PROMPT
 global FUNCTIONS
