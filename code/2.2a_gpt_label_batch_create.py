@@ -10,7 +10,8 @@ from tqdm import tqdm
 from openai_function_tokens import estimate_tokens
 
 global OUT_FOLDER
-OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023'
+# OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023'
+OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023_market'
 
 load_dotenv()
 global CLIENT
@@ -58,9 +59,9 @@ FUNCTIONS = [
                         "type": "boolean",
                         "description": "The user text describes social housing, including community land trusts, cooperative housing, and public housing."
                     },
-                    "market_rent_own": {
+                    "market_rent_own_housing": {
                         "type": "boolean",
-                        "description": "The user text describes market rent and own policies, including social and subsidized rental, supported homeownership (first-time, rent-to-own), and market-rate affordable housing."
+                        "description": "The user text describes market-based housing solutions or rent-to-own policies, including social and subsidized rental, supported homeownership (first-time, rent-to-own), and market-rate affordable housing."
                     },
                     "urban": {
                         "type": "boolean",
@@ -163,8 +164,16 @@ def create_batch_files(batch):
 
 def main():
     # Load data
-    dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
-    dataset = dataset.add_column('id', range(dataset.num_rows))
+    # dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
+    # dataset = dataset.add_column('id', range(dataset.num_rows))
+
+    # Redefine market_rent_own
+    dataset = load_dataset("csv", data_files="large_input/crs_2014_2023_gpt_batched.csv", split="train")
+    dataset = dataset.filter(lambda example: example['market_rent_own'] == 1)
+    cols_to_remove = dataset.column_names
+    cols_to_keep = ['id', 'text', 'sector_code']
+    cols_to_remove = [col for col in cols_to_remove if col not in cols_to_keep]
+    dataset = dataset.remove_columns(cols_to_remove)
 
     if warn_user_about_tokens(dataset['text']) == True:
         # Delete previous run

@@ -7,14 +7,15 @@ import click
 
 
 global OUT_FOLDER
-OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023'
+# OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023'
+OUT_FOLDER = 'large_input/gpt_batch_files/crs_2014_2023_market'
 
 
 def correct_columns(key):
     corrections = {
         'housing_generic': 'housing_general',
         'homeliness_support': 'homelessness_support',
-        'market rent_own': 'market_rent_own',
+        'market rent_own': 'market_rent_own_housing',
         'rural:false,': 'rural',
         'rural:true,': 'rural',
         'climate_adaption': 'climate_adaptation',
@@ -50,7 +51,8 @@ def manual_entry():
         "transitional_housing",
         "incremental_housing",
         "social_housing",
-        "market_rent_own",
+        # "market_rent_own",
+        'market_rent_own_housing',
         "urban",
         "rural",
         "climate_adaptation",
@@ -97,8 +99,16 @@ def main():
         data_frames.append(batch_data)
 
     all_data = pd.concat(data_frames)
-    all_data.to_csv('large_input/crs_2014_2023_gpt_batched.csv', index=False)
+    all_data.to_csv('large_input/crs_2014_2023_gpt_batched_market.csv', index=False)
     print(f"Manually answered: {manual_count}")
+
+    previous_data = pd.read_csv('large_input/crs_2014_2023_gpt_batched.csv')
+    new_data = all_data[['id', 'market_rent_own_housing']]
+    merged_data = pd.merge(previous_data, new_data, how="left", on="id")
+    merged_data.loc[merged_data['market_rent_own'] > 0, 'market_rent_own'] = merged_data.loc[merged_data['market_rent_own'] > 0, 'market_rent_own_housing'].astype(int)
+    merged_data = merged_data.drop('market_rent_own_housing', axis=1)
+    merged_data = merged_data.rename(columns={'market_rent_own': 'market_rent_own_housing'})
+    merged_data.to_csv('large_input/crs_2014_2023_gpt_batched2.csv', index=False)
 
 
 if __name__ == '__main__':
