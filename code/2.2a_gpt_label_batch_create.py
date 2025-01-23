@@ -180,7 +180,7 @@ def main():
                              example['transitional_housing'] == 1 or
                              example['incremental_housing'] == 1 or
                              example['social_housing'] == 1 or
-                             example['market_rent_own_housing'] == 1
+                             example['market_rent_own'] == 1
     )
     print(dataset.num_rows)
     cols_to_remove = dataset.column_names
