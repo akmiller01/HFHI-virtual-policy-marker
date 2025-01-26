@@ -1,4 +1,5 @@
 # curl -fsSL https://ollama.com/install.sh | sh
+# pip install datasets ollama
 
 import json
 from datasets import load_dataset
@@ -9,7 +10,6 @@ from ollama import ChatResponse
 global MODEL
 global REFRESH_MODELS
 MODEL = "mistral"
-REFRESH_MODELS = False
 
 global SYSTEM_PROMPT
 global DEFINITIONS
@@ -22,7 +22,7 @@ SYSTEM_PROMPT = (
     "then giving your answer in the 'answer' key."
     )
 DEFINITIONS = {
-    "housing": "providing housing to people",
+    "housing": "any activities relating to housing, except for project staff housing",
     "homelessness": "tents for the homeless, encampments for the homeless, or homeless shelters",
     "transitional": "emergency shelters, refugee shelters, refugee camps, or temporary supportive housing",
     "incremental": "housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, or neighborhood integration",
@@ -50,30 +50,18 @@ FORMAT = {
 }
 
 
-def create_models():
-    current_models = ollama.list().models
-    current_model_names = [model.model.split(":")[0] for model in current_models]
-    ollama.pull(MODEL)
-    for key in DEFINITIONS.keys():
-        if key in current_model_names and not REFRESH_MODELS:
-            print(f"{key} model already exists, skipping creation...")
-            continue
-
-        print(f"Creating {key} model...")
-        definition = DEFINITIONS[key]
-        definition_system_prompt = SYSTEM_PROMPT.format(definition)
-        ollama.create(
-            model=key, 
-            from_=MODEL, 
-            system=definition_system_prompt
-        )
-
 def mistral_label(example):
     for key in DEFINITIONS.keys():
+        definition = DEFINITIONS[key]
+        definition_system_prompt = SYSTEM_PROMPT.format(definition)
         response: ChatResponse = chat(
-            model=key,
+            model=MODEL,
             format=FORMAT,
             messages=[
+                {
+                    'role': 'system',
+                    'content': definition_system_prompt,
+                },
                 {
                     'role': 'user',
                     'content': example['text'],
@@ -89,8 +77,8 @@ def mistral_label(example):
 
 
 def main():
-    # Create models
-    create_models()
+    # Pull model
+    ollama.pull(MODEL)
 
     # Load data
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
