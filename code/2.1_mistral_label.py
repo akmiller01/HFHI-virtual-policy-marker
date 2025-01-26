@@ -18,8 +18,8 @@ SYSTEM_PROMPT = (
     "You are a helpful assistant that classifies text. "
     "If the text explicitly describes {}, then the answer is true, otherwise the answer is false. "
     "Base your response only on the text and no other external context. "
-    "You respond in JSON format, first giving your thoughts about whether the text matches the definition above in the 'thoughts' key, "
-    "then giving your answer in the 'answer' key, and finally rating whether your confidence about your answer is high in the 'confidence_high' key."
+    "You respond in JSON format, first giving thoughts in as few words as needed about whether the text matches the definition above in the 'thoughts' key and "
+    "then giving your answer in the 'answer' key."
     )
 DEFINITIONS = {
     "housing": "providing housing to people",
@@ -27,7 +27,7 @@ DEFINITIONS = {
     "transitional": "emergency shelters, refugee shelters, refugee camps, or temporary supportive housing",
     "incremental": "housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, or neighborhood integration",
     "social": "community land trusts, cooperative housing, or public housing",
-    "market": "subsidized housing rental, first-time homebuyer programs, rent-to-own housing, or market-rate housing",
+    "market": "subsidized home-rental, first-time home buyer programs, rent-to-own housing, or market-rate housing",
     "urban": "activities in specific urban locations",
     "rural": "activities in specific rural locations",
     "adaptation": "adapting to the direct effects of climate change",
@@ -41,15 +41,11 @@ FORMAT = {
         },
         "answer": {
             "type": "boolean"
-        },
-        "confidence_high": {
-            "type": "boolean"
         }
     },
     "required": [
         "thoughts",
-        "answer",
-        "confidence_high"
+        "answer"
     ]
 }
 
