@@ -1,11 +1,5 @@
 # curl -fsSL https://ollama.com/install.sh | sh
 # pip install datasets ollama
-# https://github.com/ollama/ollama/blob/main/docs/faq.md#setting-environment-variables-on-linux
-# systemctl edit ollama.service
-# [Service]
-# Environment="OLLAMA_NUM_PARALLEL=8"
-# systemctl daemon-reload
-# systemctl restart ollama
 
 import json
 from datasets import load_dataset
