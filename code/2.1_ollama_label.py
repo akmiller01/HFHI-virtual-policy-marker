@@ -22,6 +22,7 @@ SYSTEM_PROMPT = (
     "You are a helpful assistant that classifies text. "
     "You are classifying whether the text explicitly describes {}. "
     "Base your response only on the text and no other external context. "
+    "If the text is too short or too vague to give a definitive answer, mark it as false. "
     "You respond in JSON format, first giving thoughts in as few words as needed about whether the text matches the definition above in the 'thoughts' key and "
     "then giving your answer in the 'answer' key."
 )
@@ -29,6 +30,7 @@ URBAN_SYSTEM_PROMPT = (
     "You are a helpful assistant that classifies text. "
     "You are classifying whether the text explicitly describes activities in specific urban locations, specific rural locations, both urban and rural locations, or neither."
     "Base your response only on the text and no other external context. "
+    "If the text is too short or too vague to give a definitive answer, mark it as neither. "
     "You respond in JSON format, first giving thoughts in as few words as needed about whether the text matches the definitions above in the 'thoughts' key and "
     "then giving your answer in the 'answer' key. Possible answer choices are 'Urban', 'Rural', 'Both', or 'Neither'."
 )
@@ -94,35 +96,33 @@ def ollama_label(example):
         for response_key in parsed_response_content:
             definition_response_key = f"{key}_{response_key}"
             example[definition_response_key] = parsed_response_content[response_key]
-        if key == 'housing' and parsed_response_content['answer'] == False:
+        if example['housing_answer'] == False:
             for other_key in list(DEFINITIONS.keys())[1:]:
                 example[f"{other_key}_thoughts"] = ""
                 example[f"{other_key}_answer"] = False
+            example["urban_rural_thoughts"] = ""
+            example["urban_rural_answer"] = "Neither"
             break
-
-    if example['housing_answer'] == True:
-        key = "urban_rural"
-        response: ChatResponse = chat(
-            model=MODEL,
-            format=URBAN_FORMAT,
-            messages=[
-                {
-                    'role': 'system',
-                    'content': URBAN_SYSTEM_PROMPT,
-                },
-                {
-                    'role': 'user',
-                    'content': example['text'],
-                },
-            ]
-        )
-        parsed_response_content = json.loads(response.message.content)
-        for response_key in parsed_response_content:
-            definition_response_key = f"{key}_{response_key}"
-            example[definition_response_key] = parsed_response_content[response_key]
-    else:
-        example["urban_rural_thoughts"] = ""
-        example["urban_rural_answer"] = "Neither"
+        else:
+            key = "urban_rural"
+            response: ChatResponse = chat(
+                model=MODEL,
+                format=URBAN_FORMAT,
+                messages=[
+                    {
+                        'role': 'system',
+                        'content': URBAN_SYSTEM_PROMPT,
+                    },
+                    {
+                        'role': 'user',
+                        'content': example['text'],
+                    },
+                ]
+            )
+            parsed_response_content = json.loads(response.message.content)
+            for response_key in parsed_response_content:
+                definition_response_key = f"{key}_{response_key}"
+                example[definition_response_key] = parsed_response_content[response_key]
 
     return example
 
