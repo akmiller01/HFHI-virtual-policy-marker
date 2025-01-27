@@ -1,8 +1,6 @@
 # curl -fsSL https://ollama.com/install.sh | sh
 # pip install datasets ollama
 
-# TODO:
-# 1. Look into UNHABITAT trigger
 
 import json
 from datasets import load_dataset, concatenate_datasets
@@ -11,8 +9,7 @@ from ollama import chat
 from ollama import ChatResponse
 
 global MODEL
-global REFRESH_MODELS
-MODEL = "mistral"
+MODEL = "mistral:7b-instruct-v0.3-q3_K_M"
 
 global SYSTEM_PROMPT
 global URBAN_SYSTEM_PROMPT
@@ -20,27 +17,23 @@ global DEFINITIONS
 global FORMAT
 SYSTEM_PROMPT = (
     "You are a helpful assistant that classifies text. "
-    "You are classifying whether the text explicitly describes {}. "
-    "Base your response only on the text and no other external context. "
-    "If the text is too short or too vague to give a definitive answer, mark it as false. "
+    "You are classifying whether the text {}. "
     "You respond in JSON format, first giving thoughts in as few words as needed about whether the text matches the definition above in the 'thoughts' key and "
     "then giving your answer in the 'answer' key."
 )
 URBAN_SYSTEM_PROMPT = (
     "You are a helpful assistant that classifies text. "
     "You are classifying whether the text explicitly describes activities in specific urban locations, specific rural locations, both urban and rural locations, or neither."
-    "Base your response only on the text and no other external context. "
-    "If the text is too short or too vague to give a definitive answer, mark it as neither. "
     "You respond in JSON format, first giving thoughts in as few words as needed about whether the text matches the definitions above in the 'thoughts' key and "
     "then giving your answer in the 'answer' key. Possible answer choices are 'Urban', 'Rural', 'Both', or 'Neither'."
 )
 DEFINITIONS = {
-    "housing": "any of the following: housing, housing policy, tents for the homeless, encampments for the homeless, homeless shelters, emergency shelters, refugee shelters, refugee camps, temporary supportive housing, housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, neighborhood integration, community land trusts, cooperative housing, public housing, subsidized home-rental, subsidized mortgages, rent-to-own housing, or market-rate housing",
-    "homelessness": "tents for the homeless, encampments for the homeless, or homeless shelters",
-    "transitional": "emergency shelters, refugee shelters, refugee camps, or temporary supportive housing",
-    "incremental": "housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, or neighborhood integration",
-    "social": "community land trusts, cooperative housing, or public housing",
-    "market": "subsidized home-rental, subsidized mortgages, rent-to-own housing, or market-rate housing",
+    "housing": "directly or indirectly relates to any of the following: housing, housing policy, housing finance, habitability, tents for the homeless, encampments for the homeless, homeless shelters, emergency shelters, refugee shelters, refugee camps, temporary supportive housing, housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, neighborhood integration, community land trusts, cooperative housing, public housing, subsidized home-rental, subsidized mortgages, rent-to-own housing, or market-rate housing",
+    "homelessness": "explicitly describes tents for the homeless, encampments for the homeless, or homeless shelters",
+    "transitional": "explicitly describes emergency shelters, refugee shelters, refugee camps, or temporary supportive housing",
+    "incremental": "explicitly describes housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, or neighborhood integration",
+    "social": "explicitly describes community land trusts, cooperative housing, or public housing",
+    "market": "explicitly describes subsidized home-rental, subsidized mortgages, rent-to-own housing, or market-rate housing",
 }
 FORMAT = {
     "type": "object",
@@ -103,27 +96,26 @@ def ollama_label(example):
             example["urban_rural_thoughts"] = ""
             example["urban_rural_answer"] = "Neither"
             break
-        else:
-            key = "urban_rural"
-            response: ChatResponse = chat(
-                model=MODEL,
-                format=URBAN_FORMAT,
-                messages=[
-                    {
-                        'role': 'system',
-                        'content': URBAN_SYSTEM_PROMPT,
-                    },
-                    {
-                        'role': 'user',
-                        'content': example['text'],
-                    },
-                ]
-            )
-            parsed_response_content = json.loads(response.message.content)
-            for response_key in parsed_response_content:
-                definition_response_key = f"{key}_{response_key}"
-                example[definition_response_key] = parsed_response_content[response_key]
-
+    if example['housing_answer'] == True:
+        key = "urban_rural"
+        response: ChatResponse = chat(
+            model=MODEL,
+            format=URBAN_FORMAT,
+            messages=[
+                {
+                    'role': 'system',
+                    'content': URBAN_SYSTEM_PROMPT,
+                },
+                {
+                    'role': 'user',
+                    'content': example['text'],
+                },
+            ]
+        )
+        parsed_response_content = json.loads(response.message.content)
+        for response_key in parsed_response_content:
+            definition_response_key = f"{key}_{response_key}"
+            example[definition_response_key] = parsed_response_content[response_key]
     return example
 
 
