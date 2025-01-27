@@ -9,7 +9,7 @@ from ollama import ChatResponse
 
 global MODEL
 global REFRESH_MODELS
-MODEL = "mistral"
+MODEL = "deepseek-r1:1.5b"
 
 global SYSTEM_PROMPT
 global DEFINITIONS
@@ -50,7 +50,7 @@ FORMAT = {
 }
 
 
-def mistral_label(example):
+def ollama_label(example):
     for key in DEFINITIONS.keys():
         definition = DEFINITIONS[key]
         definition_system_prompt = SYSTEM_PROMPT.format(definition)
@@ -87,8 +87,8 @@ def main():
     dataset = dataset.shuffle(seed=1337).select(range(10))
 
     # Label
-    dataset = dataset.map(mistral_label)
-    dataset.to_csv('large_input/mistral_test.csv')
+    dataset = dataset.map(ollama_label)
+    dataset.to_csv('large_input/ollama_test.csv')
 
 
 if __name__ == '__main__':
