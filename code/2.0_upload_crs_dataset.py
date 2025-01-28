@@ -30,7 +30,7 @@ def create_unique_text(row):
     if title.lower() not in project_text.lower():
         project_text = '{} {}'.format(title, project_text)
 
-    return project_text
+    return project_text.strip()
 
 def main():
     tqdm.pandas()  # Enable tqdm for Pandas

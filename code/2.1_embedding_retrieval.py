@@ -39,6 +39,6 @@ if __name__ == '__main__':
     load_dotenv()
     HF_TOKEN = os.getenv('HF_TOKEN')
     login(token=HF_TOKEN)
-    query_str = "housing, housing policy, housing finance, habitability, tents for the homeless, encampments for the homeless, homeless shelters, emergency shelters, refugee shelters, refugee camps, temporary supportive housing, housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, neighborhood integration, community land trusts, cooperative housing, public housing, subsidized home-rental, subsidized mortgages, rent-to-own housing, market-rate housing"
+    query_str = "accommodation, camps, Community Land Trusts, dwellings, encampments, habitat, home rental, homeless, homeownership, housing, informal settlements, market-rate housing, mortgage, neighborhood integration, rent-to-own, residential, settlements, shantytown, shelter, slum upgrading, slums, structural repairs, tents, urban development"
     queries = query_str.split(", ")
     main(queries)
