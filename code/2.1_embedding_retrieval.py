@@ -11,13 +11,14 @@ from huggingface_hub import login
 global DEVICE
 global MODEL
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-MODEL = SentenceTransformer("BAAI/bge-multilingual-gemma2", model_kwargs={"torch_dtype": torch.float16}, device=DEVICE)
+MODEL = SentenceTransformer("Alibaba-NLP/gte-Qwen2-1.5B-instruct", trust_remote_code=True, device=DEVICE)
+MODEL.max_seq_length = 8192
 
 
 def main(queries):
     # Prepare a prompt given an instruction
-    instruction = 'Given a short topic, retrieve text that matches the topic.'
-    prompt = f'<instruct>{instruction}\n<query>'
+    instruction = 'Given a classification, decide whether the text matches the classification.'
+    prompt = f'Instruct: {instruction}\nQuery: '
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
     query_embeddings = MODEL.encode(queries, prompt=prompt)
     text_embeddings = MODEL.encode(dataset["text"], batch_size=256, show_progress_bar=True)
@@ -25,7 +26,7 @@ def main(queries):
     for i in range(0, len(queries)):
         query = queries[i]
         col_name = "{}_similarity".format(query.replace(' ', '_').replace('-', '_'))
-        dataset = dataset.add_column(col_name, similarities[:,i])
+        dataset = dataset.add_column(col_name, similarities[i,:].tolist())
     dataset.push_to_hub('alex-miller/crs-2014-2023-housing-similarity')
 
 
