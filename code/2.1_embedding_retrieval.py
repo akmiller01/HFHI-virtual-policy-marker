@@ -1,4 +1,4 @@
-# ! pip install tqdm torch sentence-transformers numpy datasets python-dotenv huggingface_hub
+# ! pip install tqdm torch sentence-transformers numpy datasets python-dotenv huggingface_hub tf-keras
 
 import os
 import torch
@@ -19,21 +19,20 @@ MODEL = SentenceTransformer("Alibaba-NLP/gte-multilingual-base", device=DEVICE, 
 def main(queries):
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
 
-    text_embeddings = MODEL.encode(dataset["text"], batch_size=32, show_progress_bar=True, normalize_embeddings=True)
+    text_embeddings = MODEL.encode(dataset["text"], batch_size=512, show_progress_bar=True, normalize_embeddings=True)
 
     query_embeddings = MODEL.encode(queries, normalize_embeddings=True)
-    similarities = np.zeros(len(text_embeddings))
-    query_maxes = list()
+    similarities = np.zeros((len(text_embeddings), len(queries)))
     for i, embedding in enumerate(text_embeddings):
         similarity = cos_sim(query_embeddings, embedding)
-        max_sim_index = np.argmax(similarity).tolist()
-        similarities[i] = similarity.mean()
-        query_maxes.append(queries[max_sim_index])
+        similarities[i,:] = np.copy(similarity[:,0])
 
-    dataset = dataset.add_column("housing_similarity", similarities)
-    dataset = dataset.add_column("max_query", query_maxes)
+    for i in range(0, len(queries)):
+        query = queries[i]
+        col_name = f"{query.replace(" ", "_").replace("-", "_")}_similarity"
+        dataset = dataset.add_column(col_name, similarities[:,i])
 
-    dataset.push_to_hub('alex-miller/crs-2014-2023-housing-retrieval')
+    dataset.push_to_hub('alex-miller/crs-2014-2023-housing-similarity')
 
 
 if __name__ == '__main__':
