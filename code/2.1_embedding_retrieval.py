@@ -3,7 +3,6 @@
 import os
 import torch
 from sentence_transformers import SentenceTransformer
-from sentence_transformers.util import cos_sim
 from datasets import load_dataset
 from dotenv import load_dotenv
 from huggingface_hub import login
