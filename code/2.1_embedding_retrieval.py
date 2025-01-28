@@ -29,7 +29,7 @@ def main(queries):
 
     for i in range(0, len(queries)):
         query = queries[i]
-        col_name = f"{query.replace(" ", "_").replace("-", "_")}_similarity"
+        col_name = "{}_similarity".format(query.replace(' ', '_').replace('-', '_'))
         dataset = dataset.add_column(col_name, similarities[:,i])
 
     dataset.push_to_hub('alex-miller/crs-2014-2023-housing-similarity')
