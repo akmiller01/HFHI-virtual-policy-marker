@@ -21,15 +21,15 @@ def main(queries):
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
     sentences = dataset["text"]
 
-    file_embeddings = list()
+    sentence_embeddings = list()
     for sentence in tqdm(sentences):
         embedding = MODEL.encode(sentence)
-        file_embeddings.append(embedding)
+        sentence_embeddings.append(embedding)
 
     query_embeddings = MODEL.encode(queries)
-    similarities = np.zeros(len(file_embeddings))
+    similarities = np.zeros(len(sentence_embeddings))
     query_maxes = list()
-    for i, embedding in enumerate(file_embeddings):
+    for i, embedding in enumerate(sentence_embeddings):
         similarity = cos_sim(query_embeddings, embedding)
         max_sim_index = np.argmax(similarity).tolist()
         similarities[i] = similarity.mean()
