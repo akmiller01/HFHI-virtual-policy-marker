@@ -1,7 +1,6 @@
 # ! pip install tqdm torch sentence-transformers numpy datasets python-dotenv huggingface_hub
 
 import os
-from tqdm import tqdm
 import torch
 from sentence_transformers import SentenceTransformer
 from sentence_transformers.util import cos_sim
@@ -14,22 +13,18 @@ from huggingface_hub import login
 global DEVICE
 global MODEL
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-MODEL = SentenceTransformer("Alibaba-NLP/gte-large-en-v1.5", device=DEVICE, trust_remote_code=True)
+MODEL = SentenceTransformer("Alibaba-NLP/gte-multilingual-base", device=DEVICE, trust_remote_code=True)
 
 
 def main(queries):
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
-    sentences = dataset["text"]
 
-    sentence_embeddings = list()
-    for sentence in tqdm(sentences):
-        embedding = MODEL.encode(sentence)
-        sentence_embeddings.append(embedding)
+    text_embeddings = MODEL.encode(dataset["text"], batch_size=32, show_progress_bar=True, normalize_embeddings=True)
 
-    query_embeddings = MODEL.encode(queries)
-    similarities = np.zeros(len(sentence_embeddings))
+    query_embeddings = MODEL.encode(queries, normalize_embeddings=True)
+    similarities = np.zeros(len(text_embeddings))
     query_maxes = list()
-    for i, embedding in enumerate(sentence_embeddings):
+    for i, embedding in enumerate(text_embeddings):
         similarity = cos_sim(query_embeddings, embedding)
         max_sim_index = np.argmax(similarity).tolist()
         similarities[i] = similarity.mean()
