@@ -1,10 +1,9 @@
 import pandas as pd
 import re
 from datasets import load_dataset
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score, confusion_matrix
 
 # Load the data
 dataset = load_dataset("alex-miller/crs-2014-2023-housing-similarity", split="train")
@@ -48,17 +47,16 @@ rf_class.fit(X_train, y_train)
 y_pred_rf = rf_class.predict(X_test)
 
 # Calculate Mean Squared Error (MSE) and R-squared (R²)
-mse_rf = mean_squared_error(y_test, y_pred_rf)
-r2_rf = r2_score(y_test, y_pred_rf)
-print("\nRandom Forest Classifier:")
-print("MSE: ", mse_rf)
-print("R²: ", r2_rf)
+acc = accuracy_score(y_test, y_pred_rf)
+f1 = f1_score(y_test, y_pred_rf)
+rec = recall_score(y_test, y_pred_rf)
+pre = precision_score(y_test, y_pred_rf)
 
-# Plot the results
-plt.scatter(y_test, y_pred_rf, label='Random Forest Classifier', color='orange', alpha=0.75)
-plt.axline((0, 0), slope=1, alpha=0.75)
-plt.xlabel("Actual")
-plt.ylabel("Predicted")
-plt.legend()
-plt.title("Model evaluation")
-plt.show()
+print("\nRandom Forest Classifier:")
+print("Accuracy: ", acc)
+print("F1: ", f1)
+print("Accuracy: ", rec)
+print("F1: ", pre)
+
+# Print the results
+print(confusion_matrix(y_test, y_pred_rf))
