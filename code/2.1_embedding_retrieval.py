@@ -16,7 +16,7 @@ MODEL = SentenceTransformer("HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v
 
 def main(queries):
     # https://huggingface.co/HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1/discussions/1#672494c67b7aa5555e9e0e65
-    prompt = "Instruct: Identify the main sector of development activities based on the titles and descriptions \n Query: "
+    prompt = "Instruct: Classifying the sentence into one of the two types: \"Housing sector\" and \"Other sector\" \n Query: "
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
     text_embeddings = MODEL.encode(dataset["text"], prompt=prompt, batch_size=512, show_progress_bar=True, normalize_embeddings=True)
     query_embeddings = MODEL.encode(queries, normalize_embeddings=True)
