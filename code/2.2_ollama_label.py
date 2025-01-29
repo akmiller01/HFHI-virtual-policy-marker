@@ -18,6 +18,7 @@ global SYSTEM_PROMPT
 global URBAN_SYSTEM_PROMPT
 global DEFINITIONS
 global FORMAT
+global URBAN_FORMAT
 SYSTEM_PROMPT = (
     "You are a helpful assistant that classifies text. "
     "You are classifying whether the text {}. "
@@ -71,6 +72,7 @@ URBAN_FORMAT = {
 
 
 def ollama_label(example):
+    housing_sector = example['sector_code'] in [16030, 16040]
     for key in DEFINITIONS.keys():
         definition = DEFINITIONS[key]
         definition_system_prompt = SYSTEM_PROMPT.format(definition)
@@ -92,14 +94,14 @@ def ollama_label(example):
         for response_key in parsed_response_content:
             definition_response_key = f"{key}_{response_key}"
             example[definition_response_key] = parsed_response_content[response_key]
-        if example['housing_answer'] == False:
+        if example['housing_answer'] == False and housing_sector == False:
             for other_key in list(DEFINITIONS.keys())[1:]:
                 example[f"{other_key}_thoughts"] = ""
                 example[f"{other_key}_answer"] = False
             example["urban_rural_thoughts"] = ""
             example["urban_rural_answer"] = "Neither"
             break
-    if example['housing_answer'] == True:
+    if example['housing_answer'] == True or housing_sector == True:
         key = "urban_rural"
         response: ChatResponse = chat(
             model=MODEL,
@@ -119,6 +121,7 @@ def ollama_label(example):
         for response_key in parsed_response_content:
             definition_response_key = f"{key}_{response_key}"
             example[definition_response_key] = parsed_response_content[response_key]
+
     return example
 
 
