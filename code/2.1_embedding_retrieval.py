@@ -11,12 +11,14 @@ from huggingface_hub import login
 global DEVICE
 global MODEL
 DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-MODEL = SentenceTransformer("Alibaba-NLP/gte-multilingual-base", device=DEVICE, trust_remote_code=True)
+MODEL = SentenceTransformer("HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1", device=DEVICE)
 
 
 def main(queries):
+    # https://huggingface.co/HIT-TMG/KaLM-embedding-multilingual-mini-instruct-v1/discussions/1#672494c67b7aa5555e9e0e65
+    prompt = "Instruct: Classifying the sector of the given development activity as housing sector or non-housing sector \n Query: "
     dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
-    text_embeddings = MODEL.encode(dataset["text"], batch_size=512, show_progress_bar=True, normalize_embeddings=True)
+    text_embeddings = MODEL.encode(dataset["text"], prompt=prompt, batch_size=512, show_progress_bar=True, normalize_embeddings=True)
     query_embeddings = MODEL.encode(queries, normalize_embeddings=True)
     similarities = MODEL.similarity(query_embeddings, text_embeddings)
 
@@ -25,7 +27,7 @@ def main(queries):
         col_name = "{}_similarity".format(query.replace(' ', '_').replace('-', '_'))
         dataset = dataset.add_column(col_name, similarities[i,:].tolist())
 
-    dataset.push_to_hub('alex-miller/crs-2014-2023-housing-similarity')
+    dataset.push_to_hub('alex-miller/crs-2014-2023-housing-similarity-KaLM')
 
 
 if __name__ == '__main__':
