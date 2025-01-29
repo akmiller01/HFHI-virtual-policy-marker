@@ -2,7 +2,6 @@ import pandas as pd
 import re
 import numpy as np
 from datasets import load_dataset
-from sklearn.model_selection import train_test_split
 import xgboost as xgb
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score, confusion_matrix
 import matplotlib.pyplot as plt
@@ -28,75 +27,73 @@ dat["target"] = ((dat["sector_code"].isin([16030, 16040])) | dat["keyword"]).ast
 
 # Variables
 y = dat.pop('target').values.astype(int)
+keyword_results = dat.pop('keyword').values.astype(int)
 dat.pop('text')
 dat.pop('sector_code')
 
 X = dat.values.astype(float)
 
-# Split
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, shuffle=True)
-X_train = X_test = X
-y_train = y_test = y
-
-# Remove split keyword search
-X_train_keyword = X_train[:,X_train.shape[1] - 1]
-X_test_keyword = X_test[:,X_test.shape[1] - 1]
-X_train = X_train[:,range(X_train.shape[1] -1)]
-X_test = X_test[:,range(X_test.shape[1] -1)]
-
 # Fit
 print("Fitting model...")
 xgb_class = xgb.XGBClassifier(n_estimators=100)
-xgb_class.fit(X_train, y_train)
+xgb_class.fit(X, y)
 
 # Predict
-y_pred_xgb = xgb_class.predict(X_test)
-xgb_or_kw = np.any(np.array([y_pred_xgb, X_test_keyword]), axis=0).astype(int)
+y_pred_xgb = xgb_class.predict(X)
+xgb_or_kw = np.any(np.array([y_pred_xgb, keyword_results]), axis=0).astype(int)
 
 # Calculate metrics
-acc = accuracy_score(y_test, y_pred_xgb)
-f1 = f1_score(y_test, y_pred_xgb)
-rec = recall_score(y_test, y_pred_xgb)
-pre = precision_score(y_test, y_pred_xgb)
+acc = accuracy_score(y, y_pred_xgb)
+f1 = f1_score(y, y_pred_xgb)
+rec = recall_score(y, y_pred_xgb)
+pre = precision_score(y, y_pred_xgb)
 
 print("\nXGBoost Classifier:")
 print("Accuracy: ", acc)
 print("F1: ", f1)
 print("Recall: ", rec)
 print("Precision: ", pre)
-print(confusion_matrix(y_test, y_pred_xgb))
+print(confusion_matrix(y, y_pred_xgb))
 
-k_acc = accuracy_score(y_test, X_test_keyword)
-k_f1 = f1_score(y_test, X_test_keyword)
-k_rec = recall_score(y_test, X_test_keyword)
-k_pre = precision_score(y_test, X_test_keyword)
+k_acc = accuracy_score(y, keyword_results)
+k_f1 = f1_score(y, keyword_results)
+k_rec = recall_score(y, keyword_results)
+k_pre = precision_score(y, keyword_results)
 
 print("\nKeyword search:")
 print("Accuracy: ", k_acc)
 print("F1: ", k_f1)
 print("Recall: ", k_rec)
 print("Precision: ", k_pre)
-print(confusion_matrix(y_test, X_test_keyword))
+print(confusion_matrix(y, keyword_results))
 
-
-both_acc = accuracy_score(y_test, xgb_or_kw)
-both_f1 = f1_score(y_test, xgb_or_kw)
-both_rec = recall_score(y_test, xgb_or_kw)
-both_pre = precision_score(y_test, xgb_or_kw)
+both_acc = accuracy_score(y, xgb_or_kw)
+both_f1 = f1_score(y, xgb_or_kw)
+both_rec = recall_score(y, xgb_or_kw)
+both_pre = precision_score(y, xgb_or_kw)
 
 print("\nBoth together:")
 print("Accuracy: ", both_acc)
 print("F1: ", both_f1)
 print("Recall: ", both_rec)
 print("Precision: ", both_pre)
-print(confusion_matrix(y_test, xgb_or_kw))
+print(confusion_matrix(y, xgb_or_kw))
 
-
-# Print the results
-cm = confusion_matrix(y_test, xgb_or_kw)
+# Save the results
+cm = confusion_matrix(y, xgb_or_kw)
 labels = ['Not relevant', 'Relevant']
 sns.heatmap(cm, annot=True, fmt='g', cmap='Blues', xticklabels=labels, yticklabels=labels)
 plt.xlabel('Predicted')
 plt.ylabel('True')
 plt.title('Confusion Matrix')
-plt.show()
+plt.savefig('output/Figure_1.png')
+
+# Upload
+cols_to_remove = dataset.column_names
+cols_to_remove.remove('text')
+cols_to_remove.remove('sector_code')
+dataset = dataset.remove_columns(cols_to_remove)
+dataset = dataset.add_column("selected", xgb_or_kw)
+dataset = dataset.filter(lambda e: e['selected'] == 1 or e['sector_code'] in [16030, 16040])
+dataset = dataset.remove_columns('selected')
+dataset.push_to_hub('alex-miller/crs-2014-2023-housing-selection')

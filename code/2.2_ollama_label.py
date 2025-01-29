@@ -1,12 +1,15 @@
 # curl -fsSL https://ollama.com/install.sh | sh
-# pip install datasets ollama
+# pip install datasets ollama huggingface_hub
 
-
+import os
 import json
-from datasets import load_dataset, concatenate_datasets
+from datasets import load_dataset
 import ollama
 from ollama import chat
 from ollama import ChatResponse
+from huggingface_hub import login
+from dotenv import load_dotenv
+
 
 global MODEL
 MODEL = "mistral:7b-instruct-v0.3-q3_K_M"
@@ -120,19 +123,20 @@ def ollama_label(example):
 
 
 def main():
+    # Login
+    load_dotenv()
+    HF_TOKEN = os.getenv('HF_TOKEN')
+    login(token=HF_TOKEN)
+
     # Pull model
     ollama.pull(MODEL)
 
     # Load data
-    dataset = load_dataset('alex-miller/crs-2014-2023', split='train')
-    dataset = dataset.add_column('id', range(dataset.num_rows))
-    pos = dataset.filter(lambda example: example['sector_code'] in [16030, 16040]).shuffle(seed=1337).select(range(5))
-    neg = dataset.filter(lambda example: example['sector_code'] not in [16030, 16040]).shuffle(seed=1337).select(range(5))
-    dataset = concatenate_datasets([neg, pos])
+    dataset = load_dataset('alex-miller/crs-2014-2023-housing-selection', split='train')
 
     # Label
     dataset = dataset.map(ollama_label)
-    dataset.to_csv('large_input/ollama_test.csv')
+    dataset.push_to_hub('alex-miller/crs-2014-2023-housing-labeled')
 
 
 if __name__ == '__main__':
