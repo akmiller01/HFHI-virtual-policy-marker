@@ -8,7 +8,7 @@ import ollama
 from ollama import chat
 from ollama import ChatResponse
 from pydantic import BaseModel
-from enum import Enum
+from typing import Literal
 from huggingface_hub import login
 from dotenv import load_dotenv
 
@@ -44,14 +44,9 @@ DEFINITIONS = {
 class ThoughtfulClassification(BaseModel):
     thoughts: str
     answer: bool
-class LocationType(Enum):
-    U = 'Urban'
-    R = 'Rural'
-    B = 'Both'
-    N = 'Neither'
 class ThoughtfulLocationClassification(BaseModel):
     thoughts: str
-    answer: LocationType
+    answer: Literal['Urban', 'Rural', 'Both', 'Neither']
 
 
 def ollama_label(example):
