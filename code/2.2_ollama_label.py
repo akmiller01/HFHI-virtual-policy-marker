@@ -11,6 +11,7 @@ from pydantic import BaseModel
 from typing import Literal
 from huggingface_hub import login
 from dotenv import load_dotenv
+from sector_dict import SECTORS
 
 
 global MODEL
@@ -26,6 +27,7 @@ SYSTEM_PROMPT = (
     "{}\n"
     "The definitions of each possible class are:\n"
     "{}\n"
+    "For additional context, the donor has chosen the '{}' sector for this activity, but that does not preclude it from also belonging to the housing sector.\n"
     "Think carefully and do not jump to conclusions: ground your response in the given text.\n"
     "Respond in JSON format, first giving your complete thoughts about all the possible matches with the above classes and definitions in the 'thoughts' key "
     "and then listing all of the classes that match in the 'classifications' key."
@@ -43,6 +45,7 @@ DEFINITIONS = {
 SYSTEM_PROMPT = SYSTEM_PROMPT.format(
     "\n".join([f'- {key}' for key in DEFINITIONS.keys()]),
     "\n".join([f'- {key}: when the text {value}' for key, value in DEFINITIONS.items()]),
+    "{}"
 )
 
 class ThoughtfulClassification(BaseModel):
@@ -57,13 +60,14 @@ def ollama_label(example):
         messages=[
             {
                 'role': 'system',
-                'content': SYSTEM_PROMPT,
+                'content': SYSTEM_PROMPT.format(SECTORS[str(example['sector_code'])]),
             },
             {
                 'role': 'user',
                 'content': example['text'],
             },
-        ]
+        ],
+        options={'temperature': 0.2}
     )
     parsed_response_content = json.loads(response.message.content)
     for response_key in parsed_response_content:
@@ -88,6 +92,10 @@ def main():
 
     # Load data
     dataset = load_dataset('alex-miller/crs-2014-2023-housing-selection', split='train')
+    unique_sectors = [str(sector) for sector in list(set(dataset['sector_code']))]
+    missing_sectors = [sector for sector in unique_sectors if not sector in SECTORS]
+    if len(missing_sectors) > 0:
+        raise Exception(f"Please add the following sector codes to code/sector_dict.py:\n{"\n".join(missing_sectors)}")
 
     # Label
     dataset = dataset.map(ollama_label)
