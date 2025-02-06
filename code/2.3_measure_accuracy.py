@@ -32,9 +32,9 @@ def ollama_label(example):
         response_value = parsed_response_content[response_key]
         if type(response_value) is list:
             for definition_key in DEFINITIONS.keys():
-                example[definition_key] = definition_key in response_value
+                example[definition_key + ' AI'] = definition_key in response_value
         else:
-            example[response_key] = response_value
+            example[response_key + ' AI'] = response_value
 
     return example
 
