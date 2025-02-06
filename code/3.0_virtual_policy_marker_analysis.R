@@ -177,4 +177,42 @@ ggsave(
 percent_year_wide = dcast(housing_continuum_agg, year~variable, value.var="percent")
 fwrite(percent_year_wide, "output/virtual_year_percent.csv")
 
+# Urban/rural
+housing_urban_rural = melt(
+  crs,
+  id.vars=c("year", "value"),
+  measure.vars=c(
+    "Urban", "Rural"
+  ),
+  value.name = "bool"
+)
+ur_agg = data.table(housing_urban_rural)[,.(value=sum(value)), by=.(
+  year, variable, bool
+)]
+ur_agg = subset(ur_agg, bool==T)
+ur_agg_agg = ur_agg[,.(total=sum(value)), by=.(year)]
+ur_agg = merge(ur_agg, ur_agg_agg, by="year")
+
+ur_agg$percent = ur_agg$value / ur_agg$total
+percent_year = ur_agg[,.(percent=sum(percent)), by=.(year)]
+ggplot(ur_agg, aes(x=year, y=percent, group=variable, fill=variable)) +
+  geom_bar(stat="identity") +
+  scale_fill_manual(values=c(master_blue, master_green)) +
+  scale_y_continuous(expand = c(0, 0), n.breaks=6, labels=percent) +
+  scale_x_continuous(n.breaks = 10) +
+  expand_limits(y=c(0, max(percent_year$percent))) +
+  custom_style +
+  labs(
+    y="Housing disbursements\n(% located housing dev. finance)",
+    x="",
+    fill=""
+  ) + rotate_x_text_45
+ggsave(
+  filename="output/urban_rural_year_percent.png",
+  height=5,
+  width=8
+)
+urban_rural_year_wide = dcast(ur_agg, year~variable, value.var="percent")
+fwrite(urban_rural_year_wide, "output/urban_rural_year_percent.csv")
+
 plan(sequential)
