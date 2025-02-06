@@ -1,3 +1,4 @@
+import os
 import json
 from datasets import load_dataset
 import ollama
@@ -53,7 +54,9 @@ def main():
     unique_sectors = [str(sector) for sector in list(set(dataset['sector_code']))]
     missing_sectors = [sector for sector in unique_sectors if not sector in SECTORS]
     if len(missing_sectors) > 0:
-        raise Exception(f"Please add the following sector codes to code/model_common.py:\n{"\n".join(missing_sectors)}")
+        raise Exception(
+            'Please add the following sector codes to code/model_common.py:\n{}'.format('\n'.join(missing_sectors))
+        )
 
     # Label
     dataset = dataset.map(ollama_label)
