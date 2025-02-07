@@ -25,7 +25,7 @@ def ollama_label(example):
                 'content': example['text'],
             },
         ],
-        options={'temperature': 0.2}
+        # options={'temperature': 0.2}
     )
     parsed_response_content = json.loads(response.message.content)
     for response_key in parsed_response_content:
@@ -54,7 +54,7 @@ def main():
 
     # Label
     dataset = dataset.map(ollama_label)
-    dataset.to_csv("input/accuracy_20250207_nosector2_lowtemp.csv")
+    dataset.to_csv("input/accuracy.csv")
 
 
 if __name__ == '__main__':
