@@ -36,7 +36,8 @@ f1_score <- function(true_labels, predicted_labels) {
 data_files = c(
   "input/manually_coded_for_accuracy.csv",
   "input/accuracy_4o_20250206.csv",
-  "input/accuracy_phi4_20250206.csv"
+  "input/accuracy_phi4_20250206.csv",
+  "input/accuracy_phi4_20250207.csv"
 )
 keys = c(
   "Housing", "Homelessness",
@@ -66,3 +67,4 @@ metrics_long$variable = as.character(metrics_long$variable)
 metrics_long$indicator = sapply(strsplit(metrics_long$variable, split="_"), `[[`, 1)
 metrics_long$metric = sapply(strsplit(metrics_long$variable, split="_"), `[[`, 2)
 metrics_wide = dcast(metrics_long, indicator+metric~name)
+fwrite(metrics_wide, "output/metrics.csv")

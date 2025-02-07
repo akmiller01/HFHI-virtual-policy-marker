@@ -4,7 +4,7 @@ from datasets import load_dataset
 import ollama
 from ollama import chat
 from ollama import ChatResponse
-from model_common import SYSTEM_PROMPT, DEFINITIONS, SECTORS, ThoughtfulClassification
+from model_common import SYSTEM_PROMPT, DEFINITIONS, ThoughtfulClassification
 
 
 global MODEL
@@ -18,7 +18,7 @@ def ollama_label(example):
         messages=[
             {
                 'role': 'system',
-                'content': SYSTEM_PROMPT.format(SECTORS[str(example['sector_code'])]),
+                'content': SYSTEM_PROMPT,
             },
             {
                 'role': 'user',
@@ -51,16 +51,10 @@ def main():
          'Market AI', 'Urban AI', 'Rural AI', 'DK notes',
          'DK key note', 'Selection type']
     )
-    unique_sectors = [str(sector) for sector in list(set(dataset['sector_code']))]
-    missing_sectors = [sector for sector in unique_sectors if not sector in SECTORS]
-    if len(missing_sectors) > 0:
-        raise Exception(
-            'Please add the following sector codes to code/model_common.py:\n{}'.format('\n'.join(missing_sectors))
-        )
 
     # Label
     dataset = dataset.map(ollama_label)
-    dataset.to_csv("input/accuracy_20250207.csv")
+    dataset.to_csv("input/accuracy_20250207_nosector.csv")
 
 
 if __name__ == '__main__':

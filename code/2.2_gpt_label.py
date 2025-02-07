@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import click
 import tiktoken
 from openai import OpenAI, OpenAIError
-from model_common import SYSTEM_PROMPT, DEFINITIONS, SECTORS, ThoughtfulClassification
+from model_common import SYSTEM_PROMPT, DEFINITIONS, ThoughtfulClassification
 
 
 load_dotenv()
@@ -52,7 +52,7 @@ def gpt_label(example):
         completion = CLIENT.beta.chat.completions.parse(
             model=MODEL,
             messages=[
-                {"role": "system", "content": SYSTEM_PROMPT.format(SECTORS[str(example['sector_code'])])},
+                {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": example['text']},
             ],
             temperature=0.2,
@@ -81,10 +81,6 @@ def main():
 
     # Load data
     dataset = load_dataset('alex-miller/crs-2014-2023-housing-selection', split='train')
-    unique_sectors = [str(sector) for sector in list(set(dataset['sector_code']))]
-    missing_sectors = [sector for sector in unique_sectors if not sector in SECTORS]
-    if len(missing_sectors) > 0:
-        raise Exception(f"Please add the following sector codes to code/model_common.py:\n{"\n".join(missing_sectors)}")
 
     # Label
     if warn_user_about_tokens(dataset['text']) == True:

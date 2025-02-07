@@ -9,7 +9,7 @@ from ollama import chat
 from ollama import ChatResponse
 from huggingface_hub import login
 from dotenv import load_dotenv
-from model_common import SYSTEM_PROMPT, DEFINITIONS, SECTORS, ThoughtfulClassification
+from model_common import SYSTEM_PROMPT, DEFINITIONS, ThoughtfulClassification
 
 
 global MODEL
@@ -23,7 +23,7 @@ def ollama_label(example):
         messages=[
             {
                 'role': 'system',
-                'content': SYSTEM_PROMPT.format(SECTORS[str(example['sector_code'])]),
+                'content': SYSTEM_PROMPT,
             },
             {
                 'role': 'user',
@@ -55,10 +55,6 @@ def main():
 
     # Load data
     dataset = load_dataset('alex-miller/crs-2014-2023-housing-selection', split='train')
-    unique_sectors = [str(sector) for sector in list(set(dataset['sector_code']))]
-    missing_sectors = [sector for sector in unique_sectors if not sector in SECTORS]
-    if len(missing_sectors) > 0:
-        raise Exception(f"Please add the following sector codes to code/model_common.py:\n{"\n".join(missing_sectors)}")
 
     # Label
     dataset = dataset.map(ollama_label)
