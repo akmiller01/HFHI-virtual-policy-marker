@@ -7,89 +7,39 @@ from datasets import load_dataset
 import ollama
 from ollama import chat
 from ollama import ChatResponse
-from pydantic import BaseModel
-from typing import Literal
 from huggingface_hub import login
 from dotenv import load_dotenv
+from model_common import SYSTEM_PROMPT, DEFINITIONS, ThoughtfulClassification
 
 
 global MODEL
-MODEL = "mistral:7b-instruct-v0.3-q3_K_M"
-
-global SYSTEM_PROMPT
-global URBAN_SYSTEM_PROMPT
-global DEFINITIONS
-SYSTEM_PROMPT = (
-    "You are a helpful assistant that classifies text. "
-    "You are classifying whether the text {}. "
-    "Do not jump to conclusions: ground your response on the given text. "
-    "You respond in JSON format, first giving your thoughts about whether the text matches the definition above in the 'thoughts' key and "
-    "then giving your answer in the 'answer' key."
-)
-URBAN_SYSTEM_PROMPT = (
-    "You are a helpful assistant that classifies text. "
-    "You are classifying whether the text explicitly describes activities in specific urban locations, specific rural locations, both urban and rural locations, or neither."
-    "Do not jump to conclusions: ground your response on the given text. "
-    "You respond in JSON format, first giving your thoughts about whether the text matches the definitions above in the 'thoughts' key and "
-    "then giving your answer in the 'answer' key. Possible answer choices are 'Urban', 'Rural', 'Both', or 'Neither'."
-)
-DEFINITIONS = {
-    "housing": "describes the housing sector, including but not limited to: provision of housing, provision of shelter in emergencies, improving the quality of life in inadequate housing, construction of housing, urban development, housing policy, technical assistance for housing, or finance for housing",
-    "homelessness": "explicitly describes tents for the homeless, encampments for the homeless, or homeless shelters",
-    "transitional": "explicitly describes emergency shelters, refugee shelters, refugee camps, or temporary supportive housing",
-    "incremental": "explicitly describes housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, or neighborhood integration",
-    "social": "explicitly describes community land trusts, cooperative housing, or public housing",
-    "market": "explicitly describes home-rental, mortgages, rent-to-own housing, or market-rate housing",
-}
-class ThoughtfulClassification(BaseModel):
-    thoughts: str
-    answer: bool
-class ThoughtfulLocationClassification(BaseModel):
-    thoughts: str
-    answer: Literal['Urban', 'Rural', 'Both', 'Neither']
+MODEL = "phi4"
 
 
 def ollama_label(example):
-    for key in DEFINITIONS.keys():
-        definition = DEFINITIONS[key]
-        definition_system_prompt = SYSTEM_PROMPT.format(definition)
-        response: ChatResponse = chat(
-            model=MODEL,
-            format=ThoughtfulClassification.model_json_schema(),
-            messages=[
-                {
-                    'role': 'system',
-                    'content': definition_system_prompt,
-                },
-                {
-                    'role': 'user',
-                    'content': example['text'],
-                },
-            ]
-        )
-        parsed_response_content = json.loads(response.message.content)
-        for response_key in parsed_response_content:
-            definition_response_key = f"{key}_{response_key}"
-            example[definition_response_key] = parsed_response_content[response_key]
-    key = "urban_rural"
     response: ChatResponse = chat(
         model=MODEL,
-        format=ThoughtfulLocationClassification.model_json_schema(),
+        format=ThoughtfulClassification.model_json_schema(),
         messages=[
             {
                 'role': 'system',
-                'content': URBAN_SYSTEM_PROMPT,
+                'content': SYSTEM_PROMPT,
             },
             {
                 'role': 'user',
                 'content': example['text'],
             },
-        ]
+        ],
+        # options={'temperature': 0.2}
     )
     parsed_response_content = json.loads(response.message.content)
     for response_key in parsed_response_content:
-        definition_response_key = f"{key}_{response_key}"
-        example[definition_response_key] = parsed_response_content[response_key]
+        response_value = parsed_response_content[response_key]
+        if type(response_value) is list:
+            for definition_key in DEFINITIONS.keys():
+                example[definition_key] = definition_key in response_value
+        else:
+            example[response_key] = response_value
 
     return example
 
@@ -108,7 +58,7 @@ def main():
 
     # Label
     dataset = dataset.map(ollama_label)
-    dataset.push_to_hub('alex-miller/crs-2014-2023-housing-labeled')
+    dataset.push_to_hub('alex-miller/crs-2014-2023-housing-labeled-phi4')
 
 
 if __name__ == '__main__':
