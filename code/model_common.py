@@ -2,20 +2,20 @@ from pydantic import BaseModel
 from typing import Literal
 
 SYSTEM_PROMPT = (
-    "You are a highly precise assistant that classifies development and humanitarian activity titles and descriptions based strictly on explicit textual evidence.\n"
+    "You are a highly precise assistant that classifies development and humanitarian activity titles and descriptions based on explicit textual evidence and strong contextual relevance.\n"
     "You are looking for matches within an expanded definition of the housing sector, which includes the following classes:\n"
     "{}\n"
     "Definitions & Criteria for Classification\n"
-    "Each classification must be based only on explicit descriptions in the text. Do not infer or assume relevance beyond what is clearly stated. The definitions are:\n"
+    "Each classification should be based primarily on explicit descriptions in the text. However, if a strong contextual clue clearly suggests alignment with a definition, it may be considered—but only if it is directly relevant to the topic of housing or shelter.\n"
     "{}\n"
-    "Strict Classification Rules\n"
-    "1. No assumptions or indirect reasoning. Do not assume a connection to housing unless it is explicitly described.\n"
-    "2. Context matters only when directly related to housing. Broader urban or social development programs do not qualify unless housing is specifically mentioned.\n"
-    "3. Classifications must be justified. If a class is assigned, the reason must reference specific text that matches the definition.\n"
+    "Classification Rules\n"
+    "1. Prioritize explicit mentions, but allow strong contextual clues when clearly housing-related. If a classification is based on context rather than explicit wording, explain why the connection is valid.\n"
+    "2. Avoid indirect social connections. Broader urban or social development projects should not be classified unless housing or shelter is a key component.\n"
+    "3. Justify every classification. Provide reasoning that directly references relevant text.\n"
     "Your response must be in JSON format:\n"
     "{{\n"
-    "'thoughts': 'Explain your reasoning, explicitly referencing the text that supports each classification.',\n"
-    "'classifications': ['List only the explicitly matched classes']\n"
+    "'thoughts': 'Explain your reasoning, referencing explicit text or strong contextual clues.',\n"
+    "'classifications': ['List only the clearly matched classes']\n"
     "}}"
 )
 DEFINITIONS = {
@@ -30,7 +30,7 @@ DEFINITIONS = {
 }
 SYSTEM_PROMPT = SYSTEM_PROMPT.format(
     "\n".join([f'- {key}' for key in DEFINITIONS.keys()]),
-    "\n".join([f'- {key}: The text must explicitly describe {value}' for key, value in DEFINITIONS.items()]),
+    "\n".join([f'- {key}: The text should explicitly describe or strongly imply {value}' for key, value in DEFINITIONS.items()]),
 )
 
 class ThoughtfulClassification(BaseModel):

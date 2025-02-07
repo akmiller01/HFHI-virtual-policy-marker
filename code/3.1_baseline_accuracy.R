@@ -40,7 +40,8 @@ data_files = c(
   "input/accuracy_phi4_20250207.csv",
   "input/accuracy_20250207_nosector.csv",
   "input/accuracy_20250207_nosector2.csv",
-  "input/accuracy_20250207_nosector2_lowtemp.csv"
+  "input/accuracy_20250207_nosector2_lowtemp.csv",
+  "input/accuracy_20250207_strict_lowtemp.csv"
 )
 keys = c(
   "Housing", "Homelessness",
@@ -65,9 +66,10 @@ for(data_file in data_files){
 }
 
 metrics = rbindlist(accuracy_list)
-metrics_long = melt(metrics, id.vars=c("name"))
-metrics_long$variable = as.character(metrics_long$variable)
-metrics_long$indicator = sapply(strsplit(metrics_long$variable, split="_"), `[[`, 1)
-metrics_long$metric = sapply(strsplit(metrics_long$variable, split="_"), `[[`, 2)
-metrics_wide = dcast(metrics_long, indicator+metric~name)
-fwrite(metrics_wide, "output/metrics.csv")
+fwrite(metrics, "output/metrics.csv")
+# metrics_long = melt(metrics, id.vars=c("name"))
+# metrics_long$variable = as.character(metrics_long$variable)
+# metrics_long$indicator = sapply(strsplit(metrics_long$variable, split="_"), `[[`, 1)
+# metrics_long$metric = sapply(strsplit(metrics_long$variable, split="_"), `[[`, 2)
+# metrics_wide = dcast(metrics_long, indicator+metric~name)
+# fwrite(metrics_wide, "output/metrics.csv")
