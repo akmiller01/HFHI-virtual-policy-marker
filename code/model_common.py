@@ -13,7 +13,7 @@ SYSTEM_PROMPT = (
     "and then listing all of the classes that match in the 'classifications' key."
 )
 DEFINITIONS = {
-    "Housing": "explicitly describes provision of housing, provision of shelter in emergencies, upgrading inadequate housing, provision of basic services in inadequate housing, construction of housing, urban development, housing policy, technical assistance for housing, or finance for housing",
+    "Housing": "describes the housing sector, including but not limited to: provision of housing, provision of shelter in emergencies, provision of basic services in inadequate housing, construction of housing, urban development, housing policy, technical assistance for housing, or finance for housing",
     "Homelessness": "explicitly describes tents for the homeless, encampments for the homeless, or homeless shelters",
     "Transitional": "explicitly describes emergency shelters, refugee shelters, refugee camps, or temporary supportive housing",
     "Incremental": "explicitly describes housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, or neighborhood integration",

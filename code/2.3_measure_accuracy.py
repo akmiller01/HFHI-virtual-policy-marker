@@ -54,7 +54,7 @@ def main():
 
     # Label
     dataset = dataset.map(ollama_label)
-    dataset.to_csv("input/accuracy_20250207_nosector.csv")
+    dataset.to_csv("input/accuracy_20250207_nosector2.csv")
 
 
 if __name__ == '__main__':
