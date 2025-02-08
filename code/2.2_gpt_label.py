@@ -70,9 +70,12 @@ def gpt_label(example):
         print(f"Error: {e}")
         response = {'thoughts': f"Error: {e}", 'classifications': []}.items()
     for response_key, response_value in response:
-        if type(response_value) is list:
-            for definition_key in DEFINITIONS.keys():
-                example[definition_key] = definition_key in response_value
+        if type(response_value is list):
+            if response_key == 'thoughts':
+                example[response_key] = "\n".join(response_value)
+            else:
+                for definition_key in DEFINITIONS.keys():
+                    example[definition_key] = definition_key in response_value
         else:
             example[response_key] = response_value
 
