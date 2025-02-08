@@ -35,15 +35,21 @@ f1_score <- function(true_labels, predicted_labels) {
 
 data_files = c(
   "input/manually_coded_for_accuracy.csv",
-  "input/accuracy_4o_20250206.csv",
-  "input/accuracy_phi4_20250206.csv",
-  "input/accuracy_phi4_20250207.csv",
-  "input/accuracy_20250207_nosector.csv",
-  "input/accuracy_20250207_nosector2.csv",
-  "input/accuracy_20250207_nosector2_lowtemp.csv",
-  "input/accuracy_20250207_strict_lowtemp.csv",
-  "input/accuracy_20250207_lessstrict_midtemp.csv",
-  "input/accuracy_20250207_lessstrict.csv"
+  # "input/accuracy_4o_20250206.csv",
+  # "input/accuracy_phi4_20250206.csv",
+  # "input/accuracy_phi4_20250207.csv",
+  # "input/accuracy_20250207_nosector.csv",
+  # "input/accuracy_20250207_nosector2.csv",
+  # "input/accuracy_20250207_nosector2_lowtemp.csv",
+  # "input/accuracy_20250207_strict_lowtemp.csv",
+  # "input/accuracy_20250207_lessstrict_midtemp.csv",
+  # "input/accuracy_20250207_lessstrict.csv"
+  "input/accuracy_20250208.csv",
+  "input/accuracy_20250208_lambda_1.csv",
+  "input/accuracy_20250208_lambda_2.csv",
+  "input/accuracy_20250208_lambda_3.csv",
+  "input/accuracy_20250208_lambda_4.csv",
+  "input/accuracy_20250208_lambda_5.csv"
 )
 keys = c(
   "Housing", "Homelessness",
@@ -83,3 +89,47 @@ fwrite(metrics, "output/metrics.csv")
 # metrics_long$metric = sapply(strsplit(metrics_long$variable, split="_"), `[[`, 2)
 # metrics_wide = dcast(metrics_long, indicator+metric~name)
 # fwrite(metrics_wide, "output/metrics.csv")
+
+sector = fread("input/accuracy_phi4_20250207.csv")
+sector$ai_cat = paste(
+  sector$`Housing AI`,
+  sector$`Homelessness AI`,
+  sector$`Transitional AI`,
+  sector$`Incremental AI`,
+  sector$`Social AI`,
+  sector$`Market AI`,
+  sector$`Urban AI`,
+  sector$`Rural AI`
+)
+nosector = fread("input/accuracy_20250207_nosector.csv")
+nosector$ai_cat = paste(
+  nosector$`Housing AI`,
+  nosector$`Homelessness AI`,
+  nosector$`Transitional AI`,
+  nosector$`Incremental AI`,
+  nosector$`Social AI`,
+  nosector$`Market AI`,
+  nosector$`Urban AI`,
+  nosector$`Rural AI`
+)
+sector$dk_cat = paste(
+  sector$`Housing DK`,
+  sector$`Homelessness DK`,
+  sector$`Transitional DK`,
+  sector$`Incremental DK`,
+  sector$`Social DK`,
+  sector$`Market DK`,
+  sector$`Urban DK`,
+  sector$`Rural DK`
+)
+which(
+  (sector$ai_cat != nosector$ai_cat) &
+    grepl("donor",sector$`thoughts AI`,ignore.case=T)
+)
+i = 42
+sector$text[i]
+sector$dk_cat[i]
+sector$ai_cat[i]
+sector$`thoughts AI`[i]
+nosector$ai_cat[i]
+nosector$`thoughts AI`[i]
