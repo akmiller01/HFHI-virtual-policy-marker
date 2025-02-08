@@ -45,20 +45,23 @@ data_files = c(
   # "input/accuracy_20250207_lessstrict_midtemp.csv",
   # "input/accuracy_20250207_lessstrict.csv"
   # "input/accuracy_20250208.csv",
-  "input/accuracy_20250208_lambda_1.csv",
-  "input/accuracy_20250208_lambda_2.csv",
-  "input/accuracy_20250208_lambda_3.csv",
-  "input/accuracy_20250208_lambda_4.csv",
-  "input/accuracy_20250208_lambda_5.csv",
+  # "input/accuracy_20250208_lambda_1.csv",
+  # "input/accuracy_20250208_lambda_2.csv",
+  # "input/accuracy_20250208_lambda_3.csv",
+  # "input/accuracy_20250208_lambda_4.csv",
+  # "input/accuracy_20250208_lambda_5.csv",
   "input/accuracy_20250208_sector_1.csv",
   "input/accuracy_20250208_sector_2.csv",
   "input/accuracy_20250208_sector_3.csv",
-  "input/accuracy_20250208_sector_zerotemp_1.csv",
-  "input/accuracy_20250208_sector_zerotemp_2.csv",
-  "input/accuracy_20250208_sector_zerotemp_3.csv",
-  "input/accuracy_20250208_sector_04temp_1.csv",
-  "input/accuracy_20250208_sector_04temp_2.csv",
-  "input/accuracy_20250208_sector_04temp_3.csv"
+  # "input/accuracy_20250208_sector_zerotemp_1.csv",
+  # "input/accuracy_20250208_sector_zerotemp_2.csv",
+  # "input/accuracy_20250208_sector_zerotemp_3.csv",
+  # "input/accuracy_20250208_sector_04temp_1.csv",
+  # "input/accuracy_20250208_sector_04temp_2.csv",
+  # "input/accuracy_20250208_sector_04temp_3.csv"
+  "input/accuracy_20250208_sector_listthoughts_1.csv",
+  "input/accuracy_20250208_sector_listthoughts_2.csv",
+  "input/accuracy_20250208_sector_listthoughts_3.csv"
 )
 keys = c(
   "Housing", "Homelessness",
