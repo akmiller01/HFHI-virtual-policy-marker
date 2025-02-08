@@ -42,7 +42,8 @@ data_files = c(
   "input/accuracy_20250207_nosector2.csv",
   "input/accuracy_20250207_nosector2_lowtemp.csv",
   "input/accuracy_20250207_strict_lowtemp.csv",
-  "input/accuracy_20250207_lessstrict_midtemp.csv"
+  "input/accuracy_20250207_lessstrict_midtemp.csv",
+  "input/accuracy_20250207_lessstrict.csv"
 )
 keys = c(
   "Housing", "Homelessness",

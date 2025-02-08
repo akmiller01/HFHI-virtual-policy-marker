@@ -2,35 +2,29 @@ from pydantic import BaseModel
 from typing import Literal
 
 SYSTEM_PROMPT = (
-    "You are a highly precise assistant that classifies development and humanitarian activity titles and descriptions based on explicit textual evidence and strong contextual relevance.\n"
-    "You are looking for matches within an expanded definition of the housing sector, which includes the following classes:\n"
+    "You are a helpful assistant that classifies development and humanitarian activity titles and descriptions.\n"
+    "You are looking for matches with an expanded definition of the housing sector that encompasses a continuum defined by the possible classes below.\n"
+    "The possible classes you are looking for are:\n"
     "{}\n"
-    "Definitions & Criteria for Classification\n"
-    "Each classification should be based primarily on explicit descriptions in the text. However, if a strong contextual clue clearly suggests alignment with a definition, it may be considered—but only if it is directly relevant to the topic of housing or shelter.\n"
+    "The definitions of each possible class are:\n"
     "{}\n"
-    "Classification Rules\n"
-    "1. Prioritize explicit mentions, but allow strong contextual clues when clearly housing-related. If a classification is based on context rather than explicit wording, explain why the connection is valid.\n"
-    "2. Avoid indirect social connections. Broader urban or social development projects should not be classified unless housing or shelter is a key component.\n"
-    "3. Justify every classification. Provide reasoning that directly references relevant text.\n"
-    "Your response must be in JSON format:\n"
-    "{{\n"
-    "'thoughts': 'Explain your reasoning, referencing explicit text or strong contextual clues.',\n"
-    "'classifications': ['List only the clearly matched classes']\n"
-    "}}"
+    "Think carefully and do not jump to conclusions: ground your response on the given text.\n"
+    "Respond in JSON format, first giving your complete thoughts about all the possible matches with the above classes and definitions in the 'thoughts' key "
+    "and then listing all of the classes that match in the 'classifications' key."
 )
 DEFINITIONS = {
-    "Housing": "provision of housing, provision of shelter in emergencies, upgrading inadequate housing, provision of basic services in inadequate housing, construction of housing, urban development, housing policy, technical assistance for housing, or finance for housing",
-    "Homelessness": "tents for the homeless, encampments for the homeless, or homeless shelters",
-    "Transitional": "emergency shelters, refugee shelters, refugee camps, or temporary supportive housing",
-    "Incremental": "housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, or neighborhood integration as it relates to housing",
-    "Social": "community land trusts, cooperative housing, or public housing",
-    "Market": "home-rental, mortgages, rent-to-own housing, or market-rate housing",
-    "Urban": "activities in specific urban locations",
-    "Rural": "activities in specific rural locations"
+    "Housing": "explicitly describes provision of housing, provision of shelter in emergencies, upgrading inadequate housing, provision of basic services in inadequate housing, construction of housing, urban development, housing policy, technical assistance for housing, or finance for housing",
+    "Homelessness": "explicitly describes tents for the homeless, encampments for the homeless, or homeless shelters",
+    "Transitional": "explicitly describes emergency shelters, refugee shelters, refugee camps, or temporary supportive housing",
+    "Incremental": "explicitly describes housing sites, housing services, housing technical assistance, slum upgrading, housing structural repairs, or neighborhood integration",
+    "Social": "explicitly describes community land trusts, cooperative housing, or public housing",
+    "Market": "explicitly describes home-rental, mortgages, rent-to-own housing, or market-rate housing",
+    "Urban": "explicitly describes activities in specific urban locations",
+    "Rural": "explicitly describes activities in specific rural locations"
 }
 SYSTEM_PROMPT = SYSTEM_PROMPT.format(
     "\n".join([f'- {key}' for key in DEFINITIONS.keys()]),
-    "\n".join([f'- {key}: The text should explicitly describe or strongly imply {value}' for key, value in DEFINITIONS.items()]),
+    "\n".join([f'- {key}: when the text {value}' for key, value in DEFINITIONS.items()]),
 )
 
 class ThoughtfulClassification(BaseModel):
