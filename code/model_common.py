@@ -2,18 +2,15 @@ from pydantic import BaseModel
 from typing import Literal
 
 SYSTEM_PROMPT = (
-    "You are a highly precise assistant that classifies development and humanitarian activities based on limited text descriptions.\n"
-    "You are looking for matches within an expanded definition of the housing sector, which includes the following classes:\n"
+    "You are a helpful assistant that classifies development and humanitarian activity titles and descriptions.\n"
+    "You are looking for matches with an expanded definition of the housing sector that encompasses a continuum defined by the possible classes below.\n"
+    "The possible classes you are looking for are:\n"
     "{}\n"
-    "The classes are defined as such:\n"
+    "The definitions of each possible class are:\n"
     "{}\n"
     "Think carefully and do not jump to conclusions: ground your response on the given text.\n"
-    "Your response must be in JSON format:\n"
-    "{{\n"
-    "'summary': 'Summarize the primary activities and objectives of the project in one sentence.',\n"
-    "'thoughts': ['List each class and explain your reasoning for why or why not the text is a match.'],\n"
-    "'classifications': ['List only the clearly matched classes']\n"
-    "}}"
+    "Respond in JSON format, first giving your complete thoughts about all the possible matches with the above classes and definitions in the 'thoughts' key "
+    "and then listing all of the classes that match in the 'classifications' key."
 )
 DEFINITIONS = {
     "Housing": "explicitly describes provision of housing, provision of shelter in emergencies, upgrading inadequate housing, provision of basic services in inadequate housing, construction of housing, urban development, housing policy, technical assistance for housing, or finance for housing",
@@ -31,8 +28,7 @@ SYSTEM_PROMPT = SYSTEM_PROMPT.format(
 )
 
 class ThoughtfulClassification(BaseModel):
-    summary: str
-    thoughts: list[str]
+    thoughts: str
     classifications: list[Literal[tuple(DEFINITIONS.keys())]]
 
 SECTORS = {

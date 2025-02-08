@@ -33,12 +33,9 @@ def ollama_label(example):
     parsed_response_content = json.loads(response.message.content)
     for response_key in parsed_response_content:
         response_value = parsed_response_content[response_key]
-        if type(response_value is list):
-            if response_key == 'thoughts':
-                example[response_key + ' AI'] = "\n".join(response_value)
-            else:
-                for definition_key in DEFINITIONS.keys():
-                    example[definition_key + ' AI'] = definition_key in response_value
+        if type(response_value) is list:
+            for definition_key in DEFINITIONS.keys():
+                example[definition_key + ' AI'] = definition_key in response_value
         else:
             example[response_key + ' AI'] = response_value
 
