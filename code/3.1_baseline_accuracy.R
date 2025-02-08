@@ -41,7 +41,8 @@ data_files = c(
   "input/accuracy_20250207_nosector.csv",
   "input/accuracy_20250207_nosector2.csv",
   "input/accuracy_20250207_nosector2_lowtemp.csv",
-  "input/accuracy_20250207_strict_lowtemp.csv"
+  "input/accuracy_20250207_strict_lowtemp.csv",
+  "input/accuracy_20250207_lessstrict_midtemp.csv"
 )
 keys = c(
   "Housing", "Homelessness",
@@ -51,17 +52,25 @@ keys = c(
 accuracy_list = list()
 for(data_file in data_files){
   dat = fread(data_file)
+  all_actual = c()
+  all_pred = c()
   tmp_df = data.frame(name=basename(data_file))
   for(key in keys){
     ai_col = paste(key,"AI")
     ai_values = dat[,ai_col,with=F]
+    all_pred = c(all_pred, ai_values[[1]])
     manual_col = paste(key, "DK")
     manual_values = dat[,manual_col,with=F]
+    all_actual = c(all_actual, manual_values[[1]])
     tmp_df[,paste(key,"accuracy",sep="_")] = mean(manual_values==ai_values)
     tmp_df[,paste(key,"precision",sep="_")] = precision(manual_values, ai_values)
     tmp_df[,paste(key,"recall",sep="_")] = recall(manual_values, ai_values)
     tmp_df[,paste(key,"f1",sep="_")] = f1_score(manual_values, ai_values)
   }
+  tmp_df[,"overall_accuracy"] = mean(all_actual==all_pred)
+  tmp_df[,"overall_precision"] = precision(all_actual, all_pred)
+  tmp_df[,"overall_recall"] = recall(all_actual, all_pred)
+  tmp_df[,"overall_f1"] = f1_score(all_actual, all_pred)
   accuracy_list[[data_file]] = tmp_df
 }
 
