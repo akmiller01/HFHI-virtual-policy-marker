@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import click
 import tiktoken
 from openai import OpenAI, OpenAIError
-from model_common import SYSTEM_PROMPT, DEFINITIONS, SECTORS, ThoughtfulClassification
+from model_common import SYSTEM_PROMPT, DEFINITIONS, SECTORS, ReasonedClassification
 
 
 load_dotenv()
@@ -55,14 +55,14 @@ def gpt_label(example):
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {
                     "role": "user",
-                    "content": 'Sector: {}\nActivity title and description: {}'.format(
+                    "content": '{} Sector: {}'.format(
+                        example['text'],
                         SECTORS[str(example['sector_code'])],
-                        example['text']
                     )
                 },
             ],
             temperature=0.2,
-            response_format=ThoughtfulClassification,
+            response_format=ReasonedClassification,
         )
         response = completion.choices[0].message.parsed
     except OpenAIError as e:

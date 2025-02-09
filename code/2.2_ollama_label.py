@@ -9,7 +9,7 @@ from ollama import chat
 from ollama import ChatResponse
 from huggingface_hub import login
 from dotenv import load_dotenv
-from model_common import SYSTEM_PROMPT, DEFINITIONS, SECTORS, ThoughtfulClassification
+from model_common import SYSTEM_PROMPT, DEFINITIONS, SECTORS, ReasonedClassification
 
 
 global MODEL
@@ -19,7 +19,7 @@ MODEL = "phi4"
 def ollama_label(example):
     response: ChatResponse = chat(
         model=MODEL,
-        format=ThoughtfulClassification.model_json_schema(),
+        format=ReasonedClassification.model_json_schema(),
         messages=[
             {
                 'role': 'system',
@@ -27,9 +27,9 @@ def ollama_label(example):
             },
             {
                 'role': 'user',
-                'content': 'Sector: {}\nActivity title and description: {}'.format(
+                'content': '{} Sector: {}'.format(
+                    example['text'],
                     SECTORS[str(example['sector_code'])],
-                    example['text']
                 ),
             },
         ],
