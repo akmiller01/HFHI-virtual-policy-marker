@@ -59,9 +59,13 @@ data_files = c(
   # "input/accuracy_20250208_sector_04temp_1.csv",
   # "input/accuracy_20250208_sector_04temp_2.csv",
   # "input/accuracy_20250208_sector_04temp_3.csv"
-  "input/accuracy_20250208_sector_listthoughts_1.csv",
-  "input/accuracy_20250208_sector_listthoughts_2.csv",
-  "input/accuracy_20250208_sector_listthoughts_3.csv"
+  # "input/accuracy_20250208_sector_listthoughts_1.csv",
+  # "input/accuracy_20250208_sector_listthoughts_2.csv",
+  # "input/accuracy_20250208_sector_listthoughts_3.csv"
+  "input/accuracy_20250208_corrections_1.csv",
+  "input/accuracy_20250208_corrections_2.csv",
+  "input/accuracy_20250208_corrections_3.csv"
+  
 )
 keys = c(
   "Housing", "Homelessness",
