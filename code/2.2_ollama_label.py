@@ -1,5 +1,5 @@
 # curl -fsSL https://ollama.com/install.sh | sh
-# pip install datasets ollama huggingface_hub
+# pip install datasets ollama huggingface_hub python-dotenv pydantic
 
 import os
 import json
