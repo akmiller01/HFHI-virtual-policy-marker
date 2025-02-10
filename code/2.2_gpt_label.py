@@ -55,7 +55,7 @@ def gpt_label(example):
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {
                     "role": "user",
-                    "content": '{} Sector: {}'.format(
+                    "content": '{}\nSector: {}'.format(
                         example['text'],
                         SECTORS[str(example['sector_code'])],
                     )

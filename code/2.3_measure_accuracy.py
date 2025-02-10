@@ -22,7 +22,7 @@ def ollama_label(example):
             },
             {
                 'role': 'user',
-                'content': '{} Sector: {}'.format(
+                'content': '{}\nSector: {}'.format(
                     example['text'],
                     SECTORS[str(example['sector_code'])],
                 ),

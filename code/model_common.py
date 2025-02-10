@@ -16,12 +16,12 @@ SYSTEM_PROMPT = (
     "}}"
 )
 DEFINITIONS = {
-    "Housing": "explicitly describes provision of housing, provision of shelter in emergencies, upgrading inadequate housing, provision of basic services (safe water, sanitation, energy, waste management) in inadequate housing, construction of housing, urban development, housing policy, technical assistance for housing, or finance for housing",
+    "Housing general": "explicitly describes provision of housing/shelter, construction of housing/shelter (including eco-friendly building practices), housing policy, technical assistance for housing, or finance for housing",
     "Homelessness": "explicitly describes tents for the homeless, encampments for the homeless, or homeless shelters",
-    "Transitional": "explicitly describes housing provided due to crises/disasters/emergencies, refugee shelters, refugee camps, or temporary supportive housing",
-    "Incremental": "explicitly describes housing sites, housing services, housing technical assistance, slum upgrading, housing improvements/repairs, or neighborhood integration",
-    "Social": "explicitly describes community land trusts, cooperative housing, public housing, affordable housing, or low-cost housing",
-    "Market": "explicitly describes home-rental, mortgages, rent-to-own housing, or market-rate housing",
+    "Transitional housing": "explicitly describes housing/shelter provided due to crises/disasters/emergencies, refugee shelters, refugee camps, or temporary supportive housing. The project must primarily involve the provision of housing or shelter; vague terms like 'material relief' alone are not sufficient evidence of housing provision. Mentions of refugees alone without additional housing/shelter context also do not qualify as Transitional housing",
+    "Incremental housing": "explicitly describes housing sites, housing improvement/repairs, basic services for housing, or housing technical assistance. Basic services refer to water, sanitation, or energy improvements to housing. One important form of Incremental housing to look for is slum upgrading, but this class can be applied to any housing context",
+    "Social housing": "explicitly describes Community Land Trusts (CLTs), cooperative housing, public housing, affordable housing, or low-cost housing. CLTs are defined as nonprofit organizations that acquire and hold land for the permanent benefit of the community",
+    "Market housing": "explicitly describes home-rental, mortgages, rent-to-own housing, or market-rate housing",
     "Urban": "explicitly describes activities in specific urban locations",
     "Rural": "explicitly describes activities in specific rural locations"
 }
