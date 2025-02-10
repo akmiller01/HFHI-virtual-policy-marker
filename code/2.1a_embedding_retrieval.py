@@ -32,42 +32,43 @@ if __name__ == '__main__':
     HF_TOKEN = os.getenv('HF_TOKEN')
     login(token=HF_TOKEN)
     query_topics = {
-        "Housing": [
-            "housing provision", "provision of shelter", "emergency shelter", "shelter provision",
-            "upgrading housing", "improving housing", "housing improvements", "slum upgrading",
-            "informal settlements", "basic services", "access to safe water", "sanitation services",
-            "energy access", "waste management", "urban housing", "urban development", "city planning",
-            "housing policy", "housing finance", "construction of housing", "home construction",
-            "residential construction", "technical assistance for housing", "housing assistance",
-            "housing support", "land tenure", "urban planning"
+        "Housing general": [
+            "housing provision", "shelter provision", "housing construction", "shelter construction",
+            "eco-friendly building", "green building", "sustainable housing", "housing policy",
+            "technical assistance for housing", "housing finance", "affordable home loans",
+            "residential construction", "housing development", "urban housing", "rural housing",
+            "resilient housing", "inclusive housing", "housing access", "dwelling construction"
         ],
         "Homelessness": [
-            "homeless shelter", "shelters for the homeless", "emergency shelters", "tent encampments",
-            "encampments for the homeless", "unhoused population", "unsheltered individuals",
-            "street homelessness", "rough sleeping", "temporary shelters", "transitional housing for homeless",
-            "supportive housing for homeless"
+            "homeless shelters", "emergency shelters", "homeless encampments", "tent cities",
+            "tents for the homeless", "transitional housing for homeless", "unsheltered population",
+            "temporary housing for homeless", "street homelessness", "permanent supportive housing",
+            "housing first programs", "shelter programs for homeless"
         ],
-        "Transitional": [
-            "emergency housing", "crisis housing", "disaster housing", "temporary shelter",
-            "temporary housing", "refugee shelter", "refugee housing", "refugee camp",
-            "displacement camps", "internally displaced persons (IDP) camps", "post-disaster housing",
-            "humanitarian shelter", "supportive transitional housing"
+        "Transitional housing": [
+            "emergency housing", "crisis housing", "disaster shelter", "disaster housing",
+            "temporary housing", "refugee shelters", "humanitarian shelters",
+            "temporary supportive housing", "emergency accommodation", "post-disaster housing",
+            "shelters for displaced persons", "temporary accommodation for refugees"
         ],
-        "Incremental": [
-            "housing sites", "serviced housing plots", "site and service schemes", "housing infrastructure",
-            "housing assistance programs", "home repairs", "housing rehabilitation", "slum upgrading",
-            "informal housing improvements", "upgrading informal settlements", "neighborhood integration",
-            "community-driven housing improvements", "in-situ upgrading"
+        "Incremental housing": [
+            "housing improvement", "home repairs", "slum upgrading", "basic services for housing",
+            "housing technical assistance", "incremental housing", "informal settlement upgrading",
+            "water services for housing", "sanitation for housing", "energy services for housing",
+            "upgrading informal housing"
         ],
-        "Social": [
-            "public housing", "subsidized housing", "affordable housing", "low-cost housing",
-            "nonprofit housing", "cooperative housing", "community housing", "community land trusts",
-            "government-subsidized housing", "social housing programs", "mixed-income housing"
+        "Social housing": [
+            "Community Land Trust", "CLT", "cooperative housing", "public housing",
+            "affordable housing", "low-cost housing", "social housing", "nonprofit housing",
+            "subsidized housing", "government-funded housing", "permanently affordable housing",
+            "housing cooperatives", "shared-equity housing", "municipal housing",
+            "state-funded housing"
         ],
-        "Market": [
-            "home rentals", "rental housing", "mortgage financing", "mortgage assistance",
-            "rent-to-own housing", "rent-to-own programs", "market-rate housing", "private housing market",
-            "real estate development", "private sector housing", "homeownership programs"
+        "Market housing": [
+            "home rental", "rental housing", "mortgages", "home financing", "rent-to-own housing",
+            "market-rate housing", "private housing market", "real estate market",
+            "homeownership programs", "property development", "private sector housing",
+            "residential real estate", "housing investment", "landlord-tenant rental"
         ]
     }
     main(query_topics)
