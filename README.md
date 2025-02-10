@@ -101,12 +101,23 @@ This script uses the Ollama model to label the CRS dataset with additional class
 3. **Label data**: Uses the Ollama model to label each entry in the dataset with additional classifications based on the text and sector code.
 4. **Save results**: Saves the labeled dataset to the Hugging Face Hub under the repository `alex-miller/crs-2014-2023-housing-labeled-phi4`.
 
+### 2.3_merge.py
+
+This script merges the original CRS dataset with the labeled dataset to create a comprehensive dataset. It performs the following tasks:
+
+1. **Setup and load necessary libraries**: Loads required Python packages.
+2. **Load original dataset**: Reads the original CRS data from `large_input/crs_2014_2023.csv`.
+3. **Create text column**: Combines project title, short description, and long description into a unique text column.
+4. **Load labeled dataset**: Reads the labeled dataset from the Hugging Face Hub.
+5. **Merge datasets**: Merges the original dataset with the labeled dataset based on the unique text column.
+6. **Save results**: Saves the merged dataset to `large_output/crs_2014_2023_phi4_labeled.csv`.
+
 ### 3.0_virtual_policy_marker_analysis.R
 
 This script performs an analysis of the virtual policy marker for adequate housing. It performs the following tasks:
 
 1. **Setup and load necessary libraries**: Installs and loads required R packages.
-2. **Load and preprocess data**: Reads the collated CRS data from `large_input/crs_2014_2023.csv` and merges it with the latest classifications from `large_input/crs-2014-2023-housing-labeled-phi4.csv`.
+2. **Load and preprocess data**: Reads the merged CRS data from `large_output/crs_2014_2023_phi4_labeled.csv`.
 3. **Filter data**: Filters the data to include only relevant entries based on various classifications such as Homelessness, Transitional, Incremental, Social, Market, and Sector code.
 4. **Analyze data by year**: Aggregates data by year and classification, and generates bar charts saved as `output/virtual_year.png` and `output/virtual_year_percent.png`. Also saves the aggregated data to `output/virtual_year.csv` and `output/virtual_year_percent.csv`.
 5. **Analyze data by urban/rural**: Aggregates data by year and urban/rural classification, and generates bar charts saved as `output/urban_rural_year_percent.png`. Also saves the aggregated data to `output/urban_rural_year_percent.csv`.

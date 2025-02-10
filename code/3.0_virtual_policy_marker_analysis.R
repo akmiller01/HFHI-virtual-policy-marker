@@ -1,5 +1,5 @@
 #### Setup ####
-list.of.packages <- c("data.table", "rstudioapi", "scales","ggplot2","scales","Hmisc","openxlsx", "countrycode", "furrr", "stringr")
+list.of.packages <- c("data.table", "rstudioapi", "scales","ggplot2","scales","Hmisc","openxlsx", "countrycode")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages)
 lapply(list.of.packages, require, character.only=T)
@@ -62,46 +62,14 @@ rotate_x_text_90 = theme(
 )
 #### End chart setup ####
 
-create_unique_text <- function(project_title, short_description, long_description) {
-  
-  project_text <- long_description
-  
-  if (!grepl(tolower(short_description), tolower(project_text), fixed = TRUE)) {
-    project_text <- paste(short_description, project_text)
-  }
-  
-  if (!grepl(tolower(project_title), tolower(project_text), fixed = TRUE)) {
-    project_text <- paste(project_title, project_text)
-  }
-  
-  return(str_trim(project_text))
-}
+crs = fread("large_output/crs_2014_2023_phi4_labeled.csv")
 
-# Load data
-# Set up parallel processing using available CPU cores
-plan(multisession, workers = parallel::detectCores() - 1)
+crs$`Sector code` = (crs$sector_code %in% c(16030, 16040))
+crs$any = crs$Housing | crs$Homelessness |
+  crs$Transitional | crs$Incremental | crs$Social |
+  crs$Market | crs$`Sector code`
 
-crs = fread("large_input/crs_2014_2023.csv")
-crs_text = crs[,c("project_title", "short_description", "long_description"), with=F]
-crs_text[, text := future_pmap_chr(.SD, create_unique_text, .progress=T)]
-latest_classifications = fread("large_input/crs-2014-2023-housing-labeled-phi4.csv")
-latest_classifications$text = trimws(latest_classifications$text)
-difs = setdiff(latest_classifications$text, unique(crs_text$text))
-latest_classifications$sector_code = NULL
-
-crs$text = crs_text$text
-rm(crs_text)
-gc()
-crs_merge = merge(crs, latest_classifications, by="text")
-rm(crs)
-gc()
-
-crs_merge$`Sector code` = (crs_merge$sector_code %in% c(16030, 16040))
-crs_merge$any = crs_merge$Housing | crs_merge$Homelessness |
-  crs_merge$Transitional | crs_merge$Incremental | crs_merge$Social |
-  crs_merge$Market | crs_merge$`Sector code`
-
-crs = subset(crs_merge, any==T)
+crs = subset(crs, any==T)
 
 crs = subset(
   crs,
@@ -110,7 +78,7 @@ crs = subset(
 )
 
 # By disbursement year
-crs$`Off continuum` = !crs$Homelessness & 
+crs$`Housing general` = !crs$Homelessness & 
   !crs$Transitional & 
   !crs$Incremental & 
   !crs$Social &
@@ -124,7 +92,7 @@ housing_continuum = melt(
     "Incremental",
     "Social",
     "Market",
-    "Off continuum"
+    "Housing general"
   ),
   value.name = "continuum"
 )
@@ -214,5 +182,3 @@ ggsave(
 )
 urban_rural_year_wide = dcast(ur_agg, year~variable, value.var="percent")
 fwrite(urban_rural_year_wide, "output/urban_rural_year_percent.csv")
-
-plan(sequential)
