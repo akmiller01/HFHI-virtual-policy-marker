@@ -65,9 +65,9 @@ rotate_x_text_90 = theme(
 crs = fread("large_output/crs_2014_2023_phi4_labeled.csv")
 
 crs$`Sector code` = (crs$sector_code %in% c(16030, 16040))
-crs$any = crs$Housing | crs$Homelessness |
-  crs$Transitional | crs$Incremental | crs$Social |
-  crs$Market | crs$`Sector code`
+crs$any = crs$`Housing general` | crs$Homelessness |
+  crs$`Transitional housing` | crs$`Incremental housing` | crs$`Social housing` |
+  crs$`Market housing` | crs$`Sector code`
 
 crs = subset(crs, any==T)
 
@@ -79,19 +79,19 @@ crs = subset(
 
 # By disbursement year
 crs$`Housing general` = !crs$Homelessness & 
-  !crs$Transitional & 
-  !crs$Incremental & 
-  !crs$Social &
-  !crs$Market
+  !crs$`Transitional housing` & 
+  !crs$`Incremental housing` & 
+  !crs$`Social housing` &
+  !crs$`Market housing`
 housing_continuum = melt(
   crs,
   id.vars=c("year", "value"),
   measure.vars=c(
     "Homelessness",
-    "Transitional",
-    "Incremental",
-    "Social",
-    "Market",
+    "Transitional housing",
+    "Incremental housing",
+    "Social housing",
+    "Market housing",
     "Housing general"
   ),
   value.name = "continuum"
