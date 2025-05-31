@@ -6,7 +6,7 @@ import tiktoken
 from openai import OpenAI, OpenAIError
 import pandas as pd
 from tqdm import tqdm
-from hfhi_definitions import SUFFIX, RETRIEVAL_TOPICS
+from wb_definitions import SUFFIX, RETRIEVAL_TOPICS
 
 
 SYSTEM_PROMPT = """
