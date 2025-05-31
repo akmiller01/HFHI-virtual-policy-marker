@@ -1,14 +1,13 @@
-from huggingface_hub import login
 from datasets import load_dataset
-import os
 import pandas as pd
 from tqdm import tqdm
+from hfhi_definitions import SUFFIX
 
 
 def create_unique_text(row):
-    title = row['project_title'] if not pd.isna(row['project_title']) else ''
-    short = row['short_description'] if not pd.isna(row['short_description']) else ''
-    long = row['long_description'] if not pd.isna(row['long_description']) else ''
+    title = row['ProjectTitle'] if not pd.isna(row['ProjectTitle']) else ''
+    short = row['ShortDescription'] if not pd.isna(row['ShortDescription']) else ''
+    long = row['LongDescription'] if not pd.isna(row['LongDescription']) else ''
 
     project_text = long
     if short.lower() not in project_text.lower():
@@ -27,12 +26,12 @@ def main():
     df['text'] = df.progress_apply(create_unique_text, axis=1)
 
     # Load labeled texts from HF
-    labels = load_dataset('alex-miller/crs-2014-2023-housing-labeled-phi4', split='train')
-    labels = labels.remove_columns(['sector_code'])
+    labels = load_dataset(f'alex-miller/crs-2014-2023-housing-labeled-phi4{SUFFIX}', split='train')
+    labels = labels.remove_columns(['PurposeCode'])
     labels = labels.to_pandas()
 
     df = df.merge(labels, how="left", on="text")
-    df.to_csv("large_output/crs_2014_2023_phi4_labeled.csv")
+    df.to_csv(f"large_output/crs_2014_2023_phi4_labeled{SUFFIX}.csv")
 
 
 

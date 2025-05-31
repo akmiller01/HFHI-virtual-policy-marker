@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 import click
 import tiktoken
 from openai import OpenAI, OpenAIError
-from model_common import SYSTEM_PROMPT, DEFINITIONS, SECTORS, ReasonedClassification
+from hfhi_definitions import SUFFIX, SYSTEM_PROMPT, DEFINITIONS, ReasonedClassification
+from common import SECTORS
 
 
 load_dotenv()
@@ -57,7 +58,7 @@ def gpt_label(example):
                     "role": "user",
                     "content": '{}\nSector: {}'.format(
                         example['text'],
-                        SECTORS[str(example['sector_code'])],
+                        SECTORS[str(example['PurposeCode'])],
                     )
                 },
             ],
@@ -86,18 +87,18 @@ def main():
     login(token=HF_TOKEN)
 
     # Load data
-    dataset = load_dataset('alex-miller/crs-2014-2023-housing-selection', split='train')
-    unique_sectors = [str(sector) for sector in list(set(dataset['sector_code']))]
+    dataset = load_dataset(f'alex-miller/crs-2014-2023-housing-selection{SUFFIX}', split='train')
+    unique_sectors = [str(sector) for sector in list(set(dataset['PurposeCode']))]
     missing_sectors = [sector for sector in unique_sectors if not sector in SECTORS]
     if len(missing_sectors) > 0:
         raise Exception(
-            'Please add the following sector codes to code/model_common.py:\n{}'.format('\n'.join(missing_sectors))
+            'Please add the following sector codes to code/common.py:\n{}'.format('\n'.join(missing_sectors))
         )
 
     # Label
     if warn_user_about_tokens(dataset['text']) == True:
         dataset = dataset.map(gpt_label)
-        dataset.push_to_hub('alex-miller/crs-2014-2023-housing-labeled-gpt')
+        dataset.push_to_hub(f'alex-miller/crs-2014-2023-housing-labeled-gpt{SUFFIX}')
 
 
 if __name__ == '__main__':

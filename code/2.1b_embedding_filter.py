@@ -6,14 +6,15 @@ import xgboost as xgb
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
+from hfhi_definitions import SUFFIX
 
 
 # Load the data
-dataset = load_dataset("alex-miller/crs-2014-2023-housing-similarity", split="train")
+dataset = load_dataset(f"alex-miller/crs-2014-2023-housing-similarity{SUFFIX}", split="train")
 dat = dataset.to_pandas()
 
 # Load keywords
-keywords = pd.read_csv("input/keywords.csv")
+keywords = pd.read_csv(f"input/keywords{SUFFIX}.csv")
 
 # Create regex pattern for keywords
 keyword_regex = "|".join([fr"\b{re.escape(word)}\b" for word in keywords["word"]])
@@ -23,13 +24,13 @@ print("Finding keywords...")
 dat["keyword"] = dat["text"].str.lower().str.contains(keyword_regex, regex=True, na=False)
 
 # Define target condition
-dat["target"] = ((dat["sector_code"].isin([16030, 16040])) | dat["keyword"]).astype(int)
+dat["target"] = ((dat["PurposeCode"].isin([16030, 16040])) | dat["keyword"]).astype(int)
 
 # Variables
 y = dat.pop('target').values.astype(int)
 keyword_results = dat.pop('keyword').values.astype(int)
 dat.pop('text')
-dat.pop('sector_code')
+dat.pop('PurposeCode')
 
 X = dat.values.astype(float)
 
@@ -86,14 +87,14 @@ sns.heatmap(cm, annot=True, fmt='g', cmap='Blues', xticklabels=labels, yticklabe
 plt.xlabel('Predicted')
 plt.ylabel('True')
 plt.title('Confusion Matrix')
-plt.savefig('output/Figure_1.png')
+plt.savefig(f'output/Figure_1{SUFFIX}.png')
 
 # Upload
 cols_to_remove = dataset.column_names
 cols_to_remove.remove('text')
-cols_to_remove.remove('sector_code')
+cols_to_remove.remove('PurposeCode')
 dataset = dataset.remove_columns(cols_to_remove)
 dataset = dataset.add_column("selected", xgb_or_kw)
-dataset = dataset.filter(lambda e: e['selected'] == 1 or e['sector_code'] in [16030, 16040])
+dataset = dataset.filter(lambda e: e['selected'] == 1 or e['PurposeCode'] in [16030, 16040])
 dataset = dataset.remove_columns('selected')
-dataset.push_to_hub('alex-miller/crs-2014-2023-housing-selection')
+dataset.push_to_hub(f'alex-miller/crs-2014-2023-housing-selection{SUFFIX}')

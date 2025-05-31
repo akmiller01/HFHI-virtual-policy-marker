@@ -60,14 +60,21 @@ rotate_x_text_90 = theme(
 
 # Load data
 crs = fread("input/crs_2014_2023_purpose_codes.csv")
-crs = subset(
-  crs,
-  flow_type_name=="Disbursements" &
-  amount_type=="Constant prices"
-)
 
 # By category
-crs_by_category = crs[,.(value=sum(value, na.rm=T)), by=.(year, category_name)]
+crs_by_category = crs[,.(value=sum(USD_Disbursement_Defl, na.rm=T)), by=.(Year, Category)]
+category_codes = c(
+  "10"="ODA",
+  "21"="Non-export credit OOF",
+  "22"="Officially supported export credits",
+  "30"="Private Development Finance",
+  "36"="Private Foreign Direct Investment",
+  "37"="Other Private flows at market terms",
+  "40"="Non flow",
+  "50"="Other flows",
+  "60"="PSI"
+)
+crs_by_category$category_name = category_codes[as.character(crs_by_category$Category)]
 category_mapping = c(
   "ODA"="ODA",
   "Non-export credit OOF"="OOF",
@@ -75,11 +82,12 @@ category_mapping = c(
   "PSI"="Private"
 )
 crs_by_category$category_name = category_mapping[crs_by_category$category_name]
+crs_by_category = crs_by_category[,.(value=sum(value)),by=.(Year, category_name)]
 crs_by_category$category_name = factor(
   crs_by_category$category_name, levels = c("ODA", "OOF", "Private")
 )
 
-ggplot(crs_by_category, aes(x=year, y=value, group=category_name, fill=category_name)) +
+ggplot(crs_by_category, aes(x=Year, y=value, group=category_name, fill=category_name)) +
   geom_bar(stat="identity") +
   scale_y_continuous(expand = c(0, 0), n.breaks=5, labels=dollar) +
   scale_x_continuous(n.breaks = 10) +
@@ -92,22 +100,22 @@ ggplot(crs_by_category, aes(x=year, y=value, group=category_name, fill=category_
     fill=""
   ) + rotate_x_text_45
 ggsave(
-  filename="output/sector_category_year.png",
+  filename="output/sector_category_Year.png",
   height=5,
   width=8
 )
-crs_by_category_wide = dcast(crs_by_category, year~category_name, value.var="value")
-fwrite(crs_by_category_wide, "output/sector_category_year.csv")
+crs_by_category_wide = dcast(crs_by_category, Year~category_name, value.var="value")
+fwrite(crs_by_category_wide, "output/sector_category_Year.csv")
 
-# By disbursement year
-crs_by_year = crs[,.(value=sum(value, na.rm=T)), by=.(year, sector_name)]
+# By disbursement Year
+crs_by_Year = crs[,.(value=sum(USD_Disbursement_Defl, na.rm=T)), by=.(Year, PurposeName)]
 
-ggplot(crs_by_year, aes(x=year, y=value, group=sector_name, fill=sector_name)) +
+ggplot(crs_by_Year, aes(x=Year, y=value, group=PurposeName, fill=PurposeName)) +
   geom_bar(stat="identity") +
   scale_y_continuous(expand = c(0, 0), n.breaks=5, labels=dollar) +
   scale_x_continuous(n.breaks = 10) +
   scale_fill_manual(values=c(master_blue, master_green)) +
-  expand_limits(y=c(0, max(crs_by_year$value*1.1))) +
+  expand_limits(y=c(0, max(crs_by_Year$value*1.1))) +
   custom_style +
   labs(
     y="Housing disbursements\n(constant 2022 US$ millions)",
@@ -115,40 +123,40 @@ ggplot(crs_by_year, aes(x=year, y=value, group=sector_name, fill=sector_name)) +
     fill=""
   ) + rotate_x_text_45
 ggsave(
-  filename="output/sector_year.png",
+  filename="output/sector_Year.png",
   height=5,
   width=8
 )
-crs_by_year_wide = dcast(crs_by_year, year~sector_name, value.var="value")
-fwrite(crs_by_year_wide, "output/sector_year.csv")
+crs_by_Year_wide = dcast(crs_by_Year, Year~PurposeName, value.var="value")
+fwrite(crs_by_Year_wide, "output/sector_Year.csv")
 
 # By donor
-crs_by_donor = crs[,.(value=sum(value, na.rm=T)), by=.(donor_name)]
+crs_by_donor = crs[,.(value=sum(USD_Disbursement_Defl, na.rm=T)), by=.(DonorName)]
 crs_by_donor = crs_by_donor[order(-crs_by_donor$value),]
 
-donor_short_names = crs_by_donor$donor_name
-names(donor_short_names) = crs_by_donor$donor_name
-donor_short_names["International Development Association [IDA]"] = 
+donor_short_names = crs_by_donor$DonorName
+names(donor_short_names) = crs_by_donor$DonorName
+donor_short_names["International Development Association"] = 
   "IDA"
 donor_short_names["Council of Europe Development Bank"] = 
   "CEB"
-donor_short_names["Inter-American Development Bank [IDB]"] = 
+donor_short_names["Inter-American Development Bank"] = 
   "IDB"
-donor_short_names["Asian Development Bank [AsDB]"] = 
+donor_short_names["Asian Development Bank"] = 
   "AsDB"
-donor_short_names["International Bank for Reconstruction and Development [IBRD]"] = 
+donor_short_names["International Bank for Reconstruction and Development"] = 
   "IBRD"
-donor_short_names["European Bank for Reconstruction and Development [EBRD]"] = 
+donor_short_names["European Bank for Reconstruction and Development"] = 
   "EBRD"
-donor_short_names["Asian Infrastructure Investment Bank [AIIB]"] = 
+donor_short_names["Asian Infrastructure Investment Bank"] = 
   "AIIB"
 fwrite(crs_by_donor, "output/sector_by_donor.csv")
-crs_by_donor$donor_name = donor_short_names[crs_by_donor$donor_name]
-crs_by_donor$donor_name = factor(
-  crs_by_donor$donor_name,
-  levels=crs_by_donor$donor_name
+crs_by_donor$DonorName = donor_short_names[crs_by_donor$DonorName]
+crs_by_donor$DonorName = factor(
+  crs_by_donor$DonorName,
+  levels=crs_by_donor$DonorName
 )
-ggplot(crs_by_donor[1:10], aes(x=donor_name, y=value)) +
+ggplot(crs_by_donor[1:10], aes(x=DonorName, y=value)) +
   geom_bar(stat="identity",fill=master_blue) +
   scale_y_continuous(expand = c(0, 0), labels=dollar) +
   expand_limits(y=c(0, max(crs_by_donor$value*1.1))) +
@@ -168,9 +176,14 @@ ggsave(
 
 # By donor type
 donor_type = fread("input/oecd_crs_donor_type_ref.csv")[,c("donor_code", "donor_type")]
-setdiff(unique(crs$donor_code), unique(donor_type$donor_code))
-crs_donor_type = merge(crs, donor_type, by="donor_code")
-crs_by_donor_type = crs_donor_type[,.(value=sum(value, na.rm=T)), by=.(donor_type)]
+setnames(
+  donor_type,
+  c("donor_code"),
+  c("DonorCode")
+)
+setdiff(unique(crs$DonorCode), unique(donor_type$DonorCode))
+crs_donor_type = merge(crs, donor_type, by="DonorCode")
+crs_by_donor_type = crs_donor_type[,.(value=sum(USD_Disbursement_Defl, na.rm=T)), by=.(donor_type)]
 crs_by_donor_type = crs_by_donor_type[order(-crs_by_donor_type$value),]
 
 fwrite(crs_by_donor_type, "output/sector_by_donor_type.csv")
@@ -197,22 +210,22 @@ ggsave(
 )
 
 # By recipient
-crs_by_recipient_year = crs[,.(value=sum(value, na.rm=T)), by=.(recipient_name, year)]
-crs_by_recipient = crs_by_recipient_year[,.(value=sum(value, na.rm=T)), by=.(recipient_name)]
+crs_by_recipient_Year = crs[,.(value=sum(USD_Disbursement_Defl, na.rm=T)), by=.(RecipientName, Year)]
+crs_by_recipient = crs_by_recipient_Year[,.(value=sum(value, na.rm=T)), by=.(RecipientName)]
 crs_by_recipient_type = crs_by_recipient
 
 crs_by_recipient = crs_by_recipient[order(-crs_by_recipient$value),]
-recipient_short_names = crs_by_recipient$recipient_name
-names(recipient_short_names) = crs_by_recipient$recipient_name
+recipient_short_names = crs_by_recipient$RecipientName
+names(recipient_short_names) = crs_by_recipient$RecipientName
 # recipient_short_names["X"] =
 #   "Y"
 fwrite(crs_by_recipient, "output/sector_by_recipient.csv")
-crs_by_recipient$recipient_name = recipient_short_names[crs_by_recipient$recipient_name]
-crs_by_recipient$recipient_name = factor(
-  crs_by_recipient$recipient_name,
-  levels=crs_by_recipient$recipient_name
+crs_by_recipient$RecipientName = recipient_short_names[crs_by_recipient$RecipientName]
+crs_by_recipient$RecipientName = factor(
+  crs_by_recipient$RecipientName,
+  levels=crs_by_recipient$RecipientName
 )
-ggplot(crs_by_recipient[1:10], aes(x=recipient_name, y=value)) +
+ggplot(crs_by_recipient[1:10], aes(x=RecipientName, y=value)) +
   geom_bar(stat="identity",fill=master_blue) +
   scale_y_continuous(expand = c(0, 0), labels=dollar) +
   expand_limits(y=c(0, max(crs_by_recipient$value*1.1))) +
@@ -231,19 +244,19 @@ ggsave(
 )
 
 # By recipient income group
-income_groups = unique(crs[,c("recipient_name", "income_group_code")])
-crs_by_recipient_type = merge(crs_by_recipient_type, income_groups, by="recipient_name")
+income_groups = unique(crs[,c("RecipientName", "IncomegroupName")])
+crs_by_recipient_type = merge(crs_by_recipient_type, income_groups, by="RecipientName")
 crs_by_recipient_type = crs_by_recipient_type[,.(
   value=sum(value, na.rm=T)
-), by=.(income_group_code)]
+), by=.(IncomegroupName)]
 
 crs_by_recipient_type = crs_by_recipient_type[order(-crs_by_recipient_type$value),]
 fwrite(crs_by_recipient_type, "output/sector_by_income.csv")
-crs_by_recipient_type$income_group_code = factor(
-  crs_by_recipient_type$income_group_code,
-  levels=crs_by_recipient_type$income_group_code
+crs_by_recipient_type$IncomegroupName = factor(
+  crs_by_recipient_type$IncomegroupName,
+  levels=crs_by_recipient_type$IncomegroupName
 )
-ggplot(crs_by_recipient_type, aes(x=income_group_code, y=value)) +
+ggplot(crs_by_recipient_type, aes(x=IncomegroupName, y=value)) +
   geom_bar(stat="identity",fill=master_blue) +
   scale_y_continuous(expand = c(0, 0), labels=dollar) +
   expand_limits(y=c(0, max(crs_by_recipient_type$value*1.1))) +
