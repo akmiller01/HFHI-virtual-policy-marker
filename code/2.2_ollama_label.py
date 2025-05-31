@@ -15,7 +15,7 @@ from util_self_termination import main as self_terminate
 
 
 global MODEL
-MODEL = "phi4"
+MODEL = "phi4-reasoning"
 
 
 def ollama_label(example):
@@ -69,7 +69,7 @@ def main():
 
     # Label
     dataset = dataset.map(ollama_label)
-    dataset.push_to_hub(f'alex-miller/crs-2014-2023-housing-labeled-phi4{SUFFIX}')
+    dataset.push_to_hub(f'alex-miller/crs-2014-2023-housing-labeled-phi4-reasoning{SUFFIX}')
     self_terminate()
 
 

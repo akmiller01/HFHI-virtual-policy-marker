@@ -62,7 +62,7 @@ rotate_x_text_90 = theme(
 )
 #### End chart setup ####
 
-crs = fread("large_output/crs_2014_2023_phi4_labeled.csv")
+crs = fread("large_output/crs_2014_2023_phi4_reasoning_labeled_hfhi.csv")
 
 crs$`Sector code` = (crs$PurposeCode %in% c(16030, 16040))
 crs$any = crs$`Housing general` | crs$Homelessness |
