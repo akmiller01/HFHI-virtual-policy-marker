@@ -68,7 +68,11 @@ crs$`Sector code` = (crs$sector_code %in% c(16030, 16040))
 crs$any = crs$`Housing general` | crs$Homelessness |
   crs$`Transitional housing` | crs$`Incremental housing` | crs$`Social housing` |
   crs$`Market housing` | crs$`Sector code`
+crs$any_sans_sector = crs$`Housing general` | crs$Homelessness |
+  crs$`Transitional housing` | crs$`Incremental housing` | crs$`Social housing` |
+  crs$`Market housing`
 
+potential_false_negative = subset(crs, `Sector code` & !any_sans_sector)
 crs = subset(crs, any==T)
 
 crs = subset(
@@ -83,6 +87,7 @@ crs$`Housing general` = !crs$Homelessness &
   !crs$`Incremental housing` & 
   !crs$`Social housing` &
   !crs$`Market housing`
+fwrite(crs, "large_output/crs_2014_2023_phi4_housing_labeled.csv")
 housing_continuum = melt(
   crs,
   id.vars=c("year", "value"),
@@ -182,3 +187,8 @@ ggsave(
 )
 urban_rural_year_wide = dcast(ur_agg, year~variable, value.var="percent")
 fwrite(urban_rural_year_wide, "output/urban_rural_year_percent.csv")
+
+# Original sector analysis
+og_sector_agg = crs[,.(value=sum(value, na.rm=T)),by=.(sector_name)]
+category_agg = crs[,.(value=sum(value, na.rm=T)),by=.(category_name)]
+sector_category_agg = crs[,.(value=sum(value, na.rm=T)),by=.(sector_name, category_name)]
