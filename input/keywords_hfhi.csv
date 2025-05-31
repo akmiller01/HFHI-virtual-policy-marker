@@ -145,11 +145,7 @@ automação residencial,Smart housing ,Housing in general
 public private partnerships (ppps) for housing,Public Private Partnerships (PPPs) for housing,Housing in general
 ppp,Public Private Partnerships (PPPs) for housing,Housing in general
 app,Public Private Partnerships (PPPs) for housing,Housing in general
-ppp,Public Private Partnerships (PPPs) for housing,Housing in general
 öpp,Public Private Partnerships (PPPs) for housing,Housing in general
-ppp,Public Private Partnerships (PPPs) for housing,Housing in general
-ppp,Public Private Partnerships (PPPs) for housing,Housing in general
-ppp,Public Private Partnerships (PPPs) for housing,Housing in general
 "capacity building for housing, land and property (hlp)","Capacity building for Housing, Land and Property (HLP)",Housing in general
 training,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 formación,"Capacity building for Housing, Land and Property (HLP)",Housing in general
@@ -161,7 +157,6 @@ treinamento,"Capacity building for Housing, Land and Property (HLP)",Housing in 
 land,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 tierra,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 terre,"Capacity building for Housing, Land and Property (HLP)",Housing in general
-land,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 terra,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 ziemia,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 property,"Capacity building for Housing, Land and Property (HLP)",Housing in general
@@ -171,12 +166,6 @@ eigentum,"Capacity building for Housing, Land and Property (HLP)",Housing in gen
 proprietà,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 własność,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 propriedade,"Capacity building for Housing, Land and Property (HLP)",Housing in general
-hlp,"Capacity building for Housing, Land and Property (HLP)",Housing in general
-hlp,"Capacity building for Housing, Land and Property (HLP)",Housing in general
-hlp,"Capacity building for Housing, Land and Property (HLP)",Housing in general
-hlp,"Capacity building for Housing, Land and Property (HLP)",Housing in general
-hlp,"Capacity building for Housing, Land and Property (HLP)",Housing in general
-hlp,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 hlp,"Capacity building for Housing, Land and Property (HLP)",Housing in general
 "legal advice for housing, land and property (hlp)","Legal advice for Housing, Land and Property (HLP)",Housing in general
 eviction,"Legal advice for Housing, Land and Property (HLP)",Housing in general
@@ -228,30 +217,10 @@ rezydencja,dwelling,Housing in general
 residência,dwelling,Housing in general
 collective living quarters,collective living quarters,Housing in general
 cohousing,collective living quarters,Housing in general
-cohousing,collective living quarters,Housing in general
-coliving,collective living quarters,Housing in general
 coliving,collective living quarters,Housing in general
 green housing,Green Housing,Housing in general
 leed,Green Housing,Housing in general
-leed,Green Housing,Housing in general
-leed,Green Housing,Housing in general
-leed,Green Housing,Housing in general
-leed,Green Housing,Housing in general
-leed,Green Housing,Housing in general
-leed,Green Housing,Housing in general
 breeam,Green Housing,Housing in general
-breeam,Green Housing,Housing in general
-breeam,Green Housing,Housing in general
-breeam,Green Housing,Housing in general
-breeam,Green Housing,Housing in general
-breeam,Green Housing,Housing in general
-breeam,Green Housing,Housing in general
-passivhaus,Green Housing,Housing in general
-passivhaus,Green Housing,Housing in general
-passivhaus,Green Housing,Housing in general
-passivhaus,Green Housing,Housing in general
-passivhaus,Green Housing,Housing in general
-passivhaus,Green Housing,Housing in general
 passivhaus,Green Housing,Housing in general
 residential dwelling energy efficiency,residential dwelling energy efficiency,Housing in general
 insulation,residential dwelling energy efficiency,Housing in general
@@ -261,14 +230,12 @@ dämmung,residential dwelling energy efficiency,Housing in general
 isolamento,residential dwelling energy efficiency,Housing in general
 izolacja,residential dwelling energy efficiency,Housing in general
 retrofit,residential dwelling energy efficiency,Housing in general
-retrofit,residential dwelling energy efficiency,Housing in general
 u-value,residential dwelling energy efficiency,Housing in general
 valor u,residential dwelling energy efficiency,Housing in general
 valeur u,residential dwelling energy efficiency,Housing in general
 u-wert,residential dwelling energy efficiency,Housing in general
 valore u,residential dwelling energy efficiency,Housing in general
 współczynnik u,residential dwelling energy efficiency,Housing in general
-valor u,residential dwelling energy efficiency,Housing in general
 carbon-neutral housing,carbon-neutral housing,Housing in general
 decarbonization,carbon-neutral housing,Housing in general
 descarbonización,carbon-neutral housing,Housing in general
@@ -303,11 +270,9 @@ refrigeração,home energy use,Housing in general
 isolierung,home energy use,Housing in general
 thermostat,home energy use,Housing in general
 termostato,home energy use,Housing in general
-thermostat,home energy use,Housing in general
 termostat,home energy use,Housing in general
 gas,home energy use,Housing in general
 gaz,home energy use,Housing in general
-gas,home energy use,Housing in general
 gás,home energy use,Housing in general
 residential housing emissions,residential housing emissions,Housing in general
 rezydencjalny,residential housing emissions,Housing in general
@@ -658,7 +623,6 @@ gutschein,Short term rental support,Transitional housing
 subsidy,Short term rental support,Transitional housing
 subsidio,Short term rental support,Transitional housing
 subvention,Short term rental support,Transitional housing
-subvention,Short term rental support,Transitional housing
 sovvenzione,Short term rental support,Transitional housing
 dotacja,Short term rental support,Transitional housing
 subsídio,Short term rental support,Transitional housing
@@ -753,23 +717,15 @@ single room occupancy,single room occupancy,Transitional housing
 roominghouse,single room occupancy,Transitional housing
 pensión,single room occupancy,Transitional housing
 pension,single room occupancy,Transitional housing
-pension,single room occupancy,Transitional housing
 pensione,single room occupancy,Transitional housing
 pensjonat,single room occupancy,Transitional housing
 pensão,single room occupancy,Transitional housing
-sro,single room occupancy,Transitional housing
-sro,single room occupancy,Transitional housing
-sro,single room occupancy,Transitional housing
-sro,single room occupancy,Transitional housing
-sro,single room occupancy,Transitional housing
-sro,single room occupancy,Transitional housing
 sro,single room occupancy,Transitional housing
 rooming houses,rooming houses,Transitional housing
 boardinghouse,rooming houses,Transitional housing
 pension,rooming houses,Transitional housing
 cash transfers for housing,Cash transfers for housing,Transitional housing
 sussidio,Cash transfers for housing,Transitional housing
-cash transfers for shelter,Cash transfers for shelter,Transitional housing
 gutschein,Cash transfers for shelter,Transitional housing
 shelter costs,shelter costs,Transitional housing
 shelter-costs,shelter costs,Transitional housing
@@ -859,7 +815,6 @@ wody szare,Waste management for housing,Incremental housing
 águas cinzentas,Waste management for housing,Incremental housing
 latrine,Waste management for housing,Incremental housing
 letrina,Waste management for housing,Incremental housing
-latrine,Waste management for housing,Incremental housing
 latrina,Waste management for housing,Incremental housing
 latryna,Waste management for housing,Incremental housing
 wastewater,Waste management for housing,Incremental housing
@@ -1041,7 +996,6 @@ expansion,home expansion,Incremental housing
 agrandissement,home expansion,Incremental housing
 erweiterung,home expansion,Incremental housing
 extensión,home expansion,Incremental housing
-erweiterung,home expansion,Incremental housing
 estensione,home expansion,Incremental housing
 extensão,home expansion,Incremental housing
 module,home expansion,Incremental housing
@@ -1104,12 +1058,6 @@ okablowanie,Construction skills training,Incremental housing
 cabeamento,Construction skills training,Incremental housing
 community-level water and sanitation (watsan) infrastructure,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
 watsan,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
-watsan,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
-watsan,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
-watsan,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
-watsan,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
-watsan,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
-watsan,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
 borehole,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
 pozo perforado,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
 forage,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
@@ -1135,7 +1083,6 @@ rua,"Street, roads and sidewalks",Incremental housing
 road,"Street, roads and sidewalks",Incremental housing
 carretera,"Street, roads and sidewalks",Incremental housing
 route,"Street, roads and sidewalks",Incremental housing
-straße,"Street, roads and sidewalks",Incremental housing
 droga,"Street, roads and sidewalks",Incremental housing
 estrada,"Street, roads and sidewalks",Incremental housing
 sidewalk,"Street, roads and sidewalks",Incremental housing
@@ -1192,7 +1139,6 @@ plots,plots,Incremental housing
 parzelle,plots,Incremental housing
 particella,plots,Incremental housing
 parcel,plots,Incremental housing
-parzelle,plots,Incremental housing
 urban integration,urban integration,Incremental housing
 densification,urban integration,Incremental housing
 densificación,urban integration,Incremental housing
@@ -1213,7 +1159,6 @@ wohnungsbau,infrastructure for housing developments,Incremental housing
 transit oriented housing,transit oriented housing,Incremental housing
 transit,transit oriented housing,Incremental housing
 tránsito,transit oriented housing,Incremental housing
-transit,transit oriented housing,Incremental housing
 transito,transit oriented housing,Incremental housing
 tranzyt,transit oriented housing,Incremental housing
 trânsito,transit oriented housing,Incremental housing
@@ -1285,7 +1230,6 @@ odpady rolnicze,Agricultural waste recycling for housing ,Incremental housing
 resíduos agrícolas,Agricultural waste recycling for housing ,Incremental housing
 bagasse,Agricultural waste recycling for housing ,Incremental housing
 bagazo,Agricultural waste recycling for housing ,Incremental housing
-bagasse,Agricultural waste recycling for housing ,Incremental housing
 bagassa,Agricultural waste recycling for housing ,Incremental housing
 bagasa,Agricultural waste recycling for housing ,Incremental housing
 bagaço,Agricultural waste recycling for housing ,Incremental housing
@@ -1325,13 +1269,11 @@ permakultura,nature based solutions for residential,Incremental housing
 phytoremediation,nature based solutions for residential,Incremental housing
 fitorremediación,nature based solutions for residential,Incremental housing
 phytorémédiation,nature based solutions for residential,Incremental housing
-phytoremediation,nature based solutions for residential,Incremental housing
 fitorimediazione,nature based solutions for residential,Incremental housing
 fitoremediacja,nature based solutions for residential,Incremental housing
 fitorremediação,nature based solutions for residential,Incremental housing
 biophilia,nature based solutions for residential,Incremental housing
 biofilia,nature based solutions for residential,Incremental housing
-biophilie,nature based solutions for residential,Incremental housing
 biophilie,nature based solutions for residential,Incremental housing
 environmental protection for residential,environmental protection for residential,Incremental housing
 ecodesign,environmental protection for residential,Incremental housing
@@ -1350,7 +1292,6 @@ ecosystem restoration for residential,ecosystem restoration for residential,Incr
 bioretention,ecosystem restoration for residential,Incremental housing
 biorretención,ecosystem restoration for residential,Incremental housing
 biorétention,ecosystem restoration for residential,Incremental housing
-bioretention,ecosystem restoration for residential,Incremental housing
 bioritenzione,ecosystem restoration for residential,Incremental housing
 bioretencja,ecosystem restoration for residential,Incremental housing
 biorretenção,ecosystem restoration for residential,Incremental housing
@@ -1376,7 +1317,6 @@ zwangsräumung,"Eviction prevention, protection or moratorium",Incremental housi
 moratorium,"Eviction prevention, protection or moratorium",Incremental housing
 moratoria,"Eviction prevention, protection or moratorium",Incremental housing
 moratoire,"Eviction prevention, protection or moratorium",Incremental housing
-moratorium,"Eviction prevention, protection or moratorium",Incremental housing
 moratório,"Eviction prevention, protection or moratorium",Incremental housing
 aashwa'i,aashwa'i,Incremental housing
 slum,aashwa'i,Incremental housing
@@ -1433,7 +1373,6 @@ tugurio,bidonville,Incremental housing
 elendsviertel,bidonville,Incremental housing
 shantytown,bidonville,Incremental housing
 barrio marginal,bidonville,Incremental housing
-elendsviertel,bidonville,Incremental housing
 brarek,brarek,Incremental housing
 shell,brarek,Incremental housing
 envolvente,brarek,Incremental housing
@@ -1465,13 +1404,6 @@ elendsviertel,campamento,Incremental housing
 cantegril,cantegril,Incremental housing
 chawl,chawl,Incremental housing
 chawls,chawl,Incremental housing
-chacarita,chacarita,Incremental housing
-chacarita,chacarita,Incremental housing
-chacarita,chacarita,Incremental housing
-chacarita,chacarita,Incremental housing
-chacarita,chacarita,Incremental housing
-chacarita,chacarita,Incremental housing
-chacarita,chacarita,Incremental housing
 chacarita,chacarita,Incremental housing
 ciudad perdida,ciudad perdida,Incremental housing
 city,ciudad perdida,Incremental housing
@@ -1517,7 +1449,6 @@ mietskaserne,cortiço,Incremental housing
 caseggiato,cortiço,Incremental housing
 kamienica,cortiço,Incremental housing
 elendsviertel,elendsviertel,Incremental housing
-elendsviertel,elendsviertel,Incremental housing
 favela,favela,Incremental housing
 foundouks,foundouks,Incremental housing
 foundouk,foundouks,Incremental housing
@@ -1534,7 +1465,6 @@ poblado chabolista,gecekondu,Incremental housing
 elendsviertel,gecekondu,Incremental housing
 ghetto,ghetto,Incremental housing
 gueto,ghetto,Incremental housing
-ghetto,ghetto,Incremental housing
 getto,ghetto,Incremental housing
 illegal settlement,illegal settlement,Incremental housing
 elendsviertel,illegal settlement,Incremental housing
@@ -1578,11 +1508,9 @@ autoconstrução,habitat spontané,Incremental housing
 hood,hood,Incremental housing
 jhopadpatti,jhopadpatti,Incremental housing
 kampong,kampong,Incremental housing
-kampong,kampong,Incremental housing
 kartonsko naselje,kartonsko naselje,Incremental housing
 slum,kartonsko naselje,Incremental housing
 katchi abadi,katchi abadi,Incremental housing
-elendsviertel,katchi abadi,Incremental housing
 elendsviertel,katchi abadi,Incremental housing
 katra,katra,Incremental housing
 kijiji,kijiji,Incremental housing
@@ -1607,13 +1535,6 @@ eigenhilfehausbau,kijiji,Incremental housing
 casadautocostruzione,kijiji,Incremental housing
 samopomocnebudownictwo,kijiji,Incremental housing
 autoconstrucaohabitacional,kijiji,Incremental housing
-lahbach,lahbach,Incremental housing
-lahbach,lahbach,Incremental housing
-lahbach,lahbach,Incremental housing
-lahbach,lahbach,Incremental housing
-lahbach,lahbach,Incremental housing
-lahbach,lahbach,Incremental housing
-lahbach,lahbach,Incremental housing
 lahbach,lahbach,Incremental housing
 loteamento,loteamento,Incremental housing
 loteamiento,loteamento,Incremental housing
@@ -1666,7 +1587,6 @@ buda,shanty house / shanty town,Incremental housing
 favela,shanty house / shanty town,Incremental housing
 squatter city / camp / settlement,squatter city / camp / settlement,Incremental housing
 hausbesetzer,squatter city / camp / settlement,Incremental housing
-elendsviertel,squatter city / camp / settlement,Incremental housing
 elendsviertel,squatter city / camp / settlement,Incremental housing
 tanake,tanake,Incremental housing
 taudis,taudis,Incremental housing
@@ -1968,12 +1888,6 @@ mieszkalnictwo wspólnotowe,non-market housing,Social housing
 habitação comunitária,non-market housing,Social housing
 energy service company (esco),Energy Service Company (ESCO),Social housing
 esco,Energy Service Company (ESCO),Social housing
-esco,Energy Service Company (ESCO),Social housing
-esco,Energy Service Company (ESCO),Social housing
-esco,Energy Service Company (ESCO),Social housing
-esco,Energy Service Company (ESCO),Social housing
-esco,Energy Service Company (ESCO),Social housing
-esco,Energy Service Company (ESCO),Social housing
 affordable rental,affordable rental,Social housing
 loyer social,affordable rental,Social housing
 czynsz socjalny,affordable rental,Social housing
@@ -1981,12 +1895,6 @@ renda social,affordable rental,Social housing
 subvencionado,affordable rental,Social housing
 dotowany,affordable rental,Social housing
 social acceptability of housing projects (nimby),social acceptability of housing projects (NIMBY),Social housing
-nimby,social acceptability of housing projects (NIMBY),Social housing
-nimby,social acceptability of housing projects (NIMBY),Social housing
-nimby,social acceptability of housing projects (NIMBY),Social housing
-nimby,social acceptability of housing projects (NIMBY),Social housing
-nimby,social acceptability of housing projects (NIMBY),Social housing
-nimby,social acceptability of housing projects (NIMBY),Social housing
 nimby,social acceptability of housing projects (NIMBY),Social housing
 nimbyism,social acceptability of housing projects (NIMBY),Social housing
 nimbyismo,social acceptability of housing projects (NIMBY),Social housing
@@ -2358,7 +2266,6 @@ zonierung,zoning reform,Market housing
 rezoning,zoning reform,Market housing
 rezonificación,zoning reform,Market housing
 rezonage,zoning reform,Market housing
-rezoning,zoning reform,Market housing
 rezonificazione,zoning reform,Market housing
 rezonowanie,zoning reform,Market housing
 rezonificação,zoning reform,Market housing
@@ -2560,12 +2467,6 @@ krótkoterminowy,short-term rental,Market housing
 curto prazo,short-term rental,Market housing
 miete,short-term rental,Market housing
 untermieten,short-term rental,Market housing
-airbnb,short-term rental,Market housing
-airbnb,short-term rental,Market housing
-airbnb,short-term rental,Market housing
-airbnb,short-term rental,Market housing
-airbnb,short-term rental,Market housing
-airbnb,short-term rental,Market housing
 airbnb,short-term rental,Market housing
 low-cost financing,low-cost financing,Market housing
 hypothek,low-cost financing,Market housing
