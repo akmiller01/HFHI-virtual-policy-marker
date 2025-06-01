@@ -41,8 +41,8 @@ tente,homeless encampments,Homelessness
 tienda,homeless encampments,Homelessness
 zelt,homeless encampments,Homelessness
 abrigo para sem teto,homeless shelters,Homelessness
-homeless shelters,homeless shelters,Homelessness
 homeless shelter,homeless shelters,Homelessness
+homeless shelters,homeless shelters,Homelessness
 obdachlosenunterkunft,homeless shelters,Homelessness
 refuge pour sans abri,homeless shelters,Homelessness
 refugio para personas sin hogar,homeless shelters,Homelessness
@@ -197,9 +197,6 @@ electricity,home energy use,Housing in general
 elektryczność,home energy use,Housing in general
 eletricidade,home energy use,Housing in general
 elettricità,home energy use,Housing in general
-gas,home energy use,Housing in general
-gás,home energy use,Housing in general
-gaz,home energy use,Housing in general
 heating,home energy use,Housing in general
 heizung,home energy use,Housing in general
 home energy use,home energy use,Housing in general
@@ -253,13 +250,6 @@ subdivision,housing development,Housing in general
 subdivisión,housing development,Housing in general
 wohnsiedlung,housing development,Housing in general
 housing policy,housing policy,Housing in general
-policy,housing policy,Housing in general
-politica,housing policy,Housing in general
-política,housing policy,Housing in general
-politik,housing policy,Housing in general
-politique,housing policy,Housing in general
-polityka,housing policy,Housing in general
-wohnungswesen,housing policy,Housing in general
 abitazione,housing provision,Housing in general
 habitação,housing provision,Housing in general
 housing,housing provision,Housing in general
@@ -268,20 +258,7 @@ logement,housing provision,Housing in general
 mieszkalnictwo,housing provision,Housing in general
 vivienda,housing provision,Housing in general
 wohnraum,housing provision,Housing in general
-accesibilidad,inclusive housing,Housing in general
-accessibilità,inclusive housing,Housing in general
-accessibilité,inclusive housing,Housing in general
-accessibility,inclusive housing,Housing in general
-acessibilidade,inclusive housing,Housing in general
-barrierefreiheit,inclusive housing,Housing in general
-dostępność,inclusive housing,Housing in general
-inclusão,inclusive housing,Housing in general
-inclusion,inclusive housing,Housing in general
-inclusión,inclusive housing,Housing in general
-inclusione,inclusive housing,Housing in general
 inclusive housing,inclusive housing,Housing in general
-inklusion,inclusive housing,Housing in general
-inkluzja,inclusive housing,Housing in general
 arrendador,"Legal advice for Housing, Land and Property (HLP)",Housing in general
 bail,"Legal advice for Housing, Land and Property (HLP)",Housing in general
 bailleur,"Legal advice for Housing, Land and Property (HLP)",Housing in general
@@ -308,10 +285,7 @@ tenant,"Legal advice for Housing, Land and Property (HLP)",Housing in general
 vermieter,"Legal advice for Housing, Land and Property (HLP)",Housing in general
 wynajmujący,"Legal advice for Housing, Land and Property (HLP)",Housing in general
 zwangsräumung,"Legal advice for Housing, Land and Property (HLP)",Housing in general
-app,Public Private Partnerships (PPPs) for housing,Housing in general
-öpp,Public Private Partnerships (PPPs) for housing,Housing in general
-ppp,Public Private Partnerships (PPPs) for housing,Housing in general
-public private partnerships (ppps) for housing,Public Private Partnerships (PPPs) for housing,Housing in general
+public private partnerships for housing,Public Private Partnerships (PPPs) for housing,Housing in general
 mieszkaniowy,residential,Housing in general
 residencial,residential,Housing in general
 residential,residential,Housing in general
@@ -477,6 +451,13 @@ shack,barraca,Incremental housing
 barriada,barrida,Incremental housing
 barrida,barrida,Incremental housing
 barrio,barrio,Incremental housing
+basic services for housing,basic services for housing,Incremental housing
+grundversorgung für wohnraum,basic services for housing,Incremental housing
+podstawowe usługi mieszkaniowe,basic services for housing,Incremental housing
+services de base pour le logement,basic services for housing,Incremental housing
+servicios básicos para la vivienda,basic services for housing,Incremental housing
+serviços básicos para habitação,basic services for housing,Incremental housing
+servizi di base per l'abitazione,basic services for housing,Incremental housing
 basti,basti,Incremental housing
 bidão,bidon,Incremental housing
 bidon,bidon,Incremental housing
@@ -512,31 +493,26 @@ behelfsiedlung,bustee,Incremental housing
 bustee,bustee,Incremental housing
 cortiço,bustee,Incremental housing
 dzielnica nędzy,bustee,Incremental housing
+cadastral surveys,Cadastral surveys,Incremental housing
+katastervermessung,Cadastral surveys,Incremental housing
+levantamentos cadastrais,Cadastral surveys,Incremental housing
+levantamientos catastrales,Cadastral surveys,Incremental housing
+levés cadastraux,Cadastral surveys,Incremental housing
+pomiary katastralne,Cadastral surveys,Incremental housing
+rilievi catastali,Cadastral surveys,Incremental housing
 cantegril,cantegril,Incremental housing
 chacarita,chacarita,Incremental housing
 chawl,chawl,Incremental housing
 chawls,chawl,Incremental housing
-cidade,ciudad perdida,Incremental housing
-città,ciudad perdida,Incremental housing
-city,ciudad perdida,Incremental housing
-ciudad,ciudad perdida,Incremental housing
 ciudad perdida,ciudad perdida,Incremental housing
-lost,ciudad perdida,Incremental housing
-miasto,ciudad perdida,Incremental housing
-perdida,ciudad perdida,Incremental housing
-perdue,ciudad perdida,Incremental housing
-persa,ciudad perdida,Incremental housing
-stadt,ciudad perdida,Incremental housing
-verloren,ciudad perdida,Incremental housing
-ville,ciudad perdida,Incremental housing
-zagubiona,ciudad perdida,Incremental housing
-colonia,colonia popular,Incremental housing
-colônia,colonia popular,Incremental housing
 colonia popular,colonia popular,Incremental housing
-colonie,colonia popular,Incremental housing
-colony,colonia popular,Incremental housing
-kolonia,colonia popular,Incremental housing
-kolonie,colonia popular,Incremental housing
+community facilities ,community Facilities ,Incremental housing
+equipamentos comunitários,community Facilities ,Incremental housing
+gemeinschaftseinrichtungen,community Facilities ,Incremental housing
+instalaciones comunitarias,community Facilities ,Incremental housing
+installations communautaires,community Facilities ,Incremental housing
+obiekty wspólnotowe,community Facilities ,Incremental housing
+strutture comunitarie,community Facilities ,Incremental housing
 bohrloch,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
 bomba manual,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
 borehole,Community-level water and sanitation (WatSan) infrastructure ,Incremental housing
@@ -558,13 +534,6 @@ comuna,comuna,Incremental housing
 comune,comuna,Incremental housing
 gmina,comuna,Incremental housing
 kommune,comuna,Incremental housing
-communauté,comunidade,Incremental housing
-community,comunidade,Incremental housing
-comunidad,comunidade,Incremental housing
-comunidade,comunidade,Incremental housing
-comunità,comunidade,Incremental housing
-gemeinschaft,comunidade,Incremental housing
-społeczność,comunidade,Incremental housing
 cabeamento,Construction skills training,Incremental housing
 câblage,Construction skills training,Incremental housing
 cablaggio,Construction skills training,Incremental housing
@@ -623,6 +592,13 @@ reforestation,ecosystem restoration for residential,Incremental housing
 riforestazione,ecosystem restoration for residential,Incremental housing
 wiederaufforstung,ecosystem restoration for residential,Incremental housing
 zalesianie,ecosystem restoration for residential,Incremental housing
+energieversorgung für wohnraum,energy services for housing,Incremental housing
+energy services for housing,energy services for housing,Incremental housing
+services énergétiques pour le logement,energy services for housing,Incremental housing
+servicios de energía para vivienda,energy services for housing,Incremental housing
+serviços de energia para habitação,energy services for housing,Incremental housing
+servizi energetici per l’abitazione,energy services for housing,Incremental housing
+usługi energetyczne dla mieszkań,energy services for housing,Incremental housing
 ankieta,enumerations,Incremental housing
 censimento,enumerations,Incremental housing
 censo,enumerations,Incremental housing
@@ -713,6 +689,13 @@ moduł,home expansion,Incremental housing
 module,home expansion,Incremental housing
 modulo,home expansion,Incremental housing
 módulo,home expansion,Incremental housing
+hausreparaturen,home repairs,Incremental housing
+home repairs,home repairs,Incremental housing
+naprawy domowe,home repairs,Incremental housing
+reparaciones en el hogar,home repairs,Incremental housing
+réparations à domicile,home repairs,Incremental housing
+reparos domésticos,home repairs,Incremental housing
+riparazioni domestiche,home repairs,Incremental housing
 hood,hood,Incremental housing
 ampliação,housing condition improvements,Incremental housing
 ampliación,housing condition improvements,Incremental housing
@@ -730,6 +713,20 @@ intensification,housing densification,Incremental housing
 intensificazione,housing densification,Incremental housing
 intensivierung,housing densification,Incremental housing
 intensyfikacja,housing densification,Incremental housing
+amélioration de l'habitat,housing improvement,Incremental housing
+housing improvement,housing improvement,Incremental housing
+mejora de la vivienda,housing improvement,Incremental housing
+melhoria habitacional,housing improvement,Incremental housing
+miglioramento abitativo,housing improvement,Incremental housing
+poprawa warunków mieszkaniowych,housing improvement,Incremental housing
+wohnungsverbesserung,housing improvement,Incremental housing
+asistencia técnica en vivienda,housing technical assistance,Incremental housing
+assistance technique au logement,housing technical assistance,Incremental housing
+assistência técnica habitacional,housing technical assistance,Incremental housing
+assistenza tecnica abitativa,housing technical assistance,Incremental housing
+housing technical assistance,housing technical assistance,Incremental housing
+pomoc techniczna w zakresie mieszkalnictwa,housing technical assistance,Incremental housing
+technische hilfe für wohnraum,housing technical assistance,Incremental housing
 dziki lokator,illegal settlement,Incremental housing
 dzikie zajmowanie,illegal settlement,Incremental housing
 hausbesetzer,illegal settlement,Incremental housing
@@ -757,9 +754,30 @@ melhoria,In-situ housing improvements,Incremental housing
 miglioramento,In-situ housing improvements,Incremental housing
 ulepszenie,In-situ housing improvements,Incremental housing
 upgrading,In-situ housing improvements,Incremental housing
+abitazione progressiva,incremental housing,Incremental housing
+habitação incremental,incremental housing,Incremental housing
+incremental housing,incremental housing,Incremental housing
+logement progressif,incremental housing,Incremental housing
+mieszkalnictwo etapowe,incremental housing,Incremental housing
+schrittweises wohnen,incremental housing,Incremental housing
+vivienda progresiva,incremental housing,Incremental housing
 informal city/settlement,informal city/settlement,Incremental housing
+amélioration des quartiers informels,informal settlement upgrading,Incremental housing
+informal settlement upgrading,informal settlement upgrading,Incremental housing
+mejora de asentamientos informales,informal settlement upgrading,Incremental housing
+modernizacja osiedli nieformalnych,informal settlement upgrading,Incremental housing
+requalificação de assentamentos informais,informal settlement upgrading,Incremental housing
+riqualificazione insediamenti informali,informal settlement upgrading,Incremental housing
+verbesserung informeller siedlungen,informal settlement upgrading,Incremental housing
 infrastructure for housing developments,infrastructure for housing developments,Incremental housing
 infrastruktur,infrastructure for housing developments,Incremental housing
+amélioration des infrastructures,Infrastructure improvement,Incremental housing
+infrastructure improvement,Infrastructure improvement,Incremental housing
+mejora de infraestructura,Infrastructure improvement,Incremental housing
+melhoria de infraestrutura,Infrastructure improvement,Incremental housing
+miglioramento delle infrastrutture,Infrastructure improvement,Incremental housing
+poprawa infrastruktury,Infrastructure improvement,Incremental housing
+verbesserung der infrastruktur,Infrastructure improvement,Incremental housing
 jhopadpatti,jhopadpatti,Incremental housing
 kampong,kampong,Incremental housing
 kartonsko naselje,kartonsko naselje,Incremental housing
@@ -911,6 +929,13 @@ telhado verde,nature based solutions for residential,Incremental housing
 tetto verde,nature based solutions for residential,Incremental housing
 toit végétalisé,nature based solutions for residential,Incremental housing
 zbieranie wody deszczowej,nature based solutions for residential,Incremental housing
+mejora de barrios,Neighborhood upgrading,Incremental housing
+modernizacja osiedli,Neighborhood upgrading,Incremental housing
+nachbarschaftsverbesserung,Neighborhood upgrading,Incremental housing
+neighborhood upgrading,Neighborhood upgrading,Incremental housing
+réhabilitation de quartier,Neighborhood upgrading,Incremental housing
+requalificação de bairros,Neighborhood upgrading,Incremental housing
+riqualificazione del quartiere,Neighborhood upgrading,Incremental housing
 pelli gewal,pelli gewal,Incremental housing
 permanent repairs,permanent repairs,Incremental housing
 renovação,permanent repairs,Incremental housing
@@ -961,6 +986,20 @@ provision of basic services,provision of basic services,Incremental housing
 wasser,provision of basic services,Incremental housing
 water,provision of basic services,Incremental housing
 woda,provision of basic services,Incremental housing
+amélioration des espaces publics,Public space improvement,Incremental housing
+mejora de espacios públicos,Public space improvement,Incremental housing
+melhoria de espaços públicos,Public space improvement,Incremental housing
+miglioramento degli spazi pubblici,Public space improvement,Incremental housing
+poprawa przestrzeni publicznej,Public space improvement,Incremental housing
+public space improvement,Public space improvement,Incremental housing
+verbesserung öffentlicher räume,Public space improvement,Incremental housing
+aufwertung öffentlicher räume,Public space upgrading ,Incremental housing
+public space upgrading ,Public space upgrading ,Incremental housing
+rehabilitación de espacios públicos,Public space upgrading ,Incremental housing
+réhabilitation des espaces publics,Public space upgrading ,Incremental housing
+requalificação de espaços públicos,Public space upgrading ,Incremental housing
+rewitalizacja przestrzeni publicznej,Public space upgrading ,Incremental housing
+riqualificazione degli spazi pubblici,Public space upgrading ,Incremental housing
 pueblos jóvene,pueblos jóvene,Incremental housing
 pueblos jóvenes,pueblos jóvene,Incremental housing
 informalidad,quartier irrégulier,Incremental housing
@@ -1030,6 +1069,13 @@ relogement,resettlement,Incremental housing
 resettlement,resettlement,Incremental housing
 riallogamento,resettlement,Incremental housing
 wiederunterbringung,resettlement,Incremental housing
+residential utilities,Residential utilities,Incremental housing
+services résidentiels,Residential utilities,Incremental housing
+servicios residenciales,Residential utilities,Incremental housing
+servizi residenziali,Residential utilities,Incremental housing
+usługi komunalne mieszkaniowe,Residential utilities,Incremental housing
+utilidades residenciais,Residential utilities,Incremental housing
+wohnungsversorgungsdienste,Residential utilities,Incremental housing
 odporny,resilient housing,Incremental housing
 resilient,resilient housing,Incremental housing
 résilient,resilient housing,Incremental housing
@@ -1038,6 +1084,13 @@ resiliente,resilient housing,Incremental housing
 resistente,resilient housing,Incremental housing
 widerstandsfähig,resilient housing,Incremental housing
 retrofits of buildings and infrastructure,retrofits of buildings and infrastructure,Incremental housing
+assainissement pour le logement,sanitation for housing,Incremental housing
+saneamento para habitação,sanitation for housing,Incremental housing
+saneamiento para la vivienda,sanitation for housing,Incremental housing
+sanitäre versorgung für wohnraum,sanitation for housing,Incremental housing
+sanitation for housing,sanitation for housing,Incremental housing
+servizi igienico-sanitari abitativi,sanitation for housing,Incremental housing
+usługi sanitarne dla mieszkań,sanitation for housing,Incremental housing
 pianificazione del sito,settlement planning,Incremental housing
 pianificazione urbana,settlement planning,Incremental housing
 planejamento do terreno,settlement planning,Incremental housing
@@ -1069,6 +1122,13 @@ parcelle,sites and services,Incremental housing
 parzelle,sites and services,Incremental housing
 plot,sites and services,Incremental housing
 sites and services,sites and services,Incremental housing
+aufwertung von elendsvierteln,slum upgrading,Incremental housing
+mejora de barrios marginales,slum upgrading,Incremental housing
+modernizacja slumsów,slum upgrading,Incremental housing
+réhabilitation des bidonvilles,slum upgrading,Incremental housing
+riqualificazione delle baraccopoli,slum upgrading,Incremental housing
+slum upgrading,slum upgrading,Incremental housing
+urbanização de favelas,slum upgrading,Incremental housing
 drenaż,Small drainage construction and repairs,Incremental housing
 graben,Small drainage construction and repairs,Incremental housing
 naprawa,Small drainage construction and repairs,Incremental housing
@@ -1159,6 +1219,13 @@ stamberga,tugurio,Incremental housing
 tugúrio,tugurio,Incremental housing
 dzielnica slumsowa,umjondolo,Incremental housing
 umjondolo,umjondolo,Incremental housing
+amélioration de l'habitat informel,upgrading informal housing ,Incremental housing
+mejora de la vivienda informal,upgrading informal housing ,Incremental housing
+melhoria da habitação informal,upgrading informal housing ,Incremental housing
+modernizacja mieszkań nieformalnych,upgrading informal housing ,Incremental housing
+riqualificazione dell'abitazione informale,upgrading informal housing ,Incremental housing
+upgrading informal housing ,upgrading informal housing ,Incremental housing
+verbesserung informeller wohnungen,upgrading informal housing ,Incremental housing
 adensamento,urban integration,Incremental housing
 densificación,urban integration,Incremental housing
 densification,urban integration,Incremental housing
@@ -1207,6 +1274,13 @@ letrina,Waste management for housing,Incremental housing
 waste management for housing,Waste management for housing,Incremental housing
 wastewater,Waste management for housing,Incremental housing
 wody szare,Waste management for housing,Incremental housing
+services d'eau pour le logement,water services for housing,Incremental housing
+servicios de agua para vivienda,water services for housing,Incremental housing
+serviços de água para habitação,water services for housing,Incremental housing
+servizi idrici per l’abitazione,water services for housing,Incremental housing
+usługi wodne dla mieszkań,water services for housing,Incremental housing
+wasserversorgung für wohnraum,water services for housing,Incremental housing
+water services for housing,water services for housing,Incremental housing
 branchement d'eau,watta,Incremental housing
 collegamento idrico,watta,Incremental housing
 conexión de agua,watta,Incremental housing
@@ -2455,7 +2529,7 @@ pensjonat,single room occupancy,Transitional housing
 roominghouse,single room occupancy,Transitional housing
 single room occupancy,single room occupancy,Transitional housing
 sro,single room occupancy,Transitional housing
-temporary accommodation for refugees,temporary accommodation for refugees ,Transitional housing
+temporary accommodation for refugees,temporary accommodation for refugees,Transitional housing
 temporaire,temporary shelter / housing,Transitional housing
 temporal,temporary shelter / housing,Transitional housing
 temporaneo,temporary shelter / housing,Transitional housing

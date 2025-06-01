@@ -63,14 +63,7 @@ passivehouse,green housing ,Housing Supply
 passivhaus,green housing ,Housing Supply
 vivienda ecológica,green housing ,Housing Supply
 zielony budynek,green housing ,Housing Supply
-accès,housing access,Housing Supply
-acceso,housing access,Housing Supply
-access,housing access,Housing Supply
-accesso,housing access,Housing Supply
-acesso,housing access,Housing Supply
-dostęp,housing access,Housing Supply
 housing access,housing access,Housing Supply
-zugang,housing access,Housing Supply
 budownictwo mieszkaniowe,housing construction,Housing Supply
 construção habitacional,housing construction,Housing Supply
 construcción de viviendas,housing construction,Housing Supply
@@ -485,11 +478,6 @@ deed,property title,Market Enabling
 escritura,property title,Market Enabling
 property title,property title,Market Enabling
 przeniesienie,property title,Market Enabling
-titel,property title,Market Enabling
-title,property title,Market Enabling
-titolo,property title,Market Enabling
-titre,property title,Market Enabling
-título,property title,Market Enabling
 transmisión,property title,Market Enabling
 transmissão,property title,Market Enabling
 trasferimento,property title,Market Enabling
@@ -770,11 +758,6 @@ reconstruction loan,reconstruction loan,Resilience and Reconstruction
 rekonstruktion,reconstruction loan,Resilience and Reconstruction
 dotacja,reconstruction subsidy,Resilience and Reconstruction
 reconstruction subsidy,reconstruction subsidy,Resilience and Reconstruction
-sovvenzione,reconstruction subsidy,Resilience and Reconstruction
-subsidio,reconstruction subsidy,Resilience and Reconstruction
-subsídio,reconstruction subsidy,Resilience and Reconstruction
-subsidy,reconstruction subsidy,Resilience and Reconstruction
-subvention,reconstruction subsidy,Resilience and Reconstruction
 abitazioni,resilient housing,Resilience and Reconstruction
 earthquake-resistant,resilient housing,Resilience and Reconstruction
 erdbebensicher,resilient housing,Resilience and Reconstruction
@@ -798,9 +781,6 @@ resistente alle tempeste,resilient housing,Resilience and Reconstruction
 stormproof,resilient housing,Resilience and Reconstruction
 sturmfest,resilient housing,Resilience and Reconstruction
 überschwemmungssicher,resilient housing,Resilience and Reconstruction
-abordable,affordable housing,Social Housing
-accessibile,affordable housing,Social Housing
-acessível,affordable housing,Social Housing
 affordable,affordable housing,Social Housing
 affordable housing,affordable housing,Social Housing
 asequible,affordable housing,Social Housing
@@ -926,31 +906,19 @@ subsidized housing,subsidized housing,Social Housing
 subvention au logement,subsidized housing,Social Housing
 sussidio abitativo,subsidized housing,Social Housing
 wohnungszuschuss,subsidized housing,Social Housing
-crise,crisis housing,Transitional and Temporary Housing
-crisi,crisis housing,Transitional and Temporary Housing
-crisis,crisis housing,Transitional and Temporary Housing
 crisis housing,crisis housing,Transitional and Temporary Housing
-krise,crisis housing,Transitional and Temporary Housing
-kryzys,crisis housing,Transitional and Temporary Housing
-schutzraum,crisis housing,Transitional and Temporary Housing
-zakwaterowanie,crisis housing,Transitional and Temporary Housing
 disaster housing,disaster housing,Transitional and Temporary Housing
 disaster shelter,disaster shelter,Transitional and Temporary Housing
 emergency accommodation,emergency accommodation,Transitional and Temporary Housing
 unterstand,emergency accommodation,Transitional and Temporary Housing
 alloggio,emergency housing,Transitional and Temporary Housing
-emergencia,emergency housing,Transitional and Temporary Housing
-emergência,emergency housing,Transitional and Temporary Housing
-emergency,emergency housing,Transitional and Temporary Housing
 emergency housing,emergency housing,Transitional and Temporary Housing
-emergenza,emergency housing,Transitional and Temporary Housing
 habitação,emergency housing,Transitional and Temporary Housing
 housing,emergency housing,Transitional and Temporary Housing
 logement,emergency housing,Transitional and Temporary Housing
 mieszkalnictwo,emergency housing,Transitional and Temporary Housing
 nagły wypadek,emergency housing,Transitional and Temporary Housing
 notfall,emergency housing,Transitional and Temporary Housing
-urgence,emergency housing,Transitional and Temporary Housing
 vivienda,emergency housing,Transitional and Temporary Housing
 abri d'urgence,emergency shelters,Transitional and Temporary Housing
 abrigo de emergência,emergency shelters,Transitional and Temporary Housing
@@ -1034,16 +1002,7 @@ de apoyo,temporary supportive housing,Transitional and Temporary Housing
 de soutien,temporary supportive housing,Transitional and Temporary Housing
 di sostegno,temporary supportive housing,Transitional and Temporary Housing
 supportive,temporary supportive housing,Transitional and Temporary Housing
-temporaire,temporary supportive housing,Transitional and Temporary Housing
-temporal,temporary supportive housing,Transitional and Temporary Housing
-temporaneo,temporary supportive housing,Transitional and Temporary Housing
-temporário,temporary supportive housing,Transitional and Temporary Housing
-temporary,temporary supportive housing,Transitional and Temporary Housing
 temporary supportive housing,temporary supportive housing,Transitional and Temporary Housing
-tymczasowy,temporary supportive housing,Transitional and Temporary Housing
-unterstützend,temporary supportive housing,Transitional and Temporary Housing
-vorübergehend,temporary supportive housing,Transitional and Temporary Housing
-wspierający,temporary supportive housing,Transitional and Temporary Housing
 tent cities,tent cities,Transitional and Temporary Housing
 barraca,tents for the homeless,Transitional and Temporary Housing
 lager,tents for the homeless,Transitional and Temporary Housing
