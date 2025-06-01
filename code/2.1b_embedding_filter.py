@@ -6,6 +6,7 @@ import xgboost as xgb
 from sklearn.metrics import accuracy_score, f1_score, recall_score, precision_score, confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
+from tqdm import tqdm
 from hfhi_definitions import SUFFIX
 
 
@@ -15,6 +16,22 @@ dat = dataset.to_pandas()
 
 # Load keywords
 keywords = pd.read_csv(f"input/keywords{SUFFIX}.csv")
+
+# Take a random sample of 10,000 rows
+sample_dat = dat.sample(n=10000) if len(dat) > 10000 else dat.copy()
+
+# Count matches for each keyword
+keyword_counts = []
+for word in tqdm(keywords["word"]):
+    pattern = fr"\b{re.escape(word)}\b"
+    count = sample_dat["text"].str.lower().str.contains(pattern, regex=True, na=False).sum()
+    keyword_counts.append((word, count))
+
+# Sort and print top 10 keywords
+keyword_counts.sort(key=lambda x: x[1], reverse=True)
+print("Top 10 keywords by match count:")
+for word, count in keyword_counts[:10]:
+    print(f"{word}: {count}")
 
 # Create regex pattern for keywords
 keyword_regex = "|".join([fr"\b{re.escape(word)}\b" for word in keywords["word"]])

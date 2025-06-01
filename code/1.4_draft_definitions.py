@@ -5,7 +5,7 @@ import click
 import tiktoken
 from openai import OpenAI, OpenAIError
 from tqdm import tqdm
-from wb_definitions import SUFFIX, RETRIEVAL_TOPICS
+from hfhi_definitions import SUFFIX, RETRIEVAL_TOPICS
 
 
 SYSTEM_PROMPT = """

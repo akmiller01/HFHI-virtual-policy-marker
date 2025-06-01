@@ -84,13 +84,6 @@ dwelling,housing provision,Housing Supply
 housing provision,housing provision,Housing Supply
 morada,housing provision,Housing Supply
 moradia,housing provision,Housing Supply
-accesibilidad,inclusive housing,Housing Supply
-accessibilité,inclusive housing,Housing Supply
-accessibility,inclusive housing,Housing Supply
-acessibilidade,inclusive housing,Housing Supply
-barrierefrei,inclusive housing,Housing Supply
-barrierfree,inclusive housing,Housing Supply
-bez barier,inclusive housing,Housing Supply
 conception universelle,inclusive housing,Housing Supply
 design universal,inclusive housing,Housing Supply
 design universale,inclusive housing,Housing Supply
@@ -146,58 +139,11 @@ eigentumswohnungen,urban housing,Housing Supply
 kondominium,urban housing,Housing Supply
 urban housing,urban housing,Housing Supply
 wohnungen,urban housing,Housing Supply
-acqua,basic services for housing,Incremental and Improved Housing
-agua,basic services for housing,Incremental and Improved Housing
-água,basic services for housing,Incremental and Improved Housing
-assainissement,basic services for housing,Incremental and Improved Housing
-basic services for housing,basic services for housing,Incremental and Improved Housing
-drainage,basic services for housing,Incremental and Improved Housing
-drenagem,basic services for housing,Incremental and Improved Housing
-drenaggio,basic services for housing,Incremental and Improved Housing
-drenaje,basic services for housing,Incremental and Improved Housing
-eau,basic services for housing,Incremental and Improved Housing
-electricidad,basic services for housing,Incremental and Improved Housing
-électricité,basic services for housing,Incremental and Improved Housing
-electricity,basic services for housing,Incremental and Improved Housing
-elektrizität,basic services for housing,Incremental and Improved Housing
-elektryczność,basic services for housing,Incremental and Improved Housing
-eletricidade,basic services for housing,Incremental and Improved Housing
-elettricità,basic services for housing,Incremental and Improved Housing
-entwässerung,basic services for housing,Incremental and Improved Housing
-odwadnianie,basic services for housing,Incremental and Improved Housing
-saneamento,basic services for housing,Incremental and Improved Housing
-saneamiento,basic services for housing,Incremental and Improved Housing
-sanificazione,basic services for housing,Incremental and Improved Housing
-sanitacja,basic services for housing,Incremental and Improved Housing
-sanitäranlagen,basic services for housing,Incremental and Improved Housing
-sanitation,basic services for housing,Incremental and Improved Housing
-wasser,basic services for housing,Incremental and Improved Housing
-water,basic services for housing,Incremental and Improved Housing
-woda,basic services for housing,Incremental and Improved Housing
-electrificación,energy services for housing,Incremental and Improved Housing
-electrification,energy services for housing,Incremental and Improved Housing
-électrification,energy services for housing,Incremental and Improved Housing
-elektrifizierung,energy services for housing,Incremental and Improved Housing
-elektryfikacja,energy services for housing,Incremental and Improved Housing
-eletrificação,energy services for housing,Incremental and Improved Housing
-elettrificazione,energy services for housing,Incremental and Improved Housing
-energia,energy services for housing,Incremental and Improved Housing
-energía,energy services for housing,Incremental and Improved Housing
-energie,energy services for housing,Incremental and Improved Housing
-énergie,energy services for housing,Incremental and Improved Housing
-energy,energy services for housing,Incremental and Improved Housing
-energy services for housing,energy services for housing,Incremental and Improved Housing
+basic services,basic services for housing,Incremental and Improved Housing
+energy services,energy services for housing,Incremental and Improved Housing
 home repairs,home repairs,Incremental and Improved Housing
-abitazione,housing improvement,Incremental and Improved Housing
-ammodernamento,housing improvement,Incremental and Improved Housing
 housing improvement,housing improvement,Incremental and Improved Housing
 mieszkanie,housing improvement,Incremental and Improved Housing
-modernisation,housing improvement,Incremental and Improved Housing
-modernisierung,housing improvement,Incremental and Improved Housing
-modernização,housing improvement,Incremental and Improved Housing
-modernización,housing improvement,Incremental and Improved Housing
-modernizacja,housing improvement,Incremental and Improved Housing
-modernization,housing improvement,Incremental and Improved Housing
 renovação,housing improvement,Incremental and Improved Housing
 renovación,housing improvement,Incremental and Improved Housing
 renovation,housing improvement,Incremental and Improved Housing
@@ -206,33 +152,11 @@ renovierung,housing improvement,Incremental and Improved Housing
 renowacja,housing improvement,Incremental and Improved Housing
 ristrutturazione,housing improvement,Incremental and Improved Housing
 wohnung,housing improvement,Incremental and Improved Housing
-bau,housing technical assistance,Incremental and Improved Housing
-budownictwo,housing technical assistance,Incremental and Improved Housing
-construção,housing technical assistance,Incremental and Improved Housing
-construcción,housing technical assistance,Incremental and Improved Housing
-construction,housing technical assistance,Incremental and Improved Housing
-costruzione,housing technical assistance,Incremental and Improved Housing
 housing technical assistance,housing technical assistance,Incremental and Improved Housing
-incremental,housing technical assistance,Incremental and Improved Housing
-incrémental,housing technical assistance,Incremental and Improved Housing
-incrementale,housing technical assistance,Incremental and Improved Housing
-inkrementell,housing technical assistance,Incremental and Improved Housing
-przyrostowy,housing technical assistance,Incremental and Improved Housing
 incremental housing,incremental housing,Incremental and Improved Housing
-progressif,incremental housing,Incremental and Improved Housing
-aufwertung,informal settlement upgrading,Incremental and Improved Housing
 in situ,informal settlement upgrading,Incremental and Improved Housing
 in-situ,informal settlement upgrading,Incremental and Improved Housing
-informal settlement upgrading,informal settlement upgrading,Incremental and Improved Housing
-legalizacja,informal settlement upgrading,Incremental and Improved Housing
-mejora,informal settlement upgrading,Incremental and Improved Housing
-poprawa,informal settlement upgrading,Incremental and Improved Housing
-regolarizzazione,informal settlement upgrading,Incremental and Improved Housing
-régularisation,informal settlement upgrading,Incremental and Improved Housing
-regularisierung,informal settlement upgrading,Incremental and Improved Housing
-regularização,informal settlement upgrading,Incremental and Improved Housing
-regularización,informal settlement upgrading,Incremental and Improved Housing
-regularization,informal settlement upgrading,Incremental and Improved Housing
+informal settlement,informal settlement upgrading,Incremental and Improved Housing
 abwasser,sanitation for housing,Incremental and Improved Housing
 abwasserentsorgung,sanitation for housing,Incremental and Improved Housing
 acque reflue,sanitation for housing,Incremental and Improved Housing
@@ -252,20 +176,13 @@ septisch,sanitation for housing,Incremental and Improved Housing
 septyczny,sanitation for housing,Incremental and Improved Housing
 settico,sanitation for housing,Incremental and Improved Housing
 sewage,sanitation for housing,Incremental and Improved Housing
-amélioration,slum upgrading,Incremental and Improved Housing
 baraccopoli,slum upgrading,Incremental and Improved Housing
 barrio marginal,slum upgrading,Incremental and Improved Housing
 bidonville,slum upgrading,Incremental and Improved Housing
 elendsviertel,slum upgrading,Incremental and Improved Housing
 favela,slum upgrading,Incremental and Improved Housing
-mejoramiento,slum upgrading,Incremental and Improved Housing
-melhoria,slum upgrading,Incremental and Improved Housing
-miglioramento,slum upgrading,Incremental and Improved Housing
 slum,slum upgrading,Incremental and Improved Housing
 slum upgrading,slum upgrading,Incremental and Improved Housing
-ulepszenie,slum upgrading,Incremental and Improved Housing
-upgrading,slum upgrading,Incremental and Improved Housing
-verbesserung,slum upgrading,Incremental and Improved Housing
 besitz,Tenure security,Incremental and Improved Housing
 posiadanie,Tenure security,Incremental and Improved Housing
 posse,Tenure security,Incremental and Improved Housing
@@ -311,9 +228,6 @@ bailleur,home rental,Market Enabling
 home rental,home rental,Market Enabling
 inquilino,home rental,Market Enabling
 landlord,home rental,Market Enabling
-locataire,home rental,Market Enabling
-location,home rental,Market Enabling
-locatore,home rental,Market Enabling
 najemca,home rental,Market Enabling
 rental,home rental,Market Enabling
 senhorio,home rental,Market Enabling
@@ -359,12 +273,6 @@ titrisation,housing finance,Market Enabling
 titulización,housing finance,Market Enabling
 verbriefung,housing finance,Market Enabling
 housing investment,housing investment,Market Enabling
-inversión,housing investment,Market Enabling
-investimento,housing investment,Market Enabling
-investissement,housing investment,Market Enabling
-investition,housing investment,Market Enabling
-investment,housing investment,Market Enabling
-inwestycja,housing investment,Market Enabling
 housing policy,housing policy,Market Enabling
 housingpolicy,housing policy,Market Enabling
 landuseplanning,housing policy,Market Enabling
@@ -400,24 +308,6 @@ preço de mercado,market-rate housing,Market Enabling
 prezzo di mercato,market-rate housing,Market Enabling
 prix du marché,market-rate housing,Market Enabling
 micro-finance for housing,micro-finance for housing,Market Enabling
-microcredit,micro-finance for housing,Market Enabling
-microcrédit,micro-finance for housing,Market Enabling
-microcredito,micro-finance for housing,Market Enabling
-microcrédito,micro-finance for housing,Market Enabling
-microempréstimo,micro-finance for housing,Market Enabling
-microfinanças,micro-finance for housing,Market Enabling
-microfinance,micro-finance for housing,Market Enabling
-microfinanza,micro-finance for housing,Market Enabling
-microfinanzas,micro-finance for housing,Market Enabling
-microloan,micro-finance for housing,Market Enabling
-micropréstamo,micro-finance for housing,Market Enabling
-microprestito,micro-finance for housing,Market Enabling
-microprêt,micro-finance for housing,Market Enabling
-mikrofinansowanie,micro-finance for housing,Market Enabling
-mikrofinanzierung,micro-finance for housing,Market Enabling
-mikrokredit,micro-finance for housing,Market Enabling
-mikrokredyt,micro-finance for housing,Market Enabling
-mikropożyczka,micro-finance for housing,Market Enabling
 acreedor hipotecario,mortgage law,Market Enabling
 créancier hypothécaire,mortgage law,Market Enabling
 creditore ipotecario,mortgage law,Market Enabling
@@ -603,7 +493,6 @@ human settlement,informal settlement,Original keywords
 human settlements,informal settlement,Original keywords
 informal neighborhood,informal settlement,Original keywords
 informal neighborhoods,informal settlement,Original keywords
-informal settlement,informal settlement,Original keywords
 informal settlements,informal settlement,Original keywords
 informelle siedlung,informal settlement,Original keywords
 informelle siedlungen,informal settlement,Original keywords
@@ -718,14 +607,6 @@ stadtentwicklung,urban development,Original keywords
 sviluppo urbano,urban development,Original keywords
 urban development,urban development,Original keywords
 housing reconstruction,housing reconstruction,Resilience and Reconstruction
-odbudowa,housing reconstruction,Resilience and Reconstruction
-reabilitação,housing reconstruction,Resilience and Reconstruction
-rehabilitación,housing reconstruction,Resilience and Reconstruction
-rehabilitacja,housing reconstruction,Resilience and Reconstruction
-rehabilitation,housing reconstruction,Resilience and Reconstruction
-réhabilitation,housing reconstruction,Resilience and Reconstruction
-riabilitazione,housing reconstruction,Resilience and Reconstruction
-sanierung,housing reconstruction,Resilience and Reconstruction
 nachkatastrophe,post-disaster housing,Resilience and Reconstruction
 pokatastrofalny,post-disaster housing,Resilience and Reconstruction
 pós-desastre,post-disaster housing,Resilience and Reconstruction
@@ -735,28 +616,10 @@ postcatastrofe,post-disaster housing,Resilience and Reconstruction
 postdesastre,post-disaster housing,Resilience and Reconstruction
 postdisaster,post-disaster housing,Resilience and Reconstruction
 przesiedlenie,post-disaster housing,Resilience and Reconstruction
-reasentamiento,post-disaster housing,Resilience and Reconstruction
-reassentamento,post-disaster housing,Resilience and Reconstruction
-reconstrução,post-disaster housing,Resilience and Reconstruction
-reconstrucción,post-disaster housing,Resilience and Reconstruction
-reconstruction,post-disaster housing,Resilience and Reconstruction
-reinsediamento,post-disaster housing,Resilience and Reconstruction
-réinstallation,post-disaster housing,Resilience and Reconstruction
-rekonstrukcja,post-disaster housing,Resilience and Reconstruction
 resettlement,post-disaster housing,Resilience and Reconstruction
-ricostruzione,post-disaster housing,Resilience and Reconstruction
 umsiedlung,post-disaster housing,Resilience and Reconstruction
 wiederaufbau,post-disaster housing,Resilience and Reconstruction
-darlehen,reconstruction loan,Resilience and Reconstruction
-empréstimo,reconstruction loan,Resilience and Reconstruction
-loan,reconstruction loan,Resilience and Reconstruction
-pożyczka,reconstruction loan,Resilience and Reconstruction
-préstamo,reconstruction loan,Resilience and Reconstruction
-prestito,reconstruction loan,Resilience and Reconstruction
-prêt,reconstruction loan,Resilience and Reconstruction
 reconstruction loan,reconstruction loan,Resilience and Reconstruction
-rekonstruktion,reconstruction loan,Resilience and Reconstruction
-dotacja,reconstruction subsidy,Resilience and Reconstruction
 reconstruction subsidy,reconstruction subsidy,Resilience and Reconstruction
 abitazioni,resilient housing,Resilience and Reconstruction
 earthquake-resistant,resilient housing,Resilience and Reconstruction
@@ -781,18 +644,7 @@ resistente alle tempeste,resilient housing,Resilience and Reconstruction
 stormproof,resilient housing,Resilience and Reconstruction
 sturmfest,resilient housing,Resilience and Reconstruction
 überschwemmungssicher,resilient housing,Resilience and Reconstruction
-affordable,affordable housing,Social Housing
 affordable housing,affordable housing,Social Housing
-asequible,affordable housing,Social Housing
-erschwinglich,affordable housing,Social Housing
-przystępny,affordable housing,Social Housing
-sovvenzionato,affordable housing,Social Housing
-subsidiado,affordable housing,Social Housing
-subsidized,affordable housing,Social Housing
-subsydiowany,affordable housing,Social Housing
-subvencionado,affordable housing,Social Housing
-subventioniert,affordable housing,Social Housing
-subventionné,affordable housing,Social Housing
 cooperativa abitativa,cooperative housing,Social Housing
 cooperativa de vivienda,cooperative housing,Social Housing
 cooperativa habitacional,cooperative housing,Social Housing
@@ -804,30 +656,15 @@ wohnungsgenossenschaft,cooperative housing,Social Housing
 dotowany,government-funded housing,Social Housing
 government-funded housing,government-funded housing,Social Housing
 cooperativas,housing cooperatives,Social Housing
-cooperative,housing cooperatives,Social Housing
 cooperatives,housing cooperatives,Social Housing
 coopératives,housing cooperatives,Social Housing
 genossenschaften,housing cooperatives,Social Housing
 housing cooperatives,housing cooperatives,Social Housing
 spółdzielnie,housing cooperatives,Social Housing
-bon,housing program,Social Housing
-buono,housing program,Social Housing
-gutschein,housing program,Social Housing
 housing program,housing program,Social Housing
-öffentlich,housing program,Social Housing
-pubblico,housing program,Social Housing
-public,housing program,Social Housing
-público,housing program,Social Housing
-publiczny,housing program,Social Housing
-vale,housing program,Social Housing
-voucher,housing program,Social Housing
 low-cost housing,low-cost housing,Social Housing
 subwencjonowany,low-cost housing,Social Housing
-kommunal,municipal housing,Social Housing
-komunalny,municipal housing,Social Housing
-municipal,municipal housing,Social Housing
 municipal housing,municipal housing,Social Housing
-municipale,municipal housing,Social Housing
 edilizia senza scopo di lucro,nonprofit housing,Social Housing
 gemeinnütziger wohnungsbau,nonprofit housing,Social Housing
 habitação sem fins lucrativos,nonprofit housing,Social Housing
@@ -956,14 +793,7 @@ humanitarian shelters,humanitarian shelters,Transitional and Temporary Housing
 housingfirst,permanent supportive housing,Transitional and Temporary Housing
 permanent supportive housing,permanent supportive housing,Transitional and Temporary Housing
 psh,permanent supportive housing,Transitional and Temporary Housing
-flüchtling,refugee shelters,Transitional and Temporary Housing
-refugee,refugee shelters,Transitional and Temporary Housing
 refugee shelters,refugee shelters,Transitional and Temporary Housing
-refugiado,refugee shelters,Transitional and Temporary Housing
-réfugié,refugee shelters,Transitional and Temporary Housing
-rifugiato,refugee shelters,Transitional and Temporary Housing
-schronienie,refugee shelters,Transitional and Temporary Housing
-uchodźca,refugee shelters,Transitional and Temporary Housing
 obdachlosigkeit,shelter programs for homeless,Transitional and Temporary Housing
 ricovero,shelter programs for homeless,Transitional and Temporary Housing
 shelter programs for homeless,shelter programs for homeless,Transitional and Temporary Housing
@@ -997,11 +827,6 @@ temporary housing for homeless,temporary housing for homeless,Transitional and T
 temporaryhousing,temporary housing for homeless,Transitional and Temporary Housing
 vivienda temporal,temporary housing for homeless,Transitional and Temporary Housing
 vorübergehende unterkunft,temporary housing for homeless,Transitional and Temporary Housing
-de apoio,temporary supportive housing,Transitional and Temporary Housing
-de apoyo,temporary supportive housing,Transitional and Temporary Housing
-de soutien,temporary supportive housing,Transitional and Temporary Housing
-di sostegno,temporary supportive housing,Transitional and Temporary Housing
-supportive,temporary supportive housing,Transitional and Temporary Housing
 temporary supportive housing,temporary supportive housing,Transitional and Temporary Housing
 tent cities,tent cities,Transitional and Temporary Housing
 barraca,tents for the homeless,Transitional and Temporary Housing
