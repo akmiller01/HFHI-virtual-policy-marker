@@ -112,7 +112,7 @@ nvidia-nccl-cu12==2.21.5
 nvidia-nvjitlink-cu12==12.4.127
 nvidia-nvtx-cu12==12.4.127
 oda_reader==1.1.5
-ollama==0.4.7
+ollama==0.5.1
 openai==1.82.1
 openai-function-tokens==0.1.2
 openpyxl==3.1.5

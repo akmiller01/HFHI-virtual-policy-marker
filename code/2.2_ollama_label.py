@@ -15,7 +15,7 @@ from util_self_termination import main as self_terminate
 
 
 global MODEL
-MODEL = "phi4-reasoning"
+MODEL = "qwen3:14b"
 
 
 def ollama_label(example):
@@ -35,7 +35,7 @@ def ollama_label(example):
                 ),
             },
         ],
-        # options={'temperature': 0.4}
+        options={'temperature': 0.2}
     )
     parsed_response_content = json.loads(response.message.content)
     for response_key in parsed_response_content:
@@ -60,6 +60,7 @@ def main():
 
     # Load data
     dataset = load_dataset(f'alex-miller/crs-2014-2023-housing-selection{SUFFIX}', split='train')
+    dataset = dataset.shuffle(seed=1337).select(range(1000))
 
     unique_sectors = [str(sector) for sector in list(set(dataset['PurposeCode']))]
     missing_sectors = [sector for sector in unique_sectors if not sector in SECTORS]
@@ -70,7 +71,7 @@ def main():
 
     # Label
     dataset = dataset.map(ollama_label)
-    dataset.push_to_hub(f'alex-miller/crs-2014-2023-housing-labeled-phi4-reasoning{SUFFIX}')
+    dataset.push_to_hub(f'alex-miller/crs-2014-2023-housing-labeled-qwen3{SUFFIX}')
     self_terminate()
 
 
