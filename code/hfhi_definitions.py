@@ -358,3 +358,7 @@ class ReasonedClassification(BaseModel):
     summary: str
     reasoning: str
     classifications: list[Literal[tuple(DEFINITIONS.keys())]]
+
+
+if __name__ == '__main__':
+    print(SYSTEM_PROMPT)
