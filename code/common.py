@@ -8,11 +8,12 @@ SYSTEM_PROMPT = (
     "If the text matches a class definition, include the class in the classifications key list.\n"
     "If the text is completely unrelated to any of the classes, return an empty list in the classifications key.\n"
     "Think carefully and do not jump to conclusions: ground your response on the given text.\n"
+    "If a text could plausibly match more than one class, select all that apply only if both are explicitly supported. Do not infer beyond what the text provides.\n"
     "Your response must be in JSON format:\n"
     "{{\n"
-    "    'summary': 'Briefly summarize the activities and primary objectives described in the text.',\n"
-    "    'reasoning': 'For each class: explain your reasoning for whether the text is a match.',\n"
-    "    'classifications': ['List only the matching classes.']\n"
+    '    "summary": "Briefly summarize the activities and primary objectives described in the text.",\n'
+    '    "reasoning": "For each class: explain your reasoning for whether the text is a match.",\n'
+    '    "classifications": ["List only the matching classes."]\n'
     "}}"
 )
 
