@@ -47,7 +47,7 @@ def ollama_label(example):
     return example
 
 
-def get_predictions(example, prompt, definitions, ReasonedCls):
+def get_predictions(example, prompt, definitions, ReasonedCls, temp=0.7):
     response: ChatResponse = chat(
         model=MODEL,
         format=ReasonedCls.model_json_schema(),
@@ -63,7 +63,8 @@ def get_predictions(example, prompt, definitions, ReasonedCls):
                     SECTORS[str(example['PurposeCode'])],
                 ),
             },
-        ]
+        ],
+        options={'temperature': temp}
     )
     parsed_response_content = json.loads(response.message.content)
     pred = {}
@@ -105,17 +106,19 @@ def main():
     y_true_v2 = df[definition_keys_v2].astype(bool).to_dict(orient='records')
 
     # Run predictions for V1
+    v1_temp = 0.7
     y_pred_v1 = []
     for _, row in tqdm(df.iterrows(), total=len(df), desc='V1 Benchmark'):
         example = {'text': row['text'], 'PurposeCode': row['PurposeCode']}
-        pred = get_predictions(example, SYSTEM_PROMPT, DEFINITIONS, ReasonedClassification)
+        pred = get_predictions(example, SYSTEM_PROMPT, DEFINITIONS, ReasonedClassification, v1_temp)
         y_pred_v1.append(pred)
 
     # Run predictions for V2
+    v2_temp = 0.4
     y_pred_v2 = []
     for _, row in tqdm(df.iterrows(), total=len(df), desc='V2 Benchmark'):
         example = {'text': row['text'], 'PurposeCode': row['PurposeCode']}
-        pred = get_predictions(example, SYSTEM_PROMPT_V2, DEFINITIONS_V2, ReasonedClassificationV2)
+        pred = get_predictions(example, SYSTEM_PROMPT_V2, DEFINITIONS_V2, ReasonedClassificationV2, v2_temp)
         y_pred_v2.append(pred)
 
     # Evaluate
@@ -129,7 +132,7 @@ def main():
     for key, metrics in results_v2.items():
         print(f'{key}: {metrics}')
 
-    self_terminate()
+    # self_terminate()
 
 
 if __name__ == '__main__':

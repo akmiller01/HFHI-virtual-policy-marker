@@ -34,7 +34,8 @@ def ollama_label(example):
                     SECTORS[str(example['PurposeCode'])],
                 ),
             },
-        ]
+        ],
+        # options={'temperature': 0.4}
     )
     parsed_response_content = json.loads(response.message.content)
     for response_key in parsed_response_content:
