@@ -1,5 +1,5 @@
 # curl -fsSL https://ollama.com/install.sh | sh
-# pip install datasets ollama huggingface_hub python-dotenv pydantic
+# pip install datasets ollama huggingface_hub python-dotenv pydantic tqdm
 
 import json
 import pandas as pd
@@ -10,6 +10,7 @@ from hfhi_definitions import SYSTEM_PROMPT, SYSTEM_PROMPT_V2, DEFINITIONS, DEFIN
 from common import SECTORS
 from util_self_termination import main as self_terminate
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
+from tqdm import tqdm
 
 
 global MODEL
@@ -105,14 +106,14 @@ def main():
 
     # Run predictions for V1
     y_pred_v1 = []
-    for _, row in df.iterrows():
+    for _, row in tqdm(df.iterrows(), total=len(df), desc='V1 Benchmark'):
         example = {'text': row['text'], 'PurposeCode': row['PurposeCode']}
         pred = get_predictions(example, SYSTEM_PROMPT, DEFINITIONS, ReasonedClassification)
         y_pred_v1.append(pred)
 
     # Run predictions for V2
     y_pred_v2 = []
-    for _, row in df.iterrows():
+    for _, row in tqdm(df.iterrows(), total=len(df), desc='V2 Benchmark'):
         example = {'text': row['text'], 'PurposeCode': row['PurposeCode']}
         pred = get_predictions(example, SYSTEM_PROMPT_V2, DEFINITIONS_V2, ReasonedClassificationV2)
         y_pred_v2.append(pred)
