@@ -347,6 +347,23 @@ DEFINITIONS = {
     "Rural": "explicitly describes activities in specific rural locations"
 }
 
+DEFINITIONS_V2 = {
+    "Housing in general": "focuses on broad, cross-cutting, or high-level housing and shelter activities that are not specific enough for other categories. This subsector covers the analysis, policy, and strategic planning of the residential housing sector. It includes shelter and dwelling construction, urban and rural housing projects, and the design of inclusive living quarters, provided the activities are explicitly for residential purposes. Construction or renovation of non-residential buildings such as schools, offices, or clinics is excluded. It can encompass the housing-specific components of 'urban development,' but not broad discussions of 'development challenges' that lack a clear housing intervention. This category also covers technical assistance, legal advice on housing and land rights, public-private partnerships, and smart or green housing solutions.",
+    "Homelessness": "explicitly describes experiences, conditions, services, or interventions related to people lacking stable, permanent housing. It includes unsheltered populations (e.g., in tent cities, encampments, or on the street) and hidden homelessness. This subsector covers the provision and operation of accommodations such as emergency shelters, safe houses, and both temporary and permanent supportive housing programs like Housing First. It also encompasses support programs directly tied to lodging, such as housing vouchers. It addresses statutory, chronic, indigenous, sheltered, unsheltered, absolute, and relative homelessness.",
+    "Transitional housing": "explicitly describes the direct provision of temporary or emergency living quarters and related support for individuals or families displaced by crises, disasters, or other emergencies. To qualify, the activity must involve providing a physical shelter, not just support services. This includes emergency and crisis shelters, refugee and asylum seeker accommodation (excluding general camp management without a specific shelter provision component), and disaster relief shelters. It covers the distribution of shelter kits, tents, and essential non-food items for the express purpose of establishing immediate, temporary habitation. While it can include short-term rental support or host family placements, mentions of non-specific 'material relief,' 'support services,' or 'disaster preparedness' alone are insufficient.",
+    "Incremental housing": "explicitly describes interventions that support gradual and participatory improvements to existing residential housing and related community infrastructure, often in informal settlements. It includes measures to provide or upgrade basic services (e.g., water, sanitation, drainage, energy), perform structural retrofits, and make habitability improvements such as roof repairs, weatherproofing, or painting of homes. This subsector covers efforts to regularize, legalize, and formalize tenure specifically for housing, buildings, or residential land. It includes in-situ improvements, permanent repairs, settlement planning, slum upgrading, and home expansion. It also involves support for local construction material suppliers, tool and material vouchers, and technical training for home improvements.",
+    "Social housing": "explicitly describes programs or systems organized, funded, or managed by governments, non-profits, or community groups to provide permanently affordable or low-cost dwellings to low-income or vulnerable households. It covers the development, financing, allocation, and management of rental or ownership units with controlled or subsidized costs. This includes supply-side and demand-side subsidies, rent vouchers, and permanently affordable models like shared-equity housing, community land trusts, cooperative housing, and municipal housing schemes. It also addresses government-funded construction and rental protection measures aimed at creating or preserving a stock of affordable housing.",
+    "Market housing": "explicitly describes housing supplied or financed primarily through private market mechanisms. This includes market-rate rental housing, landlord-tenant relationships, and related property services. It covers mortgages and home financing products such as conventional loans, micro-finance for housing, and rent-to-own arrangements. This subsector encompasses private property development, residential real estate investment, and associated market dynamics like housing affordability, stock, evictions, and tenant protection. It also involves construction and regulatory processes such as land use reforms, zoning, and permitting, as well as financial instruments like mortgage-backed securities and development charges that shape the private housing market.",
+    "Urban": "explicitly describes activities in specific urban locations",
+    "Rural": "explicitly describes activities in specific rural locations"
+}
+
+
+SYSTEM_PROMPT_V2 = SYSTEM_PROMPT.format(
+    "\n".join([f'- {key}' for key in DEFINITIONS_V2.keys()]),
+    "\n".join([f'- {key}: when the text {value}' for key, value in DEFINITIONS_V2.items()]),
+)
+
 
 SYSTEM_PROMPT = SYSTEM_PROMPT.format(
     "\n".join([f'- {key}' for key in DEFINITIONS.keys()]),
@@ -358,6 +375,12 @@ class ReasonedClassification(BaseModel):
     summary: str
     reasoning: str
     classifications: list[Literal[tuple(DEFINITIONS.keys())]]
+
+
+class ReasonedClassificationV2(BaseModel):
+    summary: str
+    reasoning: str
+    classifications: list[Literal[tuple(DEFINITIONS_V2.keys())]]
 
 
 if __name__ == '__main__':

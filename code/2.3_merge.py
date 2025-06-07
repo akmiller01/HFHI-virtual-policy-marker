@@ -26,12 +26,12 @@ def main():
     df['text'] = df.progress_apply(create_unique_text, axis=1)
 
     # Load labeled texts from HF
-    labels = load_dataset(f'alex-miller/crs-2014-2023-housing-labeled-qwen3{SUFFIX}', split='train')
+    labels = load_dataset(f'alex-miller/crs-2014-2023-housing-labeled-phi4{SUFFIX}', split='train')
     labels = labels.remove_columns(['PurposeCode'])
     labels = labels.to_pandas()
 
     df = df.merge(labels, how="left", on="text")
-    df.to_csv(f"large_output/crs_2014_2023_qwen3_labeled{SUFFIX}.csv")
+    df.to_csv(f"large_output/crs_2014_2023_phi4_labeled{SUFFIX}.csv")
 
 
 
