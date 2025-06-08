@@ -60,7 +60,6 @@ def main():
 
     # Load data
     dataset = load_dataset(f'alex-miller/crs-2014-2023-housing-selection{SUFFIX}', split='train')
-    dataset = dataset.shuffle(seed=1337).select(range(1000))
 
     unique_sectors = [str(sector) for sector in list(set(dataset['PurposeCode']))]
     missing_sectors = [sector for sector in unique_sectors if not sector in SECTORS]

@@ -123,6 +123,16 @@ This script uses the Ollama model to label the CRS dataset with additional class
 3. **Label data**: Uses the Ollama model to label each entry in the dataset with additional classifications based on the text and sector code.
 4. **Save results**: Saves the labeled dataset to the Hugging Face Hub under the repository `alex-miller/crs-2014-2023-housing-labeled-phi4-reasoning{SUFFIX}`.
 
+### 2.2a_ollama_benchmark.py
+
+This script benchmarks the Ollama model's performance on a labeled housing dataset. It performs the following tasks:
+
+1. **Setup and load necessary libraries**: Loads required Python packages and model definitions.
+2. **Load benchmark data**: Reads the benchmark CSV file containing ground truth labels.
+3. **Run model predictions**: Uses the Ollama model to generate predictions for each entry in the benchmark dataset.
+4. **Evaluate predictions**: Calculates accuracy, precision, recall, and F1 score for each classification label, as well as aggregate metrics for the housing sector.
+5. **Output results**: Prints detailed evaluation metrics to the console.
+
 ### 2.3_merge.py
 
 This script merges the original CRS dataset with the labeled dataset to create a comprehensive dataset. It performs the following tasks:
