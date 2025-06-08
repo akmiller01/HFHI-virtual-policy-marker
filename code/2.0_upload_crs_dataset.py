@@ -19,9 +19,9 @@ def count_tokens(example):
 
 
 def create_unique_text(row):
-    title = row['project_title'] if not pd.isna(row['project_title']) else ''
-    short = row['short_description'] if not pd.isna(row['short_description']) else ''
-    long = row['long_description'] if not pd.isna(row['long_description']) else ''
+    title = row['ProjectTitle'] if not pd.isna(row['ProjectTitle']) else ''
+    short = row['ShortDescription'] if not pd.isna(row['ShortDescription']) else ''
+    long = row['LongDescription'] if not pd.isna(row['LongDescription']) else ''
 
     project_text = long
     if short.lower() not in project_text.lower():
@@ -36,9 +36,9 @@ def main():
     tqdm.pandas()  # Enable tqdm for Pandas
     df = pd.read_csv(
         './large_input/crs_2014_2023.csv',
-        usecols=['project_title', 'short_description', 'long_description', 'sector_code'],
+        usecols=['ProjectTitle', 'ShortDescription', 'LongDescription', 'PurposeCode'],
         dtype={
-            'project_title': str, 'short_description': str, 'long_description': str, 'sector_code': int
+            'ProjectTitle': str, 'ShortDescription': str, 'LongDescription': str, 'PurposeCode': int
         }
     )
     starting_rows = df.shape[0]
@@ -46,7 +46,7 @@ def main():
 
     # Create text column
     df['text'] = df.progress_apply(create_unique_text, axis=1)
-    df = df[['text', 'sector_code']]
+    df = df[['text', 'PurposeCode']]
    
     # De-duplicate
     prededup_rows = df.shape[0]

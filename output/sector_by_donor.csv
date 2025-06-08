@@ -1,71 +1,73 @@
-donor_name,value
-Inter-American Development Bank [IDB],3701.463644
-International Bank for Reconstruction and Development [IBRD],2235.443376
-Asian Development Bank [AsDB],1494.63312
-International Development Association [IDA],662.741417
-Germany,630.93975
-European Bank for Reconstruction and Development [EBRD],609.169884
-France,439.156556
-Asian Infrastructure Investment Bank [AIIB],284.408678
-EU Institutions,254.63142
-Saudi Arabia,228.198982
-Arab Fund (AFESD),157.520635
-Council of Europe Development Bank [CEB],151.580294
-Japan,116.469624
-United Kingdom,115.514327
-Portugal,111.174619
-United Arab Emirates,101.162009
-Central American Bank for Economic Integration [CABEI],96.184906
-Kuwait,96.065075
-United States,53.172467
-Canada,45.659157
-Korea,42.460749
-Sweden,38.348322
-Switzerland,24.348191
-Green Climate Fund [GCF],20.555179
-Qatar,18.502781
-Italy,14.681441
-Spain,14.22759
-New Zealand,13.20938
-IDB Invest,12.623959
-Denmark,12.338702
-Ford Foundation,9.916816
-Finland,9.423672
-Norway,9.226359
-African Development Bank [AfDB],8.668864
-Islamic Development Bank [IsDB],7.871286
-OPEC Fund for International Development [OPEC Fund],7.790524
-Global Environment Facility [GEF],7.410194
-Belgium,7.328791
-Luxembourg,6.32606
-Türkiye,5.530054
-Charity Projects Ltd (Comic Relief),5.078191
-"Omidyar Network Fund, Inc.",4.980933
-Swedish Postcode Lottery,4.905669
-Croatia,3.005065
-Dutch Postcode Lottery,2.345671
-Australia,1.96441
-Climate Investment Funds [CIF],0.970497
-Conrad N. Hilton Foundation,0.906691
-UNECE,0.860672
-Ireland,0.693874
-Poland,0.462468
-Citi Foundation,0.450751
-Open Society Foundations,0.428504
-Austria,0.422677
-Slovak Republic,0.343844
-Van Leer Foundation,0.260116
-Hungary,0.25355
-Czechia,0.226156
-Liechtenstein,0.20949
-People's Postcode Lottery,0.137491
-Rockefeller Foundation,0.130786
-Mastercard Foundation,0.118868
-Laudes Foundation,0.105153
-UNDP,0.092607
-Estonia,0.082989
-Romania,0.061254
-Slovenia,0.048183
-Oak Foundation,0.042828
-Greece,0.031549
-La Caixa Banking Foundation,0.016488
+DonorName,value
+Inter-American Development Bank,3882.337477
+International Bank for Reconstruction and Development,2344.739283
+Asian Development Bank,1567.061369
+International Development Association,695.001
+Germany,690.385126999999
+European Bank for Reconstruction and Development,638.918353
+France,476.40375
+Asian Infrastructure Investment Bank,298.368512
+EU Institutions,278.221393
+Saudi Arabia,239.667382
+Arab Fund (AFESD),167.438419
+Council of Europe Development Bank,159.062058
+United Kingdom,125.176022
+Portugal,123.103349
+Japan,113.25017
+United Arab Emirates,106.038893
+Kuwait,100.841407
+Central American Bank for Economic Integration,100.584263
+United States,55.173378
+Canada,44.808794
+Korea,42.884766
+Sweden,38.7606249999999
+Private Infrastructure Development Group,37.361541
+Switzerland,26.237135
+Green Climate Fund,21.583
+Qatar,19.407022
+Italy,16.055492
+Spain,15.580147
+New Zealand,13.513427
+IDB Invest,13.258792
+Denmark,12.287527
+Ford Foundation,10.279241
+Howard G. Buffett Foundation,10.1
+Finland,10.091007
+African Development Bank,9.104804
+Islamic Development Bank,8.236642
+OPEC Fund for International Development,8.15598
+Belgium,7.935646
+Global Environment Facility,7.768332
+Norway,7.6788
+Luxembourg,6.793007
+Türkiye,6.465903
+Charity Projects Ltd (Comic Relief),5.513149
+"Omidyar Network Fund, Inc.",5.163372
+Swedish Postcode Lottery,4.954058
+Croatia,3.384646
+Dutch Postcode Lottery,2.60938
+Australia,1.962716
+Climate Investment Funds,1.017598
+Conrad N. Hilton Foundation,0.939742
+UNECE,0.901795
+Ireland,0.74481
+Open Society Foundations,0.667673
+Poland,0.538647
+Citi Foundation,0.467292
+Austria,0.459085
+Slovak Republic,0.389035
+Hungary,0.305639
+Van Leer Foundation,0.289735
+Czechia,0.261873
+Liechtenstein,0.21956
+People's Postcode Lottery,0.149296
+Rockefeller Foundation,0.135552
+Mastercard Foundation,0.116933
+Laudes Foundation,0.11272
+UNDP,0.096849
+Estonia,0.093428
+Romania,0.075399
+Slovenia,0.054488
+Oak Foundation,0.046191
+Greece,0.034345
+La Caixa Banking Foundation,0.01809

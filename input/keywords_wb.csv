@@ -1,0 +1,865 @@
+word,input_phrase,concept
+aislamiento,construction materials,Housing Supply
+beton,construction materials,Housing Supply
+béton,construction materials,Housing Supply
+brick,construction materials,Housing Supply
+brique,construction materials,Housing Supply
+calcestruzzo,construction materials,Housing Supply
+cegła,construction materials,Housing Supply
+compensado,construction materials,Housing Supply
+compensato,construction materials,Housing Supply
+concrete,construction materials,Housing Supply
+concreto,construction materials,Housing Supply
+construction materials,construction materials,Housing Supply
+contrachapado,construction materials,Housing Supply
+contreplaqué,construction materials,Housing Supply
+dämmung,construction materials,Housing Supply
+hormigón,construction materials,Housing Supply
+insulation,construction materials,Housing Supply
+isolamento,construction materials,Housing Supply
+isolation,construction materials,Housing Supply
+izolacja,construction materials,Housing Supply
+ladrillo,construction materials,Housing Supply
+mattone,construction materials,Housing Supply
+plywood,construction materials,Housing Supply
+sklejka,construction materials,Housing Supply
+sperrholz,construction materials,Housing Supply
+tijolo,construction materials,Housing Supply
+ziegel,construction materials,Housing Supply
+constructeurs de logements,developers,Housing Supply
+constructores de viviendas,developers,Housing Supply
+construtoras de casas,developers,Housing Supply
+costruttori di abitazioni,developers,Housing Supply
+developers,developers,Housing Supply
+deweloperzy mieszkaniowi,developers,Housing Supply
+homebuilders,developers,Housing Supply
+wohnungsbauunternehmen,developers,Housing Supply
+dwelling construction,dwelling construction,Housing Supply
+wohnungsbau,dwelling construction,Housing Supply
+eco-friendly housing,eco-friendly housing ,Housing Supply
+ecocasa,eco-friendly housing ,Housing Supply
+écohabitat,eco-friendly housing ,Housing Supply
+ecohousing,eco-friendly housing ,Housing Supply
+ecovivienda,eco-friendly housing ,Housing Supply
+ekodom,eco-friendly housing ,Housing Supply
+ökohaus,eco-friendly housing ,Housing Supply
+abitazione ecologica,green housing ,Housing Supply
+bâtiment vert,green housing ,Housing Supply
+casa pasiva,green housing ,Housing Supply
+casa passiva,green housing ,Housing Supply
+construcción verde,green housing ,Housing Supply
+dom pasywny,green housing ,Housing Supply
+edificio verde,green housing ,Housing Supply
+edifício verde,green housing ,Housing Supply
+ekobudownictwo mieszkaniowe,green housing ,Housing Supply
+green housing,green housing ,Housing Supply
+greenbuilding,green housing ,Housing Supply
+grünes gebäude,green housing ,Housing Supply
+habitação ecológica,green housing ,Housing Supply
+logement écologique,green housing ,Housing Supply
+maison passive,green housing ,Housing Supply
+ökologische wohngebäude,green housing ,Housing Supply
+passivehouse,green housing ,Housing Supply
+passivhaus,green housing ,Housing Supply
+vivienda ecológica,green housing ,Housing Supply
+zielony budynek,green housing ,Housing Supply
+housing access,housing access,Housing Supply
+budownictwo mieszkaniowe,housing construction,Housing Supply
+construção habitacional,housing construction,Housing Supply
+construcción de viviendas,housing construction,Housing Supply
+construction de logements,housing construction,Housing Supply
+homebuilding,housing construction,Housing Supply
+housing construction,housing construction,Housing Supply
+housing development,housing development,Housing Supply
+mieszkalny,housing development,Housing Supply
+residencial,housing development,Housing Supply
+residential,housing development,Housing Supply
+résidentiel,housing development,Housing Supply
+residenziale,housing development,Housing Supply
+residenziell,housing development,Housing Supply
+behausung,housing provision,Housing Supply
+demeure,housing provision,Housing Supply
+dimora,housing provision,Housing Supply
+dwelling,housing provision,Housing Supply
+housing provision,housing provision,Housing Supply
+morada,housing provision,Housing Supply
+moradia,housing provision,Housing Supply
+conception universelle,inclusive housing,Housing Supply
+design universal,inclusive housing,Housing Supply
+design universale,inclusive housing,Housing Supply
+diseño universal,inclusive housing,Housing Supply
+dostępność,inclusive housing,Housing Supply
+inclusive housing,inclusive housing,Housing Supply
+projekt uniwersalny,inclusive housing,Housing Supply
+sans barrières,inclusive housing,Housing Supply
+sem barreiras,inclusive housing,Housing Supply
+senza barriere,inclusive housing,Housing Supply
+sin barreras,inclusive housing,Housing Supply
+universaldesign,inclusive housing,Housing Supply
+universelles design,inclusive housing,Housing Supply
+zugänglichkeit,inclusive housing,Housing Supply
+budowa domów,residential construction,Housing Supply
+construção de casas,residential construction,Housing Supply
+construção de habitações,residential construction,Housing Supply
+construcción de casas,residential construction,Housing Supply
+construction de maisons,residential construction,Housing Supply
+costruzione di abitazioni,residential construction,Housing Supply
+costruzione di case,residential construction,Housing Supply
+hausbau,residential construction,Housing Supply
+housebuilding,residential construction,Housing Supply
+residential construction,residential construction,Housing Supply
+abitazioni rurali,rural housing,Housing Supply
+habitação rural,rural housing,Housing Supply
+ländlicher wohnungsbau,rural housing,Housing Supply
+logement rural,rural housing,Housing Supply
+mieszkania wiejskie,rural housing,Housing Supply
+rural housing,rural housing,Housing Supply
+ruralhousing,rural housing,Housing Supply
+vivienda rural,rural housing,Housing Supply
+budowa,shelter construction,Housing Supply
+shelter construction,shelter construction,Housing Supply
+logis,shelter provision,Housing Supply
+shelter provision,shelter provision,Housing Supply
+casa ecológica,sustainable housing,Housing Supply
+ecohome,sustainable housing,Housing Supply
+maison écologique,sustainable housing,Housing Supply
+oekohaus,sustainable housing,Housing Supply
+sustainable housing,sustainable housing,Housing Supply
+apartamentos,urban housing,Housing Supply
+apartamenty,urban housing,Housing Supply
+apartments,urban housing,Housing Supply
+appartamenti,urban housing,Housing Supply
+appartements,urban housing,Housing Supply
+condomini,urban housing,Housing Supply
+condominios,urban housing,Housing Supply
+condomínios,urban housing,Housing Supply
+condominiums,urban housing,Housing Supply
+copropriétés,urban housing,Housing Supply
+eigentumswohnungen,urban housing,Housing Supply
+kondominium,urban housing,Housing Supply
+urban housing,urban housing,Housing Supply
+wohnungen,urban housing,Housing Supply
+basic services,basic services for housing,Incremental and Improved Housing
+energy services,energy services for housing,Incremental and Improved Housing
+home repairs,home repairs,Incremental and Improved Housing
+housing improvement,housing improvement,Incremental and Improved Housing
+mieszkanie,housing improvement,Incremental and Improved Housing
+renovação,housing improvement,Incremental and Improved Housing
+renovación,housing improvement,Incremental and Improved Housing
+renovation,housing improvement,Incremental and Improved Housing
+rénovation,housing improvement,Incremental and Improved Housing
+renovierung,housing improvement,Incremental and Improved Housing
+renowacja,housing improvement,Incremental and Improved Housing
+ristrutturazione,housing improvement,Incremental and Improved Housing
+wohnung,housing improvement,Incremental and Improved Housing
+housing technical assistance,housing technical assistance,Incremental and Improved Housing
+incremental housing,incremental housing,Incremental and Improved Housing
+in situ,informal settlement upgrading,Incremental and Improved Housing
+in-situ,informal settlement upgrading,Incremental and Improved Housing
+informal settlement,informal settlement upgrading,Incremental and Improved Housing
+abwasser,sanitation for housing,Incremental and Improved Housing
+abwasserentsorgung,sanitation for housing,Incremental and Improved Housing
+acque reflue,sanitation for housing,Incremental and Improved Housing
+águas residuais,sanitation for housing,Incremental and Improved Housing
+aguas residuales,sanitation for housing,Incremental and Improved Housing
+eaux usées,sanitation for housing,Incremental and Improved Housing
+latrina,sanitation for housing,Incremental and Improved Housing
+latrine,sanitation for housing,Incremental and Improved Housing
+latryna,sanitation for housing,Incremental and Improved Housing
+letrina,sanitation for housing,Incremental and Improved Housing
+sanitation for housing,sanitation for housing,Incremental and Improved Housing
+ścieki,sanitation for housing,Incremental and Improved Housing
+septic,sanitation for housing,Incremental and Improved Housing
+séptico,sanitation for housing,Incremental and Improved Housing
+septique,sanitation for housing,Incremental and Improved Housing
+septisch,sanitation for housing,Incremental and Improved Housing
+septyczny,sanitation for housing,Incremental and Improved Housing
+settico,sanitation for housing,Incremental and Improved Housing
+sewage,sanitation for housing,Incremental and Improved Housing
+baraccopoli,slum upgrading,Incremental and Improved Housing
+barrio marginal,slum upgrading,Incremental and Improved Housing
+bidonville,slum upgrading,Incremental and Improved Housing
+elendsviertel,slum upgrading,Incremental and Improved Housing
+favela,slum upgrading,Incremental and Improved Housing
+slum,slum upgrading,Incremental and Improved Housing
+slum upgrading,slum upgrading,Incremental and Improved Housing
+besitz,Tenure security,Incremental and Improved Housing
+posiadanie,Tenure security,Incremental and Improved Housing
+posse,Tenure security,Incremental and Improved Housing
+possesso,Tenure security,Incremental and Improved Housing
+tenencia,Tenure security,Incremental and Improved Housing
+tenure,Tenure security,Incremental and Improved Housing
+tenure security,Tenure security,Incremental and Improved Housing
+slumsy,upgrading informal housing,Incremental and Improved Housing
+tugurio,upgrading informal housing,Incremental and Improved Housing
+upgrading informal housing,upgrading informal housing,Incremental and Improved Housing
+canalização,water services for housing,Incremental and Improved Housing
+faucet,water services for housing,Incremental and Improved Housing
+fontanería,water services for housing,Incremental and Improved Housing
+grifo,water services for housing,Incremental and Improved Housing
+hydraulika,water services for housing,Incremental and Improved Housing
+idraulica,water services for housing,Incremental and Improved Housing
+kran,water services for housing,Incremental and Improved Housing
+plomberie,water services for housing,Incremental and Improved Housing
+plumbing,water services for housing,Incremental and Improved Housing
+robinet,water services for housing,Incremental and Improved Housing
+rubinetto,water services for housing,Incremental and Improved Housing
+sanitärinstallation,water services for housing,Incremental and Improved Housing
+torneira,water services for housing,Incremental and Improved Housing
+wasserhahn,water services for housing,Incremental and Improved Housing
+water services for housing,water services for housing,Incremental and Improved Housing
+abordabilité,affordable home loans,Market Enabling
+accessibilità,affordable home loans,Market Enabling
+affordability,affordable home loans,Market Enabling
+affordable home loans,affordable home loans,Market Enabling
+asequibilidad,affordable home loans,Market Enabling
+asequibilidade,affordable home loans,Market Enabling
+erschwinglichkeit,affordable home loans,Market Enabling
+przystępność,affordable home loans,Market Enabling
+hipoteka,home financing,Market Enabling
+home financing,home financing,Market Enabling
+hypothèque,home financing,Market Enabling
+ipoteca,home financing,Market Enabling
+affitto,home rental,Market Enabling
+alquiler,home rental,Market Enabling
+aluguel,home rental,Market Enabling
+arrendador,home rental,Market Enabling
+bailleur,home rental,Market Enabling
+home rental,home rental,Market Enabling
+inquilino,home rental,Market Enabling
+landlord,home rental,Market Enabling
+najemca,home rental,Market Enabling
+rental,home rental,Market Enabling
+senhorio,home rental,Market Enabling
+tenant,home rental,Market Enabling
+vermietung,home rental,Market Enabling
+wynajem,home rental,Market Enabling
+wynajmujący,home rental,Market Enabling
+accès à la propriété,homeownership programs,Market Enabling
+acconto,homeownership programs,Market Enabling
+anzahlung,homeownership programs,Market Enabling
+apport initial,homeownership programs,Market Enabling
+downpayment,homeownership programs,Market Enabling
+entrada,homeownership programs,Market Enabling
+homeownership,homeownership programs,Market Enabling
+homeownership programs,homeownership programs,Market Enabling
+pago inicial,homeownership programs,Market Enabling
+propiedad de la vivienda,homeownership programs,Market Enabling
+propriedade da casa,homeownership programs,Market Enabling
+proprietà della casa,homeownership programs,Market Enabling
+wkład własny,homeownership programs,Market Enabling
+własność domu,homeownership programs,Market Enabling
+wohneigentum,homeownership programs,Market Enabling
+ammortamento,housing finance,Market Enabling
+amortisation,housing finance,Market Enabling
+amortissement,housing finance,Market Enabling
+amortização,housing finance,Market Enabling
+amortización,housing finance,Market Enabling
+amortization,housing finance,Market Enabling
+amortyzacja,housing finance,Market Enabling
+cartolarizzazione,housing finance,Market Enabling
+housing finance,housing finance,Market Enabling
+refinancement,housing finance,Market Enabling
+refinanciación,housing finance,Market Enabling
+refinanciamento,housing finance,Market Enabling
+refinancing,housing finance,Market Enabling
+refinansowanie,housing finance,Market Enabling
+refinanzierung,housing finance,Market Enabling
+rifinanziamento,housing finance,Market Enabling
+securitização,housing finance,Market Enabling
+securitization,housing finance,Market Enabling
+sekurytyzacja,housing finance,Market Enabling
+titrisation,housing finance,Market Enabling
+titulización,housing finance,Market Enabling
+verbriefung,housing finance,Market Enabling
+housing investment,housing investment,Market Enabling
+housing policy,housing policy,Market Enabling
+housingpolicy,housing policy,Market Enabling
+landuseplanning,housing policy,Market Enabling
+pianificazione dell'uso del suolo,housing policy,Market Enabling
+planejamento do uso do solo,housing policy,Market Enabling
+planificación del uso del suelo,housing policy,Market Enabling
+planification de l'utilisation des terres,housing policy,Market Enabling
+planowanie użytkowania gruntów,housing policy,Market Enabling
+politica abitativa,housing policy,Market Enabling
+política de vivienda,housing policy,Market Enabling
+política habitacional,housing policy,Market Enabling
+politique de logement,housing policy,Market Enabling
+polityka mieszkaniowa,housing policy,Market Enabling
+raumnutzungsplanung,housing policy,Market Enabling
+strefowanie,housing policy,Market Enabling
+wohnungspolitik,housing policy,Market Enabling
+zonage,housing policy,Market Enabling
+zoneamento,housing policy,Market Enabling
+zonierung,housing policy,Market Enabling
+zonificación,housing policy,Market Enabling
+zoning,housing policy,Market Enabling
+zonizzazione,housing policy,Market Enabling
+landlord-tenant rental,landlord-tenant rental,Market Enabling
+locação,landlord-tenant rental,Market Enabling
+mieter,landlord-tenant rental,Market Enabling
+vermieter,landlord-tenant rental,Market Enabling
+cena rynkowa,market-rate housing,Market Enabling
+market-rate,market-rate housing,Market Enabling
+market-rate housing,market-rate housing,Market Enabling
+marktpreis,market-rate housing,Market Enabling
+precio de mercado,market-rate housing,Market Enabling
+preço de mercado,market-rate housing,Market Enabling
+prezzo di mercato,market-rate housing,Market Enabling
+prix du marché,market-rate housing,Market Enabling
+micro-finance for housing,micro-finance for housing,Market Enabling
+acreedor hipotecario,mortgage law,Market Enabling
+créancier hypothécaire,mortgage law,Market Enabling
+creditore ipotecario,mortgage law,Market Enabling
+credor hipotecário,mortgage law,Market Enabling
+débiteur hypothécaire,mortgage law,Market Enabling
+debitore ipotecario,mortgage law,Market Enabling
+deudor hipotecario,mortgage law,Market Enabling
+devedor hipotecário,mortgage law,Market Enabling
+dłużnik hipoteczny,mortgage law,Market Enabling
+egzekucja hipoteczna,mortgage law,Market Enabling
+ejecución hipotecaria,mortgage law,Market Enabling
+execução hipotecária,mortgage law,Market Enabling
+foreclosure,mortgage law,Market Enabling
+hypothekengläubiger,mortgage law,Market Enabling
+hypothekenschuldner,mortgage law,Market Enabling
+mortgage law,mortgage law,Market Enabling
+mortgagee,mortgage law,Market Enabling
+mortgagor,mortgage law,Market Enabling
+pignoramento immobiliare,mortgage law,Market Enabling
+saisie hypothécaire,mortgage law,Market Enabling
+wierzyciel hipoteczny,mortgage law,Market Enabling
+zwangsversteigerung,mortgage law,Market Enabling
+hipoteca,mortgages,Market Enabling
+hypothek,mortgages,Market Enabling
+kredyt hipoteczny,mortgages,Market Enabling
+mortgage,mortgages,Market Enabling
+mortgages,mortgages,Market Enabling
+mutuo ipotecario,mortgages,Market Enabling
+prêt hypothécaire,mortgages,Market Enabling
+housing market,private housing market,Market Enabling
+marché du logement,private housing market,Market Enabling
+marché du logement privé,private housing market,Market Enabling
+mercado de la vivienda,private housing market,Market Enabling
+mercado de la vivienda privada,private housing market,Market Enabling
+mercado habitacional,private housing market,Market Enabling
+mercado habitacional privado,private housing market,Market Enabling
+mercato delle abitazioni,private housing market,Market Enabling
+mercato delle abitazioni private,private housing market,Market Enabling
+private housing market,private housing market,Market Enabling
+privater wohnungsmarkt,private housing market,Market Enabling
+prywatny rynek mieszkaniowy,private housing market,Market Enabling
+rynek mieszkaniowy,private housing market,Market Enabling
+wohnungsmarkt,private housing market,Market Enabling
+accession à la propriété,private sector housing,Market Enabling
+private sector housing,private sector housing,Market Enabling
+propriedade da habitação,private sector housing,Market Enabling
+immobili,property development,Market Enabling
+immobilien,property development,Market Enabling
+imóveis,property development,Market Enabling
+property development,property development,Market Enabling
+real-estate,property development,Market Enabling
+acte,property title,Market Enabling
+akt,property title,Market Enabling
+atto,property title,Market Enabling
+cession,property title,Market Enabling
+conveyance,property title,Market Enabling
+deed,property title,Market Enabling
+escritura,property title,Market Enabling
+property title,property title,Market Enabling
+przeniesienie,property title,Market Enabling
+transmisión,property title,Market Enabling
+transmissão,property title,Market Enabling
+trasferimento,property title,Market Enabling
+tytuł,property title,Market Enabling
+übereignung,property title,Market Enabling
+urkunde,property title,Market Enabling
+bienes raíces,real estate market,Market Enabling
+immobiliare,real estate market,Market Enabling
+immobilie,real estate market,Market Enabling
+immobilienwirtschaft,real estate market,Market Enabling
+immobilier,real estate market,Market Enabling
+imobiliária,real estate market,Market Enabling
+nieruchomość,real estate market,Market Enabling
+nieruchomości,real estate market,Market Enabling
+property,real estate market,Market Enabling
+propiedad,real estate market,Market Enabling
+propriedade,real estate market,Market Enabling
+proprietà,real estate market,Market Enabling
+propriété,real estate market,Market Enabling
+real estate market,real estate market,Market Enabling
+realty,real estate market,Market Enabling
+affitto con riscatto,rent-to-own housing,Market Enabling
+alquiler con opción de compra,rent-to-own housing,Market Enabling
+arrendamento com opção de compra,rent-to-own housing,Market Enabling
+location avec option d'achat,rent-to-own housing,Market Enabling
+miete mit kaufoption,rent-to-own housing,Market Enabling
+najem z opcją wykupu,rent-to-own housing,Market Enabling
+rent-to-own,rent-to-own housing,Market Enabling
+rent-to-own housing,rent-to-own housing,Market Enabling
+arrendamento,rental housing,Market Enabling
+arrendamiento,rental housing,Market Enabling
+bail,rental housing,Market Enabling
+locazione,rental housing,Market Enabling
+mietverhältnis,rental housing,Market Enabling
+najem,rental housing,Market Enabling
+rental housing,rental housing,Market Enabling
+tenancy,rental housing,Market Enabling
+edilizia abitativa,residential real estate,Market Enabling
+residential real estate,residential real estate,Market Enabling
+abilitazione del mercato,technical assistance for housing,Market Enabling
+aktywacja rynku,technical assistance for housing,Market Enabling
+facilitação de mercado,technical assistance for housing,Market Enabling
+facilitation du marché,technical assistance for housing,Market Enabling
+habilitación del mercado,technical assistance for housing,Market Enabling
+market enabling,technical assistance for housing,Market Enabling
+marktaktivierung,technical assistance for housing,Market Enabling
+technical assistance for housing,technical assistance for housing,Market Enabling
+wohnungswesen,technical assistance for housing,Market Enabling
+accommodations,housing,Original keywords
+alloggi,housing,Original keywords
+alojamento,housing,Original keywords
+alojamentos,housing,Original keywords
+alojamientos,housing,Original keywords
+complejo residencial,housing,Original keywords
+complejos residenciales,housing,Original keywords
+complessi residenziali,housing,Original keywords
+complesso residenziale,housing,Original keywords
+complexe residentiel,housing,Original keywords
+complexe résidentiel,housing,Original keywords
+complexes residentiels,housing,Original keywords
+complexes résidentiels,housing,Original keywords
+complexo residencial,housing,Original keywords
+complexos residenciais,housing,Original keywords
+dwellings,housing,Original keywords
+habitacao,housing,Original keywords
+habitacion,housing,Original keywords
+habitación,housing,Original keywords
+habitaciones,housing,Original keywords
+habitacoes,housing,Original keywords
+habitações,housing,Original keywords
+habitation,housing,Original keywords
+habitations,housing,Original keywords
+hebergement,housing,Original keywords
+hebergements,housing,Original keywords
+hébergements,housing,Original keywords
+hospedagem,housing,Original keywords
+hospedagens,housing,Original keywords
+kompleks mieszkalny,housing,Original keywords
+kompleksy mieszkalne,housing,Original keywords
+logements,housing,Original keywords
+mieszkania,housing,Original keywords
+moradias,housing,Original keywords
+nocleg,housing,Original keywords
+noclegi,housing,Original keywords
+residential complex,housing,Original keywords
+residential complexes,housing,Original keywords
+sistemazione,housing,Original keywords
+sistemazioni,housing,Original keywords
+viviendas,housing,Original keywords
+wohnkomplex,housing,Original keywords
+wohnkomplexe,housing,Original keywords
+wohnraume,housing,Original keywords
+wohnräume,housing,Original keywords
+zakwaterowania,housing,Original keywords
+asentamiento humano,informal settlement,Original keywords
+asentamiento informal,informal settlement,Original keywords
+asentamiento no regulado,informal settlement,Original keywords
+asentamientos humanos,informal settlement,Original keywords
+asentamientos informales,informal settlement,Original keywords
+asentamientos no regulados,informal settlement,Original keywords
+assentamento humano,informal settlement,Original keywords
+assentamento informal,informal settlement,Original keywords
+assentamento nao regulamentado,informal settlement,Original keywords
+assentamento não regulamentado,informal settlement,Original keywords
+assentamentos humanos,informal settlement,Original keywords
+assentamentos informais,informal settlement,Original keywords
+assentamentos nao regulamentados,informal settlement,Original keywords
+assentamentos não regulamentados,informal settlement,Original keywords
+bairro informal,informal settlement,Original keywords
+bairros informais,informal settlement,Original keywords
+barrio informal,informal settlement,Original keywords
+barrios informales,informal settlement,Original keywords
+bidonvilles,informal settlement,Original keywords
+habitat humain,informal settlement,Original keywords
+habitat informel,informal settlement,Original keywords
+habitat non reglemente,informal settlement,Original keywords
+habitat non réglementé,informal settlement,Original keywords
+habitats humains,informal settlement,Original keywords
+habitats informels,informal settlement,Original keywords
+habitats non reglementes,informal settlement,Original keywords
+habitats non réglementés,informal settlement,Original keywords
+human settlement,informal settlement,Original keywords
+human settlements,informal settlement,Original keywords
+informal neighborhood,informal settlement,Original keywords
+informal neighborhoods,informal settlement,Original keywords
+informal settlements,informal settlement,Original keywords
+informelle siedlung,informal settlement,Original keywords
+informelle siedlungen,informal settlement,Original keywords
+informelle viertel,informal settlement,Original keywords
+informelles viertel,informal settlement,Original keywords
+insediamenti informali,informal settlement,Original keywords
+insediamenti non regolamentati,informal settlement,Original keywords
+insediamenti umani,informal settlement,Original keywords
+insediamento informale,informal settlement,Original keywords
+insediamento non regolamentato,informal settlement,Original keywords
+insediamento umano,informal settlement,Original keywords
+menschliche siedlung,informal settlement,Original keywords
+menschliche siedlungen,informal settlement,Original keywords
+nieformalna dzielnica,informal settlement,Original keywords
+nieformalne dzielnice,informal settlement,Original keywords
+osada ludzka,informal settlement,Original keywords
+osada nieformalna,informal settlement,Original keywords
+osada nieregulowana,informal settlement,Original keywords
+osady ludzkie,informal settlement,Original keywords
+osady nieformalne,informal settlement,Original keywords
+osady nieregulowane,informal settlement,Original keywords
+quartier informel,informal settlement,Original keywords
+quartiere informale,informal settlement,Original keywords
+quartieri informali,informal settlement,Original keywords
+quartiers informels,informal settlement,Original keywords
+ungeregelte siedlung,informal settlement,Original keywords
+ungeregelte siedlungen,informal settlement,Original keywords
+unregulated settlement,informal settlement,Original keywords
+unregulated settlements,informal settlement,Original keywords
+abrigos,shelter,Original keywords
+abris,shelter,Original keywords
+albergues,shelter,Original keywords
+refuges,shelter,Original keywords
+refúgio,shelter,Original keywords
+refugios,shelter,Original keywords
+refúgios,shelter,Original keywords
+rifugi,shelter,Original keywords
+ripari,shelter,Original keywords
+riparo,shelter,Original keywords
+schron,shelter,Original keywords
+schronienia,shelter,Original keywords
+schrony,shelter,Original keywords
+schutzraume,shelter,Original keywords
+schutzräume,shelter,Original keywords
+shelters,shelter,Original keywords
+unterkunfte,shelter,Original keywords
+unterkünfte,shelter,Original keywords
+armenviertel,slum,Original keywords
+bairro pobre,slum,Original keywords
+bairros pobres,slum,Original keywords
+barrios marginales,slum,Original keywords
+bieda osiedla,slum,Original keywords
+bieda osiedle,slum,Original keywords
+borgata,slum,Original keywords
+borgate,slum,Original keywords
+chabola,slum,Original keywords
+chabolas,slum,Original keywords
+dzielnica biedy,slum,Original keywords
+dzielnice biedy,slum,Original keywords
+favelas,slum,Original keywords
+hausbesetzer,slum,Original keywords
+illegale bewohner,slum,Original keywords
+illegaler bewohner,slum,Original keywords
+nielegalni mieszkancy,slum,Original keywords
+nielegalni mieszkańcy,slum,Original keywords
+nielegalny mieszkaniec,slum,Original keywords
+occupant illegal,slum,Original keywords
+occupant illégal,slum,Original keywords
+occupante abusivo,slum,Original keywords
+occupanti abusivi,slum,Original keywords
+occupants illegaux,slum,Original keywords
+occupants illégaux,slum,Original keywords
+ocupante ilegal,slum,Original keywords
+ocupantes ilegais,slum,Original keywords
+ocupantes ilegales,slum,Original keywords
+okupa,slum,Original keywords
+okupas,slum,Original keywords
+quartier pauvre,slum,Original keywords
+quartiere povero,slum,Original keywords
+quartieri poveri,slum,Original keywords
+quartiers pauvres,slum,Original keywords
+shantytown,slum,Original keywords
+shantytowns,slum,Original keywords
+slums,slum,Original keywords
+squatter,slum,Original keywords
+squatters,slum,Original keywords
+squatteur,slum,Original keywords
+squatteurs,slum,Original keywords
+vila miseria,slum,Original keywords
+vila miséria,slum,Original keywords
+vilas miserias,slum,Original keywords
+vilas misérias,slum,Original keywords
+villa miseria,slum,Original keywords
+villas miserias,slum,Original keywords
+construcao sustentavel,sustainable construction,Original keywords
+construção sustentável,sustainable construction,Original keywords
+construccion sostenible,sustainable construction,Original keywords
+construcción sostenible,sustainable construction,Original keywords
+construction durable,sustainable construction,Original keywords
+costruzione sostenibile,sustainable construction,Original keywords
+nachhaltiges Bauen,sustainable construction,Original keywords
+sustainable construction,sustainable construction,Original keywords
+zrownowazone budownictwo,sustainable construction,Original keywords
+zrównoważone budownictwo,sustainable construction,Original keywords
+desarrollo urbano,urban development,Original keywords
+desenvolvimento urbano,urban development,Original keywords
+developpement urbain,urban development,Original keywords
+développement urbain,urban development,Original keywords
+rozwoj urbanistyczny,urban development,Original keywords
+rozwój urbanistyczny,urban development,Original keywords
+stadtentwicklung,urban development,Original keywords
+sviluppo urbano,urban development,Original keywords
+urban development,urban development,Original keywords
+housing reconstruction,housing reconstruction,Resilience and Reconstruction
+nachkatastrophe,post-disaster housing,Resilience and Reconstruction
+pokatastrofalny,post-disaster housing,Resilience and Reconstruction
+pós-desastre,post-disaster housing,Resilience and Reconstruction
+post-catastrophe,post-disaster housing,Resilience and Reconstruction
+post-disaster housing,post-disaster housing,Resilience and Reconstruction
+postcatastrofe,post-disaster housing,Resilience and Reconstruction
+postdesastre,post-disaster housing,Resilience and Reconstruction
+postdisaster,post-disaster housing,Resilience and Reconstruction
+przesiedlenie,post-disaster housing,Resilience and Reconstruction
+resettlement,post-disaster housing,Resilience and Reconstruction
+umsiedlung,post-disaster housing,Resilience and Reconstruction
+wiederaufbau,post-disaster housing,Resilience and Reconstruction
+reconstruction loan,reconstruction loan,Resilience and Reconstruction
+reconstruction subsidy,reconstruction subsidy,Resilience and Reconstruction
+abitazioni,resilient housing,Resilience and Reconstruction
+earthquake-resistant,resilient housing,Resilience and Reconstruction
+erdbebensicher,resilient housing,Resilience and Reconstruction
+floodproof,resilient housing,Resilience and Reconstruction
+odporny na burze,resilient housing,Resilience and Reconstruction
+odporny na powodzie,resilient housing,Resilience and Reconstruction
+odporny na trzęsienia ziemi,resilient housing,Resilience and Reconstruction
+resilient housing,resilient housing,Resilience and Reconstruction
+résistant aux inondations,resilient housing,Resilience and Reconstruction
+résistant aux tempêtes,resilient housing,Resilience and Reconstruction
+résistant aux tremblements de terre,resilient housing,Resilience and Reconstruction
+resistente a inundaciones,resilient housing,Resilience and Reconstruction
+resistente a inundações,resilient housing,Resilience and Reconstruction
+resistente a sismos,resilient housing,Resilience and Reconstruction
+resistente a tempestades,resilient housing,Resilience and Reconstruction
+resistente a terremotos,resilient housing,Resilience and Reconstruction
+resistente a tormentas,resilient housing,Resilience and Reconstruction
+resistente ai terremoti,resilient housing,Resilience and Reconstruction
+resistente alle inondazioni,resilient housing,Resilience and Reconstruction
+resistente alle tempeste,resilient housing,Resilience and Reconstruction
+stormproof,resilient housing,Resilience and Reconstruction
+sturmfest,resilient housing,Resilience and Reconstruction
+überschwemmungssicher,resilient housing,Resilience and Reconstruction
+affordable housing,affordable housing,Social Housing
+cooperativa abitativa,cooperative housing,Social Housing
+cooperativa de vivienda,cooperative housing,Social Housing
+cooperativa habitacional,cooperative housing,Social Housing
+coopérative d'habitation,cooperative housing,Social Housing
+cooperative housing,cooperative housing,Social Housing
+housingcooperative,cooperative housing,Social Housing
+spółdzielnia mieszkaniowa,cooperative housing,Social Housing
+wohnungsgenossenschaft,cooperative housing,Social Housing
+dotowany,government-funded housing,Social Housing
+government-funded housing,government-funded housing,Social Housing
+cooperativas,housing cooperatives,Social Housing
+cooperatives,housing cooperatives,Social Housing
+coopératives,housing cooperatives,Social Housing
+genossenschaften,housing cooperatives,Social Housing
+housing cooperatives,housing cooperatives,Social Housing
+spółdzielnie,housing cooperatives,Social Housing
+housing program,housing program,Social Housing
+low-cost housing,low-cost housing,Social Housing
+subwencjonowany,low-cost housing,Social Housing
+municipal housing,municipal housing,Social Housing
+edilizia senza scopo di lucro,nonprofit housing,Social Housing
+gemeinnütziger wohnungsbau,nonprofit housing,Social Housing
+habitação sem fins lucrativos,nonprofit housing,Social Housing
+logement sans but lucratif,nonprofit housing,Social Housing
+mieszkalnictwo non-profit,nonprofit housing,Social Housing
+nonprofit housing,nonprofit housing,Social Housing
+nonprofithousing,nonprofit housing,Social Housing
+vivienda sin fines de lucro,nonprofit housing,Social Housing
+dauerhaft,permanently affordable housing,Social Housing
+en permanence,permanently affordable housing,Social Housing
+na stałe,permanently affordable housing,Social Housing
+permanentemente,permanently affordable housing,Social Housing
+permanently,permanently affordable housing,Social Housing
+permanently affordable housing,permanently affordable housing,Social Housing
+edilizia pubblica,public housing,Social Housing
+edilizia residenziale statale,public housing,Social Housing
+edilizia sovvenzionata,public housing,Social Housing
+habitação estatal,public housing,Social Housing
+habitação pública,public housing,Social Housing
+habitação subsidiada,public housing,Social Housing
+logement public,public housing,Social Housing
+logement subventionné,public housing,Social Housing
+mieszkania komunalne,public housing,Social Housing
+mieszkania państwowe,public housing,Social Housing
+mieszkania subsydiowane,public housing,Social Housing
+öffentliche wohnungen,public housing,Social Housing
+public housing,public housing,Social Housing
+publichousing,public housing,Social Housing
+staatlicher wohnungsbau,public housing,Social Housing
+statehousing,public housing,Social Housing
+subsidizedhousing,public housing,Social Housing
+subventionierter wohnungsbau,public housing,Social Housing
+vivienda estatal,public housing,Social Housing
+vivienda pública,public housing,Social Housing
+vivienda subvencionada,public housing,Social Housing
+equidad compartida,shared-equity housing,Social Housing
+equidade compartilhada,shared-equity housing,Social Housing
+equità condivisa,shared-equity housing,Social Housing
+équité partagée,shared-equity housing,Social Housing
+geteiltes eigenkapital,shared-equity housing,Social Housing
+shared-equity,shared-equity housing,Social Housing
+shared-equity housing,shared-equity housing,Social Housing
+współdzielony kapitał,shared-equity housing,Social Housing
+alloggio comunale,social housing,Social Housing
+alloggio sociale,social housing,Social Housing
+alloggio statale,social housing,Social Housing
+council housing,social housing,Social Housing
+habitação municipal,social housing,Social Housing
+habitação social,social housing,Social Housing
+kommunaler wohnungsbau,social housing,Social Housing
+logement d'état,social housing,Social Housing
+logement municipal,social housing,Social Housing
+logement social,social housing,Social Housing
+mieszkanie komunalne,social housing,Social Housing
+mieszkanie państwowe,social housing,Social Housing
+mieszkanie socjalne,social housing,Social Housing
+social housing,social housing,Social Housing
+sozialwohnung,social housing,Social Housing
+staatswohnung,social housing,Social Housing
+state housing,social housing,Social Housing
+vivienda municipal,social housing,Social Housing
+vivienda social,social housing,Social Housing
+edilizia comunale,state-funded housing,Social Housing
+edilizia statale,state-funded housing,Social Housing
+mieszkanie publiczne,state-funded housing,Social Housing
+öffentlicher wohnungsbau,state-funded housing,Social Housing
+state-funded housing,state-funded housing,Social Housing
+alloggi sovvenzionati,subsidized housing,Social Housing
+dotacja mieszkaniowa,subsidized housing,Social Housing
+geförderter wohnraum,subsidized housing,Social Housing
+housing subsidy,subsidized housing,Social Housing
+mieszkanie subsydiowane,subsidized housing,Social Housing
+subsidio de vivienda,subsidized housing,Social Housing
+subsídio habitacional,subsidized housing,Social Housing
+subsidized housing,subsidized housing,Social Housing
+subvention au logement,subsidized housing,Social Housing
+sussidio abitativo,subsidized housing,Social Housing
+wohnungszuschuss,subsidized housing,Social Housing
+crisis housing,crisis housing,Transitional and Temporary Housing
+disaster housing,disaster housing,Transitional and Temporary Housing
+disaster shelter,disaster shelter,Transitional and Temporary Housing
+emergency accommodation,emergency accommodation,Transitional and Temporary Housing
+unterstand,emergency accommodation,Transitional and Temporary Housing
+alloggio,emergency housing,Transitional and Temporary Housing
+emergency housing,emergency housing,Transitional and Temporary Housing
+habitação,emergency housing,Transitional and Temporary Housing
+housing,emergency housing,Transitional and Temporary Housing
+logement,emergency housing,Transitional and Temporary Housing
+mieszkalnictwo,emergency housing,Transitional and Temporary Housing
+nagły wypadek,emergency housing,Transitional and Temporary Housing
+notfall,emergency housing,Transitional and Temporary Housing
+vivienda,emergency housing,Transitional and Temporary Housing
+abri d'urgence,emergency shelters,Transitional and Temporary Housing
+abrigo de emergência,emergency shelters,Transitional and Temporary Housing
+albergue de emergencia,emergency shelters,Transitional and Temporary Housing
+emergency shelters,emergency shelters,Transitional and Temporary Housing
+emergencyshelter,emergency shelters,Transitional and Temporary Housing
+notunterkunft,emergency shelters,Transitional and Temporary Housing
+rifugio d'emergenza,emergency shelters,Transitional and Temporary Housing
+schronisko awaryjne,emergency shelters,Transitional and Temporary Housing
+acampamento,homeless encampments,Transitional and Temporary Housing
+accampamento,homeless encampments,Transitional and Temporary Housing
+campamento,homeless encampments,Transitional and Temporary Housing
+campement,homeless encampments,Transitional and Temporary Housing
+encampment,homeless encampments,Transitional and Temporary Housing
+homeless encampments,homeless encampments,Transitional and Temporary Housing
+obdachlosenlager,homeless encampments,Transitional and Temporary Housing
+obozowisko,homeless encampments,Transitional and Temporary Housing
+abri,homeless shelters,Transitional and Temporary Housing
+abrigo,homeless shelters,Transitional and Temporary Housing
+albergue,homeless shelters,Transitional and Temporary Housing
+homeless shelters,homeless shelters,Transitional and Temporary Housing
+obdachlosenunterkunft,homeless shelters,Transitional and Temporary Housing
+rifugio,homeless shelters,Transitional and Temporary Housing
+schronisko,homeless shelters,Transitional and Temporary Housing
+shelter,homeless shelters,Transitional and Temporary Housing
+alloggio prima,housing first programs,Transitional and Temporary Housing
+habitação primeiro,housing first programs,Transitional and Temporary Housing
+housing first,housing first programs,Transitional and Temporary Housing
+housing first programs,housing first programs,Transitional and Temporary Housing
+logement d'abord,housing first programs,Transitional and Temporary Housing
+mieszkanie najpierw,housing first programs,Transitional and Temporary Housing
+vivienda primero,housing first programs,Transitional and Temporary Housing
+wohnen zuerst,housing first programs,Transitional and Temporary Housing
+humanitarian shelters,humanitarian shelters,Transitional and Temporary Housing
+housingfirst,permanent supportive housing,Transitional and Temporary Housing
+permanent supportive housing,permanent supportive housing,Transitional and Temporary Housing
+psh,permanent supportive housing,Transitional and Temporary Housing
+refugee shelters,refugee shelters,Transitional and Temporary Housing
+obdachlosigkeit,shelter programs for homeless,Transitional and Temporary Housing
+ricovero,shelter programs for homeless,Transitional and Temporary Housing
+shelter programs for homeless,shelter programs for homeless,Transitional and Temporary Housing
+unterkunft,shelter programs for homeless,Transitional and Temporary Housing
+shelters for displaced persons,shelters for displaced persons,Transitional and Temporary Housing
+refuge,street homelessness,Transitional and Temporary Housing
+refugio,street homelessness,Transitional and Temporary Housing
+sem-teto,street homelessness,Transitional and Temporary Housing
+senzatetto,street homelessness,Transitional and Temporary Housing
+street homelessness,street homelessness,Transitional and Temporary Housing
+zeltlager,street homelessness,Transitional and Temporary Housing
+accommodation,temporary accommodation for refugees,Transitional and Temporary Housing
+acomodação,temporary accommodation for refugees,Transitional and Temporary Housing
+alojamiento,temporary accommodation for refugees,Transitional and Temporary Housing
+hébergement,temporary accommodation for refugees,Transitional and Temporary Housing
+schutzunterkunft,temporary accommodation for refugees,Transitional and Temporary Housing
+temporary accommodation for refugees,temporary accommodation for refugees,Transitional and Temporary Housing
+temporary housing,temporary housing,Transitional and Temporary Housing
+wohnraum,temporary housing,Transitional and Temporary Housing
+albergue para personas sin hogar,temporary housing for homeless,Transitional and Temporary Housing
+albergue para pessoas sem-abrigo,temporary housing for homeless,Transitional and Temporary Housing
+alloggio temporaneo,temporary housing for homeless,Transitional and Temporary Housing
+czasowe mieszkanie,temporary housing for homeless,Transitional and Temporary Housing
+habitação temporária,temporary housing for homeless,Transitional and Temporary Housing
+homelessshelter,temporary housing for homeless,Transitional and Temporary Housing
+logement temporaire,temporary housing for homeless,Transitional and Temporary Housing
+refuge pour les sans-abri,temporary housing for homeless,Transitional and Temporary Housing
+rifugio per senzatetto,temporary housing for homeless,Transitional and Temporary Housing
+schronisko dla bezdomnych,temporary housing for homeless,Transitional and Temporary Housing
+temporary housing for homeless,temporary housing for homeless,Transitional and Temporary Housing
+temporaryhousing,temporary housing for homeless,Transitional and Temporary Housing
+vivienda temporal,temporary housing for homeless,Transitional and Temporary Housing
+vorübergehende unterkunft,temporary housing for homeless,Transitional and Temporary Housing
+temporary supportive housing,temporary supportive housing,Transitional and Temporary Housing
+tent cities,tent cities,Transitional and Temporary Housing
+barraca,tents for the homeless,Transitional and Temporary Housing
+lager,tents for the homeless,Transitional and Temporary Housing
+namiot,tents for the homeless,Transitional and Temporary Housing
+obóz,tents for the homeless,Transitional and Temporary Housing
+tenda,tents for the homeless,Transitional and Temporary Housing
+tent,tents for the homeless,Transitional and Temporary Housing
+tente,tents for the homeless,Transitional and Temporary Housing
+tents for the homeless,tents for the homeless,Transitional and Temporary Housing
+tienda de campaña,tents for the homeless,Transitional and Temporary Housing
+zelt,tents for the homeless,Transitional and Temporary Housing
+alloggio di transizione,transitional housing for homeless,Transitional and Temporary Housing
+bezdomność,transitional housing for homeless,Transitional and Temporary Housing
+habitação de transição,transitional housing for homeless,Transitional and Temporary Housing
+homelessness,transitional housing for homeless,Transitional and Temporary Housing
+logement transitoire,transitional housing for homeless,Transitional and Temporary Housing
+mieszkanie przejściowe,transitional housing for homeless,Transitional and Temporary Housing
+sans-abrisme,transitional housing for homeless,Transitional and Temporary Housing
+sem-abrigo,transitional housing for homeless,Transitional and Temporary Housing
+senza fissa dimora,transitional housing for homeless,Transitional and Temporary Housing
+sinhogarismo,transitional housing for homeless,Transitional and Temporary Housing
+transitional housing,transitional housing for homeless,Transitional and Temporary Housing
+transitional housing for homeless,transitional housing for homeless,Transitional and Temporary Housing
+übergangswohnung,transitional housing for homeless,Transitional and Temporary Housing
+vivienda de transición,transitional housing for homeless,Transitional and Temporary Housing
+bezdomny,unsheltered population,Transitional and Temporary Housing
+desabrigado,unsheltered population,Transitional and Temporary Housing
+falta de vivienda,unsheltered population,Transitional and Temporary Housing
+itinérance,unsheltered population,Transitional and Temporary Housing
+obdachlos,unsheltered population,Transitional and Temporary Housing
+sans-abri,unsheltered population,Transitional and Temporary Housing
+senza riparo,unsheltered population,Transitional and Temporary Housing
+sin techo,unsheltered population,Transitional and Temporary Housing
+unsheltered,unsheltered population,Transitional and Temporary Housing
+unsheltered population,unsheltered population,Transitional and Temporary Housing

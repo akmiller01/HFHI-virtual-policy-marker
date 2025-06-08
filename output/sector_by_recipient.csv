@@ -1,137 +1,137 @@
-recipient_name,value
-Mexico,1465.551417
-Uzbekistan,1134.913901
-India,1108.583257
-Argentina,1075.195517
-Egypt,982.243278
-Indonesia,713.884797
-Brazil,642.729372
-Colombia,418.199534
-Peru,364.11573
-Kenya,322.101878
-Ecuador,212.215273
-Ukraine,211.507839
-Pakistan,202.186931
-Haiti,155.888539
-Morocco,153.312063
-Iraq,149.986749
-Serbia,129.577222
-Lebanon,124.160679
-El Salvador,115.812968
-Developing countries unspecified,113.021382
-Cabo Verde,111.347533
-Bosnia and Herzegovina,100.922846
-Europe unspecified,98.106736
-Jordan,91.368638
-Sri Lanka,90.622464
-Nicaragua,87.89065
-Kazakhstan,85.061879
-Tunisia,83.199899
-Afghanistan,75.838976
-Mongolia,71.396831
-Palestinian Authority or West Bank and Gaza Strip,69.457378
-Western Africa unspecified,64.395072
-Bolivia,60.447953
-South Africa,57.733125
-Rwanda,57.434602
-Georgia,57.022546
-Uruguay,53.00352
-Türkiye,51.230961
-Myanmar,43.365888
-Yemen,42.367468
-Montenegro,41.035015
-North Macedonia,39.826824
-Viet Nam,38.201167
-Bangladesh,37.945597
-Paraguay,36.472442
-Djibouti,32.535001
-Namibia,31.737368
-Bhutan,24.124964
-Africa unspecified,21.689463
-Nepal,20.765627
-Honduras,20.347247
-Mozambique,19.095225
-Sudan,16.826933
-Sub-Saharan Africa unspecified,16.573479
-Moldova,15.988328
-Belarus,15.092637
-Uganda,14.611138
-China (People’s Republic of),14.108474
-Armenia,13.923985
-Kyrgyzstan,11.868535
-Ghana,10.919306
-Northern Africa unspecified,10.846415
-Suriname,8.972202
-Mali,8.951129
-Dominica,8.029161
-Syrian Arab Republic,7.884259
-Tanzania,7.297509
-Fiji,7.236837
-Democratic Republic of the Congo,7.186099
-Dominican Republic,6.367343
-Philippines,6.101454
-Panama,5.948505
-Kiribati,5.524039
-Asia unspecified,5.445497
-Guatemala,5.155401
-Guyana,3.984471
-Senegal,3.65633
-Cambodia,3.372977
-Central America and the Caribbean unspecified,3.300314
-Tonga,3.105564
-Malaysia,3.055237
-Albania,2.986917
-America unspecified,2.832543
-Seychelles,2.514855
-Costa Rica,2.479305
-Cameroon,2.305742
-South America unspecified,2.274084
-Burkina Faso,2.12812
-Grenada,1.972642
-Zambia,1.971916
-Central Asia unspecified,1.561248
-Côte d’Ivoire,1.345136
-Madagascar,1.289657
-Burundi,1.282522
-Somalia,1.176227
-Samoa,1.147537
-Cuba,1.134325
-Comoros,1.072285
-Zimbabwe,1.04887
-Liberia,0.960584
-Malawi,0.86721
-Central America unspecified,0.802861
-Thailand,0.740576
-Southern Africa unspecified,0.599364
-Niger,0.587628
-Ethiopia,0.578915
-Chad,0.546678
-Nigeria,0.529433
-Lao People’s Democratic Republic,0.495469
-Vanuatu,0.489149
-Angola,0.466428
-Chile,0.409904
-Algeria,0.401343
-Papua New Guinea,0.369072
-Tajikistan,0.305359
-Solomon Islands,0.296228
-Venezuela,0.199474
-Iran,0.172873
-Benin,0.152089
-Azerbaijan,0.146046
-Mauritania,0.134849
-Jamaica,0.108489
-Sierra Leone,0.080482
-Togo,0.041754
-Kosovo,0.040532
-Far East Asia unspecified,0.034537
-Southern Asia unspecified,0.033028
-Tuvalu,0.014839
-South Sudan,0.014149
-Palau,0.01353
-Guinea-Bissau,0.012956
-Equatorial Guinea,0.012371
-Mauritius,0.009071
-States ex-Yugoslavia unspecified,0.007006
-Democratic People’s Republic of Korea,0.005173
-Middle East unspecified,0.00011
+RecipientName,value
+Mexico,1539.871921
+India,1194.221028
+Uzbekistan,1190.041532
+Argentina,1127.17959
+Egypt,1030.917093
+Indonesia,749.163294
+Brazil,674.348322
+Colombia,436.263702
+Peru,391.239633
+Kenya,355.192146
+Ukraine,236.47923
+Ecuador,224.693465
+Pakistan,212.092362
+Haiti,164.212476
+Morocco,164.194039
+Iraq,157.391489
+Serbia,137.890461
+Lebanon,130.478304
+Cabo Verde,123.28804
+El Salvador,121.427888
+"Bilateral, unspecified",120.065569
+Bosnia and Herzegovina,106.50452
+"Europe, regional",106.251507
+Jordan,95.993436
+Sri Lanka,95.681702
+Nicaragua,92.011249
+Kazakhstan,89.011746
+Tunisia,88.411864
+Afghanistan,79.424102
+Mongolia,73.544646
+West Bank and Gaza Strip,73.124516
+"Western Africa, regional",67.547231
+Bolivia,63.388151
+South Africa,62.575659
+Georgia,60.325484
+Rwanda,60.074368
+Uruguay,55.562461
+Türkiye,53.756212
+Yemen,44.446692
+Montenegro,43.159959
+Myanmar,42.481656
+North Macedonia,41.803735
+Viet Nam,41.070323
+Bangladesh,39.477218
+Paraguay,38.123079
+Djibouti,36.184278
+Namibia,34.719334
+Bhutan,25.053723
+"Africa, regional",22.974542
+Honduras,21.317807
+Nepal,21.074975
+Mozambique,19.92917
+Sudan,17.658225
+"South of Sahara, regional",17.457252
+Moldova,16.777437
+Belarus,15.829109
+Uganda,15.665564
+Armenia,15.121938
+China (People's Republic of),14.782812
+Kyrgyzstan,12.488421
+"North of Sahara, regional",11.893752
+Ghana,11.781719
+Mali,9.448286
+Suriname,9.38833
+Syrian Arab Republic,8.563024
+Dominica,8.419594
+Democratic Republic of the Congo,7.715791
+Tanzania,7.539031
+Fiji,7.44704
+Dominican Republic,6.682171
+Philippines,6.471171
+Panama,6.237327
+Kiribati,5.650731
+"Asia, regional",5.638737
+Guatemala,5.612666
+Guyana,4.164593
+Senegal,3.874099
+Cambodia,3.66439
+"Caribbean & Central America, regional",3.451578
+Tonga,3.255531
+Malaysia,3.201648
+"America, regional",3.177172
+Albania,3.124104
+Seychelles,2.641744
+Costa Rica,2.592978
+Cameroon,2.516507
+"South America, regional",2.440971
+Burkina Faso,2.284619
+Grenada,2.071842
+Zambia,2.048599
+"Central Asia, regional",1.696388
+Côte d'Ivoire,1.396945
+Burundi,1.377437
+Madagascar,1.364556
+Cuba,1.232603
+Somalia,1.189207
+Samoa,1.173632
+Comoros,1.122665
+Malawi,1.102966
+Liberia,1.043161
+Zimbabwe,1.042371
+Nigeria,0.942748
+"Central America, regional",0.811675
+Thailand,0.772413
+"Southern Africa, regional",0.648789
+Niger,0.633972
+Ethiopia,0.626507
+Chad,0.598894
+Vanuatu,0.509613
+Lao People's Democratic Republic,0.482309
+Angola,0.477547
+Chile,0.435455
+Algeria,0.407135
+Papua New Guinea,0.401205
+Tajikistan,0.325003
+Solomon Islands,0.291993
+Venezuela,0.204966
+Iran,0.175638
+Azerbaijan,0.159551
+Benin,0.158557
+Mauritania,0.147962
+Jamaica,0.113934
+Sierra Leone,0.086556
+Togo,0.044215
+Kosovo,0.042802
+"Far East Asia, regional",0.037249
+"South Asia, regional",0.035865
+Tuvalu,0.014429
+South Sudan,0.014418
+Palau,0.013157
+Guinea-Bissau,0.012857
+Equatorial Guinea,0.012606
+Mauritius,0.008822
+States Ex-Yugoslavia unspecified,0.008437
+Democratic People's Republic of Korea,0.005578
+"Middle East, regional",0.000111

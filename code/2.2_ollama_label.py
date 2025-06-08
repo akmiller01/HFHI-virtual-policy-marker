@@ -9,7 +9,9 @@ from ollama import chat
 from ollama import ChatResponse
 from huggingface_hub import login
 from dotenv import load_dotenv
-from model_common import SYSTEM_PROMPT, DEFINITIONS, SECTORS, ReasonedClassification
+from hfhi_definitions import SUFFIX, SYSTEM_PROMPT, DEFINITIONS, ReasonedClassification
+from common import SECTORS
+from util_self_termination import main as self_terminate
 
 
 global MODEL
@@ -29,11 +31,11 @@ def ollama_label(example):
                 'role': 'user',
                 'content': '{}\nSector: {}'.format(
                     example['text'],
-                    SECTORS[str(example['sector_code'])],
+                    SECTORS[str(example['PurposeCode'])],
                 ),
             },
         ],
-        # options={'temperature': 0.4}
+        options={'temperature': 0.4}
     )
     parsed_response_content = json.loads(response.message.content)
     for response_key in parsed_response_content:
@@ -57,8 +59,9 @@ def main():
     ollama.pull(MODEL)
 
     # Load data
-    dataset = load_dataset('alex-miller/crs-2014-2023-housing-selection', split='train')
-    unique_sectors = [str(sector) for sector in list(set(dataset['sector_code']))]
+    dataset = load_dataset(f'alex-miller/crs-2014-2023-housing-selection{SUFFIX}', split='train')
+
+    unique_sectors = [str(sector) for sector in list(set(dataset['PurposeCode']))]
     missing_sectors = [sector for sector in unique_sectors if not sector in SECTORS]
     if len(missing_sectors) > 0:
         raise Exception(
@@ -67,7 +70,8 @@ def main():
 
     # Label
     dataset = dataset.map(ollama_label)
-    dataset.push_to_hub('alex-miller/crs-2014-2023-housing-labeled-phi4')
+    dataset.push_to_hub(f'alex-miller/crs-2014-2023-housing-labeled-phi4{SUFFIX}')
+    self_terminate()
 
 
 if __name__ == '__main__':

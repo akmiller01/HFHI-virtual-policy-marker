@@ -3,6 +3,8 @@ NLP techniques to build a virtual adequate housing policy marker
 
 ## Code Overview
 
+General note: where objects are imported `hfhi_definitions`, the import location can be changed to `wb_definitions`.
+
 ### 1.0_download_crs.py
 
 This script downloads and processes CRS (Creditor Reporting System) data. It performs the following tasks:
@@ -50,6 +52,26 @@ This script collates the results of the sector code analysis into a single Excel
 4. **Insert data and images**: Writes the data from each CSV file into the corresponding worksheet and inserts any associated images (e.g., bar charts) into the worksheet.
 5. **Save workbook**: Saves the Excel workbook as `output/current_sector_analysis.xlsx`.
 
+
+### 1.3_generate_keywords.py
+
+This script generates a multilingual keyword list for each housing subsector concept to support literal text search. It performs the following tasks:
+
+1. **Setup and load necessary libraries**: Loads required Python packages and the Hugging Face Hub token.
+2. **Load concepts and input phrases**: Reads subsector concepts and associated phrases from `wb_definitions.py`.
+3. **Generate keywords**: Uses a language model to extract and translate highly specific keywords for each phrase and concept, following strict output formatting rules.
+4. **Aggregate results**: Collects unique keywords and their associated concepts and phrases.
+5. **Save results**: Saves the keyword list as `input/keywords{SUFFIX}.csv`.
+
+### 1.4_draft_definitions.py
+
+This script drafts clear, instructional definitions for each housing subsector concept for use in classification tasks. It performs the following tasks:
+
+1. **Setup and load necessary libraries**: Loads required Python packages and the Hugging Face Hub token.
+2. **Load concepts**: Reads subsector concepts from `wb_definitions.py`.
+3. **Draft definitions**: Uses a language model to generate a single, well-structured paragraph definition for each concept, following a strict prompt format.
+4. **Save results**: Saves the generated definitions to `input/definitions{SUFFIX}.txt`.
+
 ### 2.0_upload_crs_dataset.py
 
 This script prepares and uploads the collated CRS dataset to the Hugging Face Hub. It performs the following tasks:
@@ -75,7 +97,7 @@ This script filters the CRS dataset using embeddings and keyword matching to ide
 
 1. **Setup and load necessary libraries**: Loads required Python packages and the Hugging Face Hub token.
 2. **Load dataset**: Reads the processed CRS dataset from the Hugging Face Hub.
-3. **Load keywords**: Reads a list of keywords from `input/keywords.csv`.
+3. **Load keywords**: Reads a list of keywords from `input/keywords{SUFFIX}.csv`.
 4. **Apply keyword matching**: Identifies entries containing the specified keywords.
 5. **Define target condition**: Marks entries as relevant if they match the sector codes or contain the keywords.
 6. **Train model**: Trains an XGBoost classifier to predict relevance based on the dataset features.
@@ -84,13 +106,13 @@ This script filters the CRS dataset using embeddings and keyword matching to ide
 
 ### 2.2_gpt_label.py
 
-This script uses GPT-4 to label the CRS dataset with additional classifications. It performs the following tasks:
+This script uses OpenAI API to label the CRS dataset with additional classifications. It performs the following tasks:
 
 1. **Setup and load necessary libraries**: Loads required Python packages and the Hugging Face Hub token.
 2. **Load dataset**: Reads the filtered CRS dataset from the Hugging Face Hub.
 3. **Estimate tokens**: Estimates the number of tokens required for labeling and warns the user about the potential cost.
 4. **Label data**: Uses GPT-4 to label each entry in the dataset with additional classifications based on the text and sector code.
-5. **Save results**: Saves the labeled dataset to the Hugging Face Hub under the repository `alex-miller/crs-2014-2023-housing-labeled-gpt`.
+5. **Save results**: Saves the labeled dataset to the Hugging Face Hub under the repository `alex-miller/crs-2014-2023-housing-labeled-gpt{SUFFIX}`.
 
 ### 2.2_ollama_label.py
 
@@ -99,7 +121,17 @@ This script uses the Ollama model to label the CRS dataset with additional class
 1. **Setup and load necessary libraries**: Loads required Python packages and the Hugging Face Hub token.
 2. **Load dataset**: Reads the filtered CRS dataset from the Hugging Face Hub.
 3. **Label data**: Uses the Ollama model to label each entry in the dataset with additional classifications based on the text and sector code.
-4. **Save results**: Saves the labeled dataset to the Hugging Face Hub under the repository `alex-miller/crs-2014-2023-housing-labeled-phi4`.
+4. **Save results**: Saves the labeled dataset to the Hugging Face Hub under the repository `alex-miller/crs-2014-2023-housing-labeled-phi4-reasoning{SUFFIX}`.
+
+### 2.2a_ollama_benchmark.py
+
+This script benchmarks the Ollama model's performance on a labeled housing dataset. It performs the following tasks:
+
+1. **Setup and load necessary libraries**: Loads required Python packages and model definitions.
+2. **Load benchmark data**: Reads the benchmark CSV file containing ground truth labels.
+3. **Run model predictions**: Uses the Ollama model to generate predictions for each entry in the benchmark dataset.
+4. **Evaluate predictions**: Calculates accuracy, precision, recall, and F1 score for each classification label, as well as aggregate metrics for the housing sector.
+5. **Output results**: Prints detailed evaluation metrics to the console.
 
 ### 2.3_merge.py
 
@@ -110,14 +142,14 @@ This script merges the original CRS dataset with the labeled dataset to create a
 3. **Create text column**: Combines project title, short description, and long description into a unique text column.
 4. **Load labeled dataset**: Reads the labeled dataset from the Hugging Face Hub.
 5. **Merge datasets**: Merges the original dataset with the labeled dataset based on the unique text column.
-6. **Save results**: Saves the merged dataset to `large_output/crs_2014_2023_phi4_labeled.csv`.
+6. **Save results**: Saves the merged dataset to `large_output/crs_2014_2023_phi4_reasoning_labeled{SUFFIX}.csv`.
 
 ### 3.0_virtual_policy_marker_analysis.R
 
 This script performs an analysis of the virtual policy marker for adequate housing. It performs the following tasks:
 
 1. **Setup and load necessary libraries**: Installs and loads required R packages.
-2. **Load and preprocess data**: Reads the merged CRS data from `large_output/crs_2014_2023_phi4_labeled.csv`.
-3. **Filter data**: Filters the data to include only relevant entries based on various classifications such as Homelessness, Transitional, Incremental, Social, Market, and Sector code.
+2. **Load and preprocess data**: Reads the merged CRS data from `large_output/crs_2014_2023_phi4_labeled{SUFFIX}.csv`.
+3. **Filter data**: Filters the data to include only relevant entries based on various classifications
 4. **Analyze data by year**: Aggregates data by year and classification, and generates bar charts saved as `output/virtual_year.png` and `output/virtual_year_percent.png`. Also saves the aggregated data to `output/virtual_year.csv` and `output/virtual_year_percent.csv`.
 5. **Analyze data by urban/rural**: Aggregates data by year and urban/rural classification, and generates bar charts saved as `output/urban_rural_year_percent.png`. Also saves the aggregated data to `output/urban_rural_year_percent.csv`.
