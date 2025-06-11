@@ -63,6 +63,7 @@ rotate_x_text_90 = theme(
 #### End chart setup ####
 
 crs = fread("large_output/crs_2014_2023_phi4_labeled_wb.csv")
+original_count = nrow(crs)
 
 crs$`Sector code` = (crs$PurposeCode %in% c(16030, 16040))
 crs$any = crs$`Transitional and Temporary Housing` | crs$`Resilience and Reconstruction` |
@@ -75,6 +76,9 @@ crs$any_sans_sector = crs$`Transitional and Temporary Housing` | crs$`Resilience
 potential_false_negative = subset(crs, `Sector code` & !any_sans_sector)
 crs = subset(crs, any==T)
 crs$Year = as.numeric(crs$Year)
+selected_count = nrow(crs)
+percent_format(0.01)(selected_count/original_count)
+sum(crs$USD_Disbursement_Defl, na.rm=T)
 
 # By disbursement year
 crs$`Housing Supply` = !crs$`Transitional and Temporary Housing` &
