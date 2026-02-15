@@ -62,7 +62,7 @@ rotate_x_text_90 = theme(
 )
 #### End chart setup ####
 
-crs = fread("large_output/crs_2014_2023_phi4_labeled_hfhi.csv")
+crs = fread("large_output/crs_2024_update_preprocessed_original_labeled_hfhi.csv")
 crs$Year = as.numeric(crs$Year)
 original_count = nrow(crs)
 
@@ -86,7 +86,7 @@ crs$`Housing in general` = !crs$Homelessness &
   !crs$`Incremental housing` & 
   !crs$`Social housing` &
   !crs$`Market housing`
-fwrite(crs, "large_output/crs_2014_2023_phi4_housing_labeled_hfhi.csv")
+fwrite(crs, "large_output/crs_2024_update_housing_hfhi.csv")
 housing_continuum = melt(
   crs,
   id.vars=c("Year", "USD_Disbursement_Defl"),
